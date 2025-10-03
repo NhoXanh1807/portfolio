@@ -1,0 +1,399 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../consts";
+const pageTitle = "Projects | " + SITE_TITLE;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={pageTitle} />
+  </head>
+  <body>
+    <Header />
+    <main class="page">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Security experiments & lab builds</p>
+          <h1>Projects</h1>
+          <p>
+            Hands-on security builds that turn research into repeatable defensive and offensive
+            capabilities for fast-moving teams.
+          </p>
+        </div>
+      </section>
+
+      <section class="projects-section">
+        <div class="projects">
+          <article class="project-card">
+            <div class="project-card__body">
+              <h2>Internal Purple Team Lab</h2>
+              <p>
+                Built a repeatable lab environment with ATT&CK-mapped adversary scenarios, enabling
+                weekly detection drills and tabletop exercises for the SOC.
+              </p>
+            </div>
+            <ul class="project-card__highlights">
+              <li>Automated payload deployment through Ansible and Caldera.</li>
+              <li>Published detections to the SIEM with Sigma-based rules.</li>
+              <li>Delivered after-action playbooks for the blue team.</li>
+            </ul>
+            <div class="project-card__links">
+              <a class="project-card__link" href="https://github.com/yourusername/ProjectRepo" target="_blank"
+                >View on GitHub</a
+              >
+              <a class="project-card__link project-card__link--ghost" href="/path/to/report.pdf" target="_blank"
+                >Download Report</a
+              >
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__body">
+              <h2>Cloud Exposure Monitor</h2>
+              <p>
+                Developed a lightweight reconnaissance tool that tracks risky cloud asset drift across
+                AWS, Azure, and GCP, highlighting attack paths in a single dashboard.
+              </p>
+            </div>
+            <ul class="project-card__highlights">
+              <li>Enumerated misconfigurations using open-source SDKs.</li>
+              <li>Correlated findings with CVE data for prioritization.</li>
+              <li>Integrated Slack alerts for high-risk discoveries.</li>
+            </ul>
+            <div class="project-card__links">
+              <a class="project-card__link" href="https://github.com/yourusername/CloudExposureMonitor" target="_blank"
+                >View on GitHub</a
+              >
+              <a
+                class="project-card__link project-card__link--ghost"
+                href="/path/to/cloud-exposure-report.pdf"
+                target="_blank"
+                >Download Report</a
+              >
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__body">
+              <h2>Ransomware Triage Toolkit</h2>
+              <p>
+                Created a rapid-response script collection to baseline systems, snapshot volatile data, and
+                perform initial forensics within the first hour of an incident.
+              </p>
+            </div>
+            <ul class="project-card__highlights">
+              <li>Captured process lineage, network sockets, and autoruns.</li>
+              <li>Generated timeline-friendly JSON for swift IR handoff.</li>
+              <li>Reduced triage time by 40 percent in tabletop simulations.</li>
+            </ul>
+            <div class="project-card__links">
+              <a
+                class="project-card__link"
+                href="https://github.com/yourusername/RansomwareTriageToolkit"
+                target="_blank"
+                >View on GitHub</a
+              >
+              <a
+                class="project-card__link project-card__link--ghost"
+                href="/path/to/ransomware-triage-report.pdf"
+                target="_blank"
+                >Download Report</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page {
+    width: min(100%, 1180px);
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 4vw, 2.5rem) clamp(5rem, 6vw, 6rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3.5rem, 6vw, 5rem);
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2.25rem;
+    padding: clamp(3.5rem, 6vw, 5rem);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.92), rgba(14, 165, 233, 0.9));
+    color: #f8fafc;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+    isolation: isolate;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -35%;
+    background-image:
+      radial-gradient(circle at 20% 25%, rgba(255, 255, 255, 0.22) 0, rgba(255, 255, 255, 0) 55%),
+      radial-gradient(circle at 85% 10%, rgba(20, 184, 166, 0.25) 0, rgba(20, 184, 166, 0) 50%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0, rgba(255, 255, 255, 0) 65%);
+    opacity: 0.8;
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: -10%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 60ch;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-weight: 600;
+    color: rgba(248, 250, 252, 0.85);
+    margin: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero p {
+    color: rgba(248, 250, 252, 0.88);
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  .projects-section {
+    position: relative;
+    border-radius: 2rem;
+    padding: clamp(3rem, 5vw, 4.5rem);
+    background: rgba(var(--surface-rgb), 0.96);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .projects-section::before {
+    content: "";
+    position: absolute;
+    inset: -28%;
+    background-image:
+      radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.18) 0, rgba(99, 102, 241, 0) 45%),
+      radial-gradient(circle at 75% 10%, rgba(56, 189, 248, 0.18) 0, rgba(56, 189, 248, 0) 50%),
+      repeating-linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.07) 0,
+        rgba(99, 102, 241, 0.07) 2px,
+        transparent 2px,
+        transparent 12px
+      );
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .projects-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.25;
+    z-index: 0;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+  }
+
+  .projects {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .project-card {
+    background: rgba(var(--surface-rgb), 0.9);
+    border: 1px solid rgba(var(--gray-light), 0.6);
+    border-radius: 1.5rem;
+    padding: clamp(1.9rem, 3vw, 2.4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    backdrop-filter: blur(6px);
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 46px rgba(15, 23, 42, 0.16);
+    border-color: rgba(var(--gray), 0.5);
+  }
+
+  .project-card h2 {
+    margin-bottom: 0.4rem;
+    font-size: clamp(1.55rem, 2vw, 1.9rem);
+  }
+
+  .project-card p {
+    margin: 0;
+    color: rgba(var(--gray-dark), 0.9);
+  }
+
+  .project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .project-card__highlights {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.65rem;
+    color: rgba(var(--gray-dark), 0.85);
+  }
+
+  .project-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+  }
+
+  .project-card__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--accent);
+    color: #f8fafc;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+
+  .project-card__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+  }
+
+  .project-card__link--ghost {
+    background: transparent;
+    color: rgb(var(--black));
+    border: 1px solid rgba(var(--gray), 0.35);
+    box-shadow: none;
+  }
+
+  .project-card__link--ghost:hover {
+    background: rgba(var(--gray-light), 0.3);
+    box-shadow: none;
+  }
+
+  html[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, rgba(104, 63, 204, 0.9), rgba(37, 134, 240, 0.9));
+    box-shadow: 0 28px 60px rgba(2, 6, 23, 0.55);
+  }
+
+  html[data-theme="dark"] .hero::after {
+    opacity: 0.25;
+  }
+
+  html[data-theme="dark"] .hero p,
+  html[data-theme="dark"] .hero__eyebrow {
+    color: rgba(241, 245, 249, 0.82);
+  }
+
+  html[data-theme="dark"] .projects-section {
+    background: rgba(15, 23, 42, 0.85);
+    box-shadow: 0 30px 65px rgba(2, 6, 23, 0.6);
+  }
+
+  html[data-theme="dark"] .projects-section::before {
+    opacity: 0.45;
+  }
+
+  html[data-theme="dark"] .projects-section::after {
+    opacity: 0.18;
+  }
+
+  html[data-theme="dark"] .project-card {
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid rgba(var(--gray-light), 0.35);
+    box-shadow: 0 20px 48px rgba(2, 6, 23, 0.5);
+  }
+
+  html[data-theme="dark"] .project-card p,
+  html[data-theme="dark"] .project-card__highlights {
+    color: rgba(226, 232, 240, 0.88);
+  }
+
+  html[data-theme="dark"] .project-card__link--ghost {
+    color: rgba(226, 232, 240, 0.9);
+    border-color: rgba(var(--gray-light), 0.4);
+  }
+
+  html[data-theme="dark"] .project-card__link--ghost:hover {
+    background: rgba(var(--gray-light), 0.2);
+  }
+
+  @media (max-width: 920px) {
+    .projects {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+  }
+
+  @media (max-width: 680px) {
+    .hero {
+      padding: 3rem 1.75rem;
+      border-radius: 1.5rem;
+    }
+
+    .projects-section {
+      padding: 2.5rem 1.5rem;
+      border-radius: 1.5rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero__eyebrow {
+      letter-spacing: 0.2em;
+      font-size: 0.85rem;
+    }
+
+    .project-card__links {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .project-card__link {
+      width: 100%;
+    }
+  }
+</style>

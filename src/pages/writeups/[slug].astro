@@ -1,0 +1,45 @@
+---
+import type { MarkdownInstance } from "astro";
+import WriteupPost from "../../layouts/WriteupPost.astro";
+
+export async function getStaticPaths() {
+  const modules = import.meta.glob<MarkdownInstance<any>>("../../content/writeups/*.md");
+
+  const entries = await Promise.all(
+    Object.entries(modules).map(async ([path, loader]) => {
+      const mod = await loader();
+      const slug = path.split("/").pop()?.replace(/\.md$/, "") ?? "";
+      return {
+        params: { slug },
+        props: {
+          frontmatter: mod.frontmatter,
+          Content: mod.Content,
+        },
+      };
+    })
+  );
+
+  return entries;
+}
+
+interface Props {
+  frontmatter: Record<string, any>;
+  Content: any;
+}
+
+const { frontmatter, Content } = Astro.props as Props;
+const pubDate = new Date(frontmatter.pubDate);
+const updatedDate = frontmatter.updatedDate ? new Date(frontmatter.updatedDate) : undefined;
+---
+
+<WriteupPost
+	title={frontmatter.title}
+	summary={frontmatter.summary}
+	pubDate={pubDate}
+	updatedDate={updatedDate}
+	heroImage={frontmatter.heroImage}
+	tags={frontmatter.tags ?? []}
+	tools={frontmatter.tools ?? []}
+>
+	<Content />
+</WriteupPost>

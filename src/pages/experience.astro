@@ -1,0 +1,246 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../consts";
+const pageTitle = "Experience | " + SITE_TITLE;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={pageTitle} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<header class="page-header">
+				<h1>Experience</h1>
+				<p>
+					Snapshots from red teaming, incident response, and community work. Drop company logos in
+					<code>public/images/experience/&lt;slug&gt;/logo.jpg</code> and team photos in the same folder to refresh the
+					gallery blocks.
+				</p>
+			</header>
+
+			<section class="timeline">
+				<article class="role">
+					<div class="role-header">
+						<h2>Senior Offensive Security Engineer</h2>
+						<p class="meta">2023 - Present | Fintech Platform</p>
+					</div>
+					<div class="logo-strip" aria-label="Fintech Platform logo placeholder">
+						<img src="/images/experience/fintech/logo.jpg" alt="Fintech Platform logo" loading="lazy" />
+					</div>
+					<p class="overview">
+						Designing adversary simulations that keep pace with financial threat actors, then partnering with the blue
+						team to codify detections before attackers arrive.
+					</p>
+					<ul class="wins">
+						<li>Cut mean time to detect by 55% through quarterly purple-team programs.</li>
+						<li>Delivered pre-launch threat models for every new payment API and wallet feature.</li>
+						<li>Built executive-ready exploit demos to secure budget for security automation.</li>
+					</ul>
+					<div class="gallery" aria-label="Fintech team moments">
+						<figure>
+							<img src="/images/experience/fintech/war-room.jpg" alt="Detection engineering war room" loading="lazy" />
+							<figcaption>War room during a purple-team live fire.</figcaption>
+						</figure>
+						<figure>
+							<img src="/images/experience/fintech/tabletop.jpg" alt="Tabletop dry run" loading="lazy" />
+							<figcaption>Tabletop exercise aligning product, ops, and security.</figcaption>
+						</figure>
+					</div>
+					<section class="reflection">
+						<h3>What the team taught me</h3>
+						<p>
+							The platform squad thrives on blameless retros and ambitious automation goals. Our shared rituals-Friday
+							morning detection reviews and quarterly talent swaps-keep empathy high and silos low.
+						</p>
+					</section>
+				</article>
+
+				<article class="role">
+					<div class="role-header">
+						<h2>Incident Response Consultant</h2>
+						<p class="meta">2021 - 2023 | Managed Security Provider</p>
+					</div>
+					<div class="logo-strip" aria-label="MSP logo placeholder">
+						<img src="/images/experience/msp/logo.jpg" alt="Managed Security Provider logo" loading="lazy" />
+					</div>
+					<p class="overview">
+						Led breach triage across manufacturing, healthcare, and logistics clients while coaching internal responders
+						on resilient playbooks.
+					</p>
+					<ul class="wins">
+						<li>Contained ransomware outbreaks in under four hours by automating memory capture and host isolation.</li>
+						<li>Blended compliance and engineering requirements into pragmatic remediation roadmaps.</li>
+						<li>Ran purple-team workshops that upgraded SOC analyst hunt skills.</li>
+					</ul>
+					<div class="gallery" aria-label="Consulting field photos">
+						<figure>
+							<img src="/images/experience/msp/ir-standup.jpg" alt="Incident response standup" loading="lazy" />
+							<figcaption>Dawn shift standup during a manufacturing breach.</figcaption>
+						</figure>
+						<figure>
+							<img src="/images/experience/msp/workshop.jpg" alt="SOC workshop" loading="lazy" />
+							<figcaption>Workshop where we rewrote log review workflows.</figcaption>
+						</figure>
+					</div>
+					<section class="reflection">
+						<h3>Why this crew stands out</h3>
+						<p>
+							Working shoulder to shoulder with responders who stayed calm under pressure reset my bar for teamwork.
+							Clients routinely praised the transparency and empathy the MSP team brought to crisis calls.
+						</p>
+					</section>
+				</article>
+
+				<article class="role">
+					<div class="role-header">
+						<h2>Security Community Mentor</h2>
+						<p class="meta">2019 - Present | Local CTF &amp; University Programs</p>
+					</div>
+					<div class="logo-strip" aria-label="Community logo placeholder">
+						<img src="/images/experience/community/logo.jpg" alt="Community crest" loading="lazy" />
+					</div>
+					<p class="overview">
+						Grow grassroots talent by building labs, judging competitions, and steering aspiring analysts toward impactful
+						career paths.
+					</p>
+					<ul class="wins">
+						<li>Coached student teams to podium finishes in multiple regional capture-the-flag tournaments.</li>
+						<li>Designed cloud, ICS, and reverse engineering challenges to mirror real-world failure modes.</li>
+						<li>Moderated feedback circles so every participant left with actionable next steps.</li>
+					</ul>
+					<div class="gallery" aria-label="Community highlights">
+						<figure>
+							<img src="/images/experience/community/ctf-stage.jpg" alt="CTF award stage" loading="lazy" />
+							<figcaption>Celebrating a student team's first-place finish.</figcaption>
+						</figure>
+						<figure>
+							<img src="/images/experience/community/workshop.jpg" alt="Mentoring lab" loading="lazy" />
+							<figcaption>Hands-on workshop introducing adversary emulation basics.</figcaption>
+						</figure>
+					</div>
+					<section class="reflection">
+						<h3>Community sentiment</h3>
+						<p>
+							The energy of curious learners keeps my own craft sharp. The gratitude from organizers and participants fuels
+							the countless volunteer hours poured into every challenge set.
+						</p>
+					</section>
+				</article>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 1080px;
+		margin: 0 auto;
+		padding: 3.5rem 1.75rem 5rem;
+	}
+	.page-header {
+		margin-bottom: 3rem;
+	}
+	.page-header p {
+		max-width: 70ch;
+	}
+	.timeline {
+		display: grid;
+		gap: 3rem;
+	}
+	.role {
+		background: rgb(var(--surface-rgb));
+		border-radius: 1.5rem;
+		box-shadow: var(--box-shadow);
+		padding: 2.2rem 2rem 2.5rem;
+		display: grid;
+		gap: 1.5rem;
+		border: 1px solid rgba(var(--accent), 0.08);
+	}
+	.role-header h2 {
+		margin-bottom: 0.35rem;
+	}
+	.meta {
+		margin: 0;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: rgba(var(--gray), 0.85);
+	}
+	.logo-strip {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.75rem 1rem;
+		border-radius: 1rem;
+		background: rgba(var(--gray-light), 0.3);
+	}
+	.logo-strip img {
+		height: 46px;
+		width: auto;
+		filter: saturate(0.85);
+	}
+	.overview {
+		margin: 0;
+		font-size: 1.05rem;
+		line-height: 1.7;
+	}
+	.wins {
+		margin: 0;
+		padding-left: 1.25rem;
+		line-height: 1.7;
+	}
+	.gallery {
+		display: grid;
+		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	}
+	.gallery figure {
+		margin: 0;
+		background: rgba(var(--gray-light), 0.25);
+		border-radius: 1.1rem;
+		padding: 1rem;
+		display: grid;
+		gap: 0.75rem;
+		box-shadow: inset 0 0 0 1px rgba(var(--accent), 0.08);
+	}
+	.gallery img {
+		width: 100%;
+		height: auto;
+		border-radius: 0.75rem;
+		object-fit: cover;
+	}
+	figcaption {
+		font-size: 0.9rem;
+		color: rgba(var(--gray-dark), 0.85);
+	}
+	.reflection {
+		padding: 1.25rem 1.5rem;
+		border-radius: 1.1rem;
+		background: rgba(var(--accent), 0.12);
+		color: var(--accent);
+	}
+	.reflection h3 {
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+	}
+	@media (max-width: 720px) {
+		main {
+			padding: 2.5rem 1.25rem 4rem;
+		}
+		.role {
+			padding: 1.75rem 1.5rem 2rem;
+		}
+		.logo-strip {
+			justify-content: center;
+		}
+	}
+</style>
+
+

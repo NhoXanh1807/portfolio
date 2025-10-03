@@ -1,0 +1,173 @@
+---
+import type { MarkdownInstance } from "astro";
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+
+const modules = import.meta.glob<MarkdownInstance<any>>("../../content/writeups/*.md", { eager: true });
+const writeups = Object.entries(modules)
+  .map(([path, mod]) => {
+    const slug = path.split("/").pop()?.replace(/\.md$/, "");
+    if (!slug) {
+      return undefined;
+    }
+
+    const { frontmatter } = mod;
+    const pubDate = new Date(frontmatter.pubDate);
+    const updatedDate = frontmatter.updatedDate ? new Date(frontmatter.updatedDate) : undefined;
+
+    return {
+      slug,
+      title: frontmatter.title,
+      summary: frontmatter.summary,
+      heroImage: frontmatter.heroImage,
+      tags: frontmatter.tags ?? [],
+      tools: frontmatter.tools ?? [],
+      pubDate,
+      updatedDate,
+    };
+  })
+  .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+  .sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
+
+const pageTitle = "Writeups | " + SITE_TITLE;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<header class="page-header">
+				<h1>Writeups</h1>
+				<p>
+					Every investigation note is written in Markdown and lives inside <code>src/content/writeups</code>.
+					Drop screenshots beneath <code>public/images/writeups/&lt;slug&gt;/</code> and reference them right
+					inside the Markdown body.
+				</p>
+			</header>
+
+			<section class="grid">
+				{writeups.map((entry) => (
+					<article class="card">
+						<a class="card-link" href={`/writeups/${entry.slug}/`}>
+							{entry.heroImage && (
+								<img class="hero" src={entry.heroImage} alt={entry.title} loading="lazy" />
+							)}
+							<div class="meta">
+								<p class="posted">{entry.pubDate.toLocaleDateString()}</p>
+								<h2>{entry.title}</h2>
+								<p class="summary">{entry.summary}</p>
+								{entry.tools.length > 0 && (
+									<ul class="tools" aria-label="Tooling">
+										{entry.tools.map((tool) => (
+											<li>{tool}</li>
+										))}
+									</ul>
+								)}
+								{entry.tags.length > 0 && (
+									<ul class="tags" aria-label="Tags">
+										{entry.tags.map((tag) => (
+											<li>{tag}</li>
+										))}
+									</ul>
+								)}
+							</div>
+						</a>
+					</article>
+				))}
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 1060px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 5rem;
+	}
+	.page-header {
+		margin-bottom: 2.5rem;
+	}
+	.page-header p {
+		max-width: 70ch;
+	}
+	.grid {
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	}
+	.card {
+		background: rgb(var(--surface-rgb));
+		border-radius: 1.1rem;
+		box-shadow: var(--box-shadow);
+		overflow: hidden;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	.card-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		height: 100%;
+	}
+	.card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 18px 34px rgba(15, 23, 42, 0.18);
+	}
+	.hero {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	.meta {
+		padding: 1.75rem 1.5rem 1.5rem;
+		color: rgb(var(--gray-dark));
+		display: grid;
+		gap: 1rem;
+	}
+	.posted {
+		margin: 0;
+		font-size: 0.9rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(var(--gray), 0.8);
+	}
+	.summary {
+		margin: 0;
+		color: rgba(var(--gray-dark), 0.9);
+		line-height: 1.6;
+	}
+	.tools,
+	.tags {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.tools li,
+	.tags li {
+		font-size: 0.85rem;
+		padding: 0.35rem 0.75rem;
+		border-radius: 999px;
+		background: rgba(var(--accent), 0.12);
+		color: var(--accent);
+		font-weight: 600;
+	}
+	.tags li {
+		background: rgba(var(--gray-light), 0.45);
+		color: rgb(var(--gray-dark));
+	}
+	@media (max-width: 720px) {
+		main {
+			padding: 2.5rem 1rem 4rem;
+		}
+	}
+</style>

@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -7,13 +7,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
+        <head>
+                <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        </head>
+        <body>
+                <Header />
                 <main>
-                        <section class="hero">
+                        <section class="hero" data-animate>
                                 <div class="hero-content">
                                         <p class="eyebrow">Cybersecurity Specialist - Offensive Security - Blue Team Ally</p>
                                         <h1>Strengthening defenses through hands-on security research.</h1>
@@ -27,81 +27,83 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
                                                 <a class="ghost" href="/writeups">Read Writeups</a>
                                         </div>
                                 </div>
-                                <div class="hero-visual" aria-hidden="true">
+                                <div class="hero-visual" aria-hidden="true" data-animate="pop">
                                         <div class="orb orb-primary"></div>
                                         <div class="orb orb-secondary"></div>
                                         <div class="grid-overlay"></div>
                                 </div>
                         </section>
 
-			<section class="pillars">
-				<h2>Focus Areas</h2>
-				<div class="grid">
-					<article>
-						<h3>Adversary Emulation</h3>
-						<p>
-							Red team assessments, exploit development, and detection engineering that mirror real threat
-							actors to expose blind spots before attackers do.
-						</p>
-					</article>
-					<article>
-						<h3>Threat Detection &amp; Response</h3>
-						<p>
-							Playbooks, SIEM tuning, and automation that help blue teams react fast and contain incidents with
-							confidence.
-						</p>
-					</article>
-					<article>
-						<h3>Security Education</h3>
-						<p>
-							Workshops, capture-the-flag mentoring, and public writeups that make complex vulnerabilities
-							accessible to engineers and executives alike.
-						</p>
-					</article>
-				</div>
-			</section>
+                        <section class="pillars" data-animate="stagger">
+                                <h2>Focus Areas</h2>
+                                <div class="grid">
+                                        <article>
+                                                <h3>Adversary Emulation</h3>
+                                                <p>
+                                                        Red team assessments, exploit development, and detection engineering that mirror real threat
+                                                        actors to expose blind spots before attackers do.
+                                                </p>
+                                        </article>
+                                        <article>
+                                                <h3>Threat Detection &amp; Response</h3>
+                                                <p>
+                                                        Playbooks, SIEM tuning, and automation that help blue teams react fast and contain incidents with
+                                                        confidence.
+                                                </p>
+                                        </article>
+                                        <article>
+                                                <h3>Security Education</h3>
+                                                <p>
+                                                        Workshops, capture-the-flag mentoring, and public writeups that make complex vulnerabilities
+                                                        accessible to engineers and executives alike.
+                                                </p>
+                                        </article>
+                                </div>
+                        </section>
 
-			<section class="highlights">
-				<h2>What You Will Find Here</h2>
-				<ul>
-					<li><strong>Projects</strong> - Security tooling, labs, and infrastructure hardening work with practical takeaways.</li>
-					<li><strong>Writeups</strong> - Post-exploitation notes, CTF walkthroughs, and vulnerability research with actionable lessons.</li>
-					<li><strong>Experience</strong> - Snapshots of consulting, in-house security roles, and community leadership.</li>
-				</ul>
-			</section>
+                        <section class="highlights" data-animate="stagger">
+                                <h2>What You Will Find Here</h2>
+                                <ul>
+                                        <li><strong>Projects</strong> - Security tooling, labs, and infrastructure hardening work with practical takeaways.</li>
+                                        <li><strong>Writeups</strong> - Post-exploitation notes, CTF walkthroughs, and vulnerability research with actionable lessons.</li>
+                                        <li><strong>Experience</strong> - Snapshots of consulting, in-house security roles, and community leadership.</li>
+                                </ul>
+                        </section>
 
-			<section class="next">
-				<h2>Need help with your security posture?</h2>
-				<p>
-					I am open to collaboration on penetration tests, purple team engagements, and security program uplift.
-					Reach out if you have an interesting challenge.
-				</p>
-				<a class="ghost" href="mailto:security@example.com">Start a conversation</a>
-			</section>
-		</main>
-		<Footer />
-	</body>
+                        <section class="next" data-animate>
+                                <h2>Need help with your security posture?</h2>
+                                <p>
+                                        I am open to collaboration on penetration tests, purple team engagements, and security program uplift.
+                                        Reach out if you have an interesting challenge.
+                                </p>
+                                <a class="ghost" href="mailto:security@example.com">Start a conversation</a>
+                        </section>
+                </main>
+                <Footer />
+        </body>
 </html>
 
 <style>
         main {
-                max-width: min(1220px, 100%);
+                width: min(1180px, 92vw);
                 margin: 0 auto;
-                padding: 4rem 1.5rem 5rem;
+                padding: clamp(3rem, 6vw, 4.75rem) clamp(1.25rem, 4vw, 3rem) 5rem;
                 color: var(--black);
+                display: grid;
+                gap: clamp(2.75rem, 5vw, 3.5rem);
         }
         section {
-                margin-bottom: 3rem;
+                margin: 0;
         }
         .hero {
                 display: grid;
-                gap: 2.5rem;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: clamp(2rem, 4vw, 3rem);
+                grid-template-columns: minmax(320px, 0.58fr) minmax(260px, 0.42fr);
                 align-items: center;
-                background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.25), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.2), transparent 50%),
-                        rgba(var(--surface-rgb), 0.82);
-                padding: clamp(2.5rem, 4vw + 1rem, 4rem);
+                background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.28), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.22), transparent 50%),
+                        rgba(var(--surface-rgb), 0.88);
+                padding: clamp(2.75rem, 5vw, 4rem);
                 border-radius: 1.8rem;
                 position: relative;
                 overflow: hidden;
@@ -123,6 +125,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         .hero-content {
                 display: grid;
                 gap: 1.5rem;
+                max-width: 65ch;
         }
         .eyebrow {
                 letter-spacing: 0.12em;
@@ -142,7 +145,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
                 font-size: 1.15rem;
                 line-height: 1.7;
                 max-width: 60ch;
-	}
+        }
         .hero-actions {
                 display: flex;
                 gap: 1rem;
@@ -153,12 +156,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         .ghost {
                 display: inline-flex;
                 align-items: center;
-		justify-content: center;
-		padding: 0.75rem 1.5rem;
-		border-radius: 999px;
-		font-weight: 600;
-		text-decoration: none;
-	}
+                justify-content: center;
+                padding: 0.75rem 1.5rem;
+                border-radius: 999px;
+                font-weight: 600;
+                text-decoration: none;
+        }
         .cta {
                 background: var(--accent);
                 color: white;
@@ -183,7 +186,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         }
         .hero-visual {
                 position: relative;
-                min-height: 240px;
+                min-height: clamp(260px, 32vw, 360px);
+                display: grid;
+                place-items: center;
         }
         .orb {
                 position: absolute;
@@ -194,16 +199,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
                 mix-blend-mode: screen;
         }
         .orb-primary {
-                width: 240px;
-                height: 240px;
+                width: clamp(220px, 32vw, 280px);
+                height: clamp(220px, 32vw, 280px);
                 top: 10%;
                 left: 12%;
                 background: radial-gradient(circle, rgba(129, 140, 248, 0.85), rgba(79, 70, 229, 0));
                 animation-delay: 0s;
         }
         .orb-secondary {
-                width: 180px;
-                height: 180px;
+                width: clamp(180px, 28vw, 240px);
+                height: clamp(180px, 28vw, 240px);
                 bottom: 10%;
                 right: 5%;
                 background: radial-gradient(circle, rgba(16, 185, 129, 0.85), rgba(16, 185, 129, 0));
@@ -241,15 +246,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         }
         .pillars .grid {
                 display: grid;
-                gap: 1.5rem;
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: clamp(1.5rem, 3vw, 2rem);
+                grid-template-columns: repeat(auto-fit, minmax(clamp(240px, 28vw, 340px), 1fr));
         }
         .pillars article {
-                padding: 1.5rem;
+                padding: 1.65rem;
                 border: 1px solid rgba(var(--black), 0.08);
                 border-radius: 1rem;
                 box-shadow: 0 16px 32px rgba(var(--black), 0.08);
-                background: rgba(255, 255, 255, 0.86);
+                background: rgba(255, 255, 255, 0.9);
                 position: relative;
                 overflow: hidden;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -269,15 +274,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         .pillars article:hover::before {
                 opacity: 1;
         }
+        .pillars h3 {
+                margin-bottom: 0.65rem;
+        }
         .highlights ul {
                 list-style: none;
                 padding: 0;
                 display: grid;
-                gap: 1.25rem;
+                gap: clamp(1.1rem, 2vw, 1.75rem);
         }
         .highlights li {
                 background: linear-gradient(90deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.12));
-                padding: 1.1rem 1.45rem;
+                padding: clamp(1rem, 2vw, 1.45rem) clamp(1.1rem, 4vw, 1.75rem);
                 border-radius: 1rem;
                 border: 1px solid rgba(var(--accent), 0.15);
                 box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
@@ -309,12 +317,98 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
                 animation: float 16s ease-in-out infinite;
                 opacity: 0.7;
         }
+        [data-animate] {
+                opacity: 0;
+                transform: translateY(28px);
+                transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        [data-animate].is-visible {
+                opacity: 1;
+                transform: translateY(0);
+        }
+        [data-animate="stagger"] > * {
+                opacity: 0;
+                transform: translateY(24px);
+                transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+                transition-delay: calc(var(--stagger-index, 0) * 0.12s + 0.1s);
+        }
+        [data-animate="stagger"].is-visible > * {
+                opacity: 1;
+                transform: translateY(0);
+        }
+        [data-animate="pop"] {
+                transform: scale(0.92) translateY(32px);
+        }
+        [data-animate="pop"].is-visible {
+                transform: scale(1) translateY(0);
+        }
+        @media (max-width: 1080px) {
+                .hero {
+                        grid-template-columns: minmax(300px, 1fr) minmax(220px, 0.85fr);
+                }
+        }
+        @media (max-width: 960px) {
+                .hero {
+                        grid-template-columns: 1fr;
+                        text-align: center;
+                }
+                .hero-content {
+                        justify-items: center;
+                }
+                .hero-content .lede {
+                        text-align: center;
+                }
+        }
         @media (max-width: 720px) {
                 main {
+                        width: min(92vw, 100%);
                         padding: 3rem 1rem 3.5rem;
                 }
                 .hero {
-                        padding: 2.5rem;
+                        padding: clamp(2rem, 6vw, 2.5rem);
+                }
+                .hero-actions {
+                        justify-content: center;
                 }
         }
 </style>
+<script is:inline>
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        if (animatedElements.length) {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+                if (prefersReducedMotion.matches) {
+                        animatedElements.forEach((element) => {
+                                if (element.dataset.animate === 'stagger') {
+                                        element.querySelectorAll(':scope > *').forEach((child) => {
+                                                child.style.removeProperty('opacity');
+                                                child.style.removeProperty('transform');
+                                        });
+                                }
+                                element.classList.add('is-visible');
+                        });
+                } else {
+                        animatedElements.forEach((element) => {
+                                if (element.dataset.animate === 'stagger') {
+                                        element.querySelectorAll(':scope > *').forEach((child, index) => {
+                                                child.style.setProperty('--stagger-index', index);
+                                        });
+                                }
+                        });
+                        const observer = new IntersectionObserver(
+                                (entries) => {
+                                        entries.forEach((entry) => {
+                                                if (entry.isIntersecting) {
+                                                        entry.target.classList.add('is-visible');
+                                                        observer.unobserve(entry.target);
+                                                }
+                                        });
+                                },
+                                {
+                                        threshold: 0.2,
+                                        rootMargin: '0px 0px -80px 0px',
+                                }
+                        );
+                        animatedElements.forEach((element) => observer.observe(element));
+                }
+        }
+</script>

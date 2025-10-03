@@ -107,15 +107,15 @@ const { title, summary, pubDate, updatedDate, heroImage, tags = [], tools = [] }
 	<body>
 		<Header />
 		<main>
-			<article>
-				{heroImage && (
-					<div class="hero">
-						<img src={heroImage} alt={title} loading="lazy" />
-					</div>
-				)}
-				<div class="prose">
-					<div class="header-block">
-						<div class="meta">
+                        <article>
+                                {heroImage && (
+                                        <div class="hero" data-animate>
+                                                <img src={heroImage} alt={title} loading="lazy" />
+                                        </div>
+                                )}
+                                <div class="prose" data-animate>
+                                        <div class="header-block" data-animate="stagger">
+                                                <div class="meta">
 							<FormattedDate date={pubDate} />
 							{updatedDate && (
 								<span>Refreshed on <FormattedDate date={updatedDate} /></span>
@@ -124,8 +124,8 @@ const { title, summary, pubDate, updatedDate, heroImage, tags = [], tools = [] }
 						<h1>{title}</h1>
 						<p>{summary}</p>
 					</div>
-					{tools.length > 0 && (
-						<div class="details-panel" role="complementary">
+                                        {tools.length > 0 && (
+                                                <div class="details-panel" role="complementary" data-animate>
 							<h2>Tool Stack</h2>
 							<ul>
 								{tools.map((tool) => (
@@ -134,8 +134,8 @@ const { title, summary, pubDate, updatedDate, heroImage, tags = [], tools = [] }
 							</ul>
 						</div>
 					)}
-					{tags.length > 0 && (
-						<ul class="pills">
+                                        {tags.length > 0 && (
+                                                <ul class="pills" data-animate="stagger">
 							{tags.map((tag) => (
 								<li>{tag}</li>
 							))}

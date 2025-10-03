@@ -58,12 +58,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<body>
 		<Header />
 		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
+                        <article>
+                                <div class="hero-image" data-animate>
+                                        {heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+                                </div>
+                                <div class="prose" data-animate>
+                                        <div class="title" data-animate="stagger">
 						<div class="date">
 							<FormattedDate date={pubDate} />
 							{

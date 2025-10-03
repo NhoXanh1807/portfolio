@@ -1,0 +1,85 @@
+---
+---
+<script is:inline>
+  (() => {
+    if (typeof window === "undefined") return;
+    if (window.__viewportAnimatorInitialized) return;
+    window.__viewportAnimatorInitialized = true;
+
+    let mediaQuery;
+
+    const init = () => {
+      const animatedElements = document.querySelectorAll("[data-animate]");
+      if (!animatedElements.length) {
+        return;
+      }
+
+      mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      const showImmediately = () => {
+        animatedElements.forEach((element) => {
+          if (element.dataset.animate === "stagger") {
+            element.querySelectorAll(":scope > *").forEach((child) => {
+              child.style.removeProperty("opacity");
+              child.style.removeProperty("transform");
+            });
+          }
+          element.classList.add("is-visible");
+        });
+      };
+
+      if (mediaQuery.matches) {
+        showImmediately();
+        return;
+      }
+
+      animatedElements.forEach((element) => {
+        if (element.dataset.animate === "stagger") {
+          element.querySelectorAll(":scope > *").forEach((child, index) => {
+            child.style.setProperty("--stagger-index", String(index));
+          });
+        }
+      });
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin: "0px 0px -80px 0px",
+        }
+      );
+
+      animatedElements.forEach((element) => observer.observe(element));
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init, { once: true });
+    } else {
+      init();
+    }
+
+    const handlePreferenceChange = (event) => {
+      if (event.matches) {
+        document
+          .querySelectorAll("[data-animate]")
+          .forEach((element) => element.classList.add("is-visible"));
+      }
+    };
+
+    if (window.matchMedia) {
+      mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (typeof mediaQuery.addEventListener === "function") {
+        mediaQuery.addEventListener("change", handlePreferenceChange);
+      } else if (typeof mediaQuery.addListener === "function") {
+        mediaQuery.addListener(handlePreferenceChange);
+      }
+    }
+  })();
+</script>

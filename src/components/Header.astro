@@ -1,7 +1,8 @@
 ﻿---
+import { Image } from "astro:assets";
 import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
-import mainLogoUrl from "../assets/main-logo.png";
+import mainLogo from "../assets/main-logo.png";
 ---
 
 <header>
@@ -9,7 +10,15 @@ import mainLogoUrl from "../assets/main-logo.png";
     <nav>
       <h2>
         <a href="/">
-          <img src={mainLogoUrl} alt="Logo" class="logo-img" />
+          <Image
+            src={mainLogo}
+            alt="Site logo"
+            class="logo-img"
+            width={mainLogo.width}
+            height={mainLogo.height}
+            loading="eager"
+            decoding="async"
+          />
           {SITE_TITLE}
         </a>
       </h2>
@@ -359,7 +368,10 @@ import mainLogoUrl from "../assets/main-logo.png";
   .logo-img {
     height: 40px; /* chỉnh lại theo nhu cầu */
     width: auto;
+    max-width: 160px;
+    display: block;
     border-radius: 8px; /* nếu muốn bo góc */
+    object-fit: contain;
   }
 </style>
 

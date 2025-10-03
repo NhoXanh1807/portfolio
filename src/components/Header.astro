@@ -4,347 +4,394 @@ import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
-        <div class="nav-wrapper">
-                <nav>
-                        <h2>
-                                <a href="/">
-                                        <span class="logo-pill"></span>
-                                        {SITE_TITLE}
-                                </a>
-                        </h2>
-                        <div class="internal-links">
-                                <HeaderLink href="/">Home</HeaderLink>
-                                <HeaderLink href="/projects">Projects</HeaderLink>
-                                <HeaderLink href="/writeups">Writeups</HeaderLink>
-                                <HeaderLink href="/experience">Experience</HeaderLink>
-                                <HeaderLink href="/blog">Blog</HeaderLink>
-                                <HeaderLink href="/about">About</HeaderLink>
-                        </div>
-                        <div class="nav-actions">
-                                <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false" data-theme-toggle>
-                                        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-                                                <path
-                                                        fill="currentColor"
-						d="M12 4.75a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1.75a1 1 0 0 1-1 1zm0 14.5a1 1 0 0 1 1 1V22a1 1 0 0 1-2 0v-1.75a1 1 0 0 1 1-1zm7.25-7.25a1 1 0 0 1 1-1H22a1 1 0 1 1 0 2h-1.75a1 1 0 0 1-1-1zm-16.5 0a1 1 0 0 1 1-1H2a1 1 0 0 1 0 2h1.75a1 1 0 0 1-1-1zm12.038-5.788 1.238-1.238a1 1 0 1 1 1.414 1.414l-1.238 1.238a1 1 0 1 1-1.414-1.414zm-9.576 9.576 1.238-1.238a1 1 0 1 1 1.414 1.414l-1.238 1.238a1 1 0 0 1-1.414-1.414zm11.228 0a1 1 0 0 1 1.414 0l1.238 1.238a1 1 0 0 1-1.414 1.414l-1.238-1.238a1 1 0 0 1 0-1.414zm-9.576-9.576a1 1 0 0 1 0-1.414L6.1 4.314a1 1 0 1 1 1.414-1.414L8.752 4.14a1 1 0 0 1-1.414 1.414zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"
-					/>
-				</svg>
-				<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-					<path
-						fill="currentColor"
-						d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 1 0 9.79 9.79z"
-					/>
-				</svg>
-                                </button>
-                                <div class="social-links">
-                                        <a href="https://www.linkedin.com" target="_blank">
-                                                <span class="sr-only">Connect on LinkedIn</span>
-                                                <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
-                                                <path
-                                                        fill="currentColor"
-							d="M1.146 5.169H3.72v9.583H1.146zm1.286-4.7A1.566 1.566 0 0 1 4 .033c.433.21.779.71.73 1.196a1.562 1.562 0 0 1-3.123-.152c0-.418.262-.873.825-1.007zM5.176 5.169h2.44v1.31h.034c.34-.645 1.173-1.323 2.414-1.323 2.58 0 3.056 1.73 3.056 3.978v5.618h-2.573V9.84c0-1.065-.02-2.432-1.483-2.432-1.485 0-1.712 1.16-1.712 2.356v5.009H5.176z" />
-                                                </svg>
-                                        </a>
-                                        <a href="https://github.com" target="_blank">
-                                                <span class="sr-only">Explore GitHub projects</span>
-                                                <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
-						<path
-							fill="currentColor"
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1 .16 1.82.08 2.02.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                                                </svg>
-                                        </a>
-                                        <a href="https://app.hackthebox.com" target="_blank">
-                                                <span class="sr-only">View Hack The Box profile</span>
-                                                <svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32">
-						<path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7zm0 2.236 6.764 3.382L12 11l-6.764-3.382zm-8 5.09L11 12.95v6.814L4 17.137zm9 6.815V12.95l7-3.624v7.137z" />
-                                                </svg>
-                                        </a>
-                                </div>
-                        </div>
-                </nav>
+  <div class="nav-wrapper">
+    <nav>
+      <h2>
+        <a href="/">
+          <img src="../assets/main-logo.png" alt="Logo" class="logo-img" />
+          {SITE_TITLE}
+        </a>
+      </h2>
+
+      <div class="internal-links">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/projects">Projects</HeaderLink>
+        <HeaderLink href="/writeups">Writeups</HeaderLink>
+        <HeaderLink href="/experience">Experience</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </div>
+      <div class="nav-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle color theme"
+          aria-pressed="false"
+          data-theme-toggle
+        >
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 4.75a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1.75a1 1 0 0 1-1 1zm0 14.5a1 1 0 0 1 1 1V22a1 1 0 0 1-2 0v-1.75a1 1 0 0 1 1-1zm7.25-7.25a1 1 0 0 1 1-1H22a1 1 0 1 1 0 2h-1.75a1 1 0 0 1-1-1zm-16.5 0a1 1 0 0 1 1-1H2a1 1 0 0 1 0 2h1.75a1 1 0 0 1-1-1zm12.038-5.788 1.238-1.238a1 1 0 1 1 1.414 1.414l-1.238 1.238a1 1 0 1 1-1.414-1.414zm-9.576 9.576 1.238-1.238a1 1 0 1 1 1.414 1.414l-1.238 1.238a1 1 0 0 1-1.414-1.414zm11.228 0a1 1 0 0 1 1.414 0l1.238 1.238a1 1 0 0 1-1.414 1.414l-1.238-1.238a1 1 0 0 1 0-1.414zm-9.576-9.576a1 1 0 0 1 0-1.414L6.1 4.314a1 1 0 1 1 1.414-1.414L8.752 4.14a1 1 0 0 1-1.414 1.414zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"
+            ></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 1 0 9.79 9.79z"></path>
+          </svg>
+        </button>
+        <div class="social-links">
+          <a href="https://www.linkedin.com" target="_blank">
+            <span class="sr-only">Connect on LinkedIn</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
+              <path
+                fill="currentColor"
+                d="M1.146 5.169H3.72v9.583H1.146zm1.286-4.7A1.566 1.566 0 0 1 4 .033c.433.21.779.71.73 1.196a1.562 1.562 0 0 1-3.123-.152c0-.418.262-.873.825-1.007zM5.176 5.169h2.44v1.31h.034c.34-.645 1.173-1.323 2.414-1.323 2.58 0 3.056 1.73 3.056 3.978v5.618h-2.573V9.84c0-1.065-.02-2.432-1.483-2.432-1.485 0-1.712 1.16-1.712 2.356v5.009H5.176z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://github.com" target="_blank">
+            <span class="sr-only">Explore GitHub projects</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
+              <path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1 .16 1.82.08 2.02.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://app.hackthebox.com" target="_blank">
+            <span class="sr-only">View Hack The Box profile</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32">
+              <path
+                fill="currentColor"
+                d="M12 2 2 7v10l10 5 10-5V7zm0 2.236 6.764 3.382L12 11l-6.764-3.382zm-8 5.09L11 12.95v6.814L4 17.137zm9 6.815V12.95l7-3.624v7.137z"
+              ></path>
+            </svg>
+          </a>
         </div>
+      </div>
+    </nav>
+  </div>
 </header>
 <style>
-        header {
-                margin: 0;
-                padding: 0 1.25em;
-                position: sticky;
-                top: 0;
-                z-index: 50;
-                backdrop-filter: blur(10px);
-                overflow: hidden;
-                isolation: isolate;
-        }
-        header::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(120deg, rgba(109, 40, 217, 0.28), rgba(14, 165, 233, 0.35), rgba(16, 185, 129, 0.32));
-                opacity: 0.95;
-                z-index: -2;
-                animation: headerGlow 18s ease-in-out infinite;
-                pointer-events: none;
-        }
-        header::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: rgba(var(--surface-rgb), 0.8);
-                backdrop-filter: blur(16px);
-                z-index: -1;
-                pointer-events: none;
-        }
-        .nav-wrapper {
-                max-width: min(1180px, 100%);
-                margin: 0 auto;
-                padding: 0.35rem 0;
-        }
-        h2 {
-                margin: 0;
-                font-size: 1.15em;
-                letter-spacing: 0.04em;
-                text-transform: uppercase;
-                display: flex;
-        }
+  header {
+    margin: 0;
+    padding: 0 1.25em;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(109, 40, 217, 0.28),
+      rgba(14, 165, 233, 0.35),
+      rgba(16, 185, 129, 0.32)
+    );
+    opacity: 0.95;
+    z-index: -2;
+    animation: headerGlow 18s ease-in-out infinite;
+    pointer-events: none;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(var(--surface-rgb), 0.8);
+    backdrop-filter: blur(16px);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .nav-wrapper {
+    max-width: min(1180px, 100%);
+    margin: 0 auto;
+    padding: 0.35rem 0;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.15em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+  }
 
-        h2 a,
-        h2 a.active {
-                text-decoration: none;
-                color: rgb(var(--black));
-                display: inline-flex;
-                align-items: center;
-                gap: 0.55rem;
-                padding: 0.35rem 0.75rem;
-                border-radius: 999px;
-                background: rgba(var(--surface-rgb), 0.6);
-                box-shadow: inset 0 0 0 1px rgba(var(--black), 0.08);
-                position: relative;
-                overflow: hidden;
-        }
-        h2 a::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(120deg, rgba(56, 189, 248, 0.35), rgba(16, 185, 129, 0.3));
-                opacity: 0;
-                transition: opacity 0.3s ease;
-        }
-        h2 a:hover::after {
-                opacity: 1;
-        }
-        .logo-pill {
-                width: 0.65rem;
-                height: 2.1rem;
-                border-radius: 999px;
-                background: linear-gradient(180deg, rgba(129, 140, 248, 0.9), rgba(45, 212, 191, 0.9));
-                box-shadow: 0 0 18px rgba(59, 130, 246, 0.55);
-                animation: pulse 6s ease-in-out infinite;
-        }
-        nav {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 1.5rem;
-        }
-        .internal-links {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.5rem;
-                justify-content: center;
-                position: relative;
-        }
-        nav a {
-                padding: 1em 0.5em;
-                color: rgb(var(--black));
-                border-bottom: 3px solid transparent;
-                text-decoration: none;
-                border-radius: 0.75rem;
-                transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
-                position: relative;
-        }
-        nav a:hover {
-                background: rgba(var(--accent), 0.12);
-                transform: translateY(-2px);
-        }
-        nav a.active {
-                text-decoration: none;
-                border-bottom-color: var(--accent);
-                background: rgba(var(--accent), 0.15);
-        }
-        .nav-actions {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-        }
-        .theme-toggle {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.35rem;
-                padding: 0.5rem 0.85rem;
-                border-radius: 999px;
-                background: rgba(var(--surface-rgb), 0.72);
-                border: 1px solid rgba(var(--black), 0.08);
-                color: rgb(var(--black));
-                cursor: pointer;
-                font-weight: 600;
-                transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-                box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
-        }
-        .theme-toggle:hover {
-                background: rgba(var(--surface-rgb), 0.88);
-                border-color: rgba(var(--accent), 0.35);
-                transform: translateY(-2px);
-        }
-        .theme-toggle[aria-pressed="true"] {
-                background: rgba(var(--surface-rgb), 0.9);
-                box-shadow: 0 0 0 1px rgba(var(--accent), 0.18), 0 12px 26px rgba(15, 23, 42, 0.12);
-        }
-        .theme-toggle .icon-moon {
-                display: none;
-        }
-        html[data-theme="dark"] .theme-toggle {
-                background: rgba(var(--surface-rgb), 0.55);
-                border-color: rgba(var(--gray-light), 0.18);
-                color: rgb(var(--gray-dark));
-                box-shadow: 0 0 0 1px rgba(var(--gray-light), 0.08), 0 18px 32px rgba(2, 6, 23, 0.45);
-        }
-        html[data-theme="dark"] .theme-toggle .icon-sun {
-                display: none;
-        }
-        html[data-theme="dark"] .theme-toggle .icon-moon {
-                display: block;
-        }
-        html[data-theme="dark"] .theme-toggle:hover {
-                background: rgba(var(--surface-rgb), 0.65);
-                border-color: rgba(var(--accent), 0.35);
-                box-shadow: 0 0 0 1px rgba(var(--accent), 0.2), 0 20px 34px rgba(2, 6, 23, 0.55);
-        }
-        html[data-theme="dark"] .theme-toggle[aria-pressed="true"] {
-                background: rgba(var(--surface-rgb), 0.62);
-                box-shadow: 0 0 0 1px rgba(var(--accent), 0.22), 0 22px 36px rgba(2, 6, 23, 0.6);
-        }
-	.theme-toggle svg {
-		width: 1.1rem;
-		height: 1.1rem;
-	}
-	.theme-toggle:focus-visible {
-		outline: 3px solid rgba(var(--accent), 0.4);
-		outline-offset: 2px;
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	.social-links {
-                gap: 0.5rem;
-        }
-        .social-links a {
-                align-items: center;
-                justify-content: center;
-                color: rgb(var(--black));
-                border-radius: 999px;
-                padding: 0.35rem;
-                background: rgba(var(--surface-rgb), 0.65);
-                box-shadow: inset 0 0 0 1px rgba(var(--black), 0.05), 0 8px 16px rgba(15, 23, 42, 0.08);
-                transition: background-color 0.2s ease, transform 0.25s ease;
-        }
-        .social-links a:hover {
-                background: rgba(var(--surface-rgb), 0.82);
-                transform: translateY(-2px);
-        }
-        .social-links a:focus-visible {
-                outline: 3px solid rgba(var(--accent), 0.45);
-                outline-offset: 2px;
-        }
-        html[data-theme="dark"] .social-links a {
-                color: rgb(var(--gray-dark));
-                background: rgba(var(--surface-rgb), 0.55);
-                box-shadow: inset 0 0 0 1px rgba(var(--gray-light), 0.15), 0 12px 20px rgba(2, 6, 23, 0.5);
-        }
-        html[data-theme="dark"] .social-links a:hover {
-                background: rgba(var(--surface-rgb), 0.65);
-        }
-        @keyframes pulse {
-                0%,
-                100% {
-                        transform: scaleY(1);
-                        filter: drop-shadow(0 0 12px rgba(79, 70, 229, 0.4));
-                }
-                50% {
-                        transform: scaleY(1.15);
-                        filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.55));
-                }
-        }
-        @keyframes headerGlow {
-                0% {
-                        transform: translate3d(-5%, -5%, 0) scale(1.05);
-                }
-                50% {
-                        transform: translate3d(6%, 4%, 0) scale(1.1);
-                }
-                100% {
-                        transform: translate3d(-5%, -5%, 0) scale(1.05);
-                }
-        }
-        @media (max-width: 960px) {
-                nav {
-                        flex-direction: column;
-                        align-items: stretch;
-                        gap: 1.25rem;
-                }
-                .internal-links {
-                        justify-content: center;
-                }
-                .nav-actions {
-                        width: 100%;
-                        justify-content: center;
-                        flex-wrap: wrap;
-                        gap: 0.85rem;
-                }
-                .social-links {
-                        justify-content: center;
-                }
-        }
-        @media (max-width: 720px) {
-                .social-links {
-                        display: none;
-                }
-        }
+  h2 a,
+  h2 a.active {
+    text-decoration: none;
+    color: rgb(var(--black));
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(var(--surface-rgb), 0.6);
+    box-shadow: inset 0 0 0 1px rgba(var(--black), 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  h2 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(56, 189, 248, 0.35),
+      rgba(16, 185, 129, 0.3)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  h2 a:hover::after {
+    opacity: 1;
+  }
+  .logo-pill {
+    width: 0.65rem;
+    height: 2.1rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      rgba(129, 140, 248, 0.9),
+      rgba(45, 212, 191, 0.9)
+    );
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.55);
+    animation: pulse 6s ease-in-out infinite;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .internal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    position: relative;
+  }
+  nav a {
+    padding: 1em 0.5em;
+    color: rgb(var(--black));
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    transition:
+      color 0.25s ease,
+      background-color 0.25s ease,
+      transform 0.25s ease;
+    position: relative;
+  }
+  nav a:hover {
+    background: rgba(var(--accent), 0.12);
+    transform: translateY(-2px);
+  }
+  nav a.active {
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+    background: rgba(var(--accent), 0.15);
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(var(--surface-rgb), 0.72);
+    border: 1px solid rgba(var(--black), 0.08);
+    color: rgb(var(--black));
+    cursor: pointer;
+    font-weight: 600;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  }
+  .theme-toggle:hover {
+    background: rgba(var(--surface-rgb), 0.88);
+    border-color: rgba(var(--accent), 0.35);
+    transform: translateY(-2px);
+  }
+  .theme-toggle[aria-pressed="true"] {
+    background: rgba(var(--surface-rgb), 0.9);
+    box-shadow:
+      0 0 0 1px rgba(var(--accent), 0.18),
+      0 12px 26px rgba(15, 23, 42, 0.12);
+  }
+  .theme-toggle .icon-moon {
+    display: none;
+  }
+  html[data-theme="dark"] .theme-toggle {
+    background: rgba(var(--surface-rgb), 0.55);
+    border-color: rgba(var(--gray-light), 0.18);
+    color: rgb(var(--gray-dark));
+    box-shadow:
+      0 0 0 1px rgba(var(--gray-light), 0.08),
+      0 18px 32px rgba(2, 6, 23, 0.45);
+  }
+  html[data-theme="dark"] .theme-toggle .icon-sun {
+    display: none;
+  }
+  html[data-theme="dark"] .theme-toggle .icon-moon {
+    display: block;
+  }
+  html[data-theme="dark"] .theme-toggle:hover {
+    background: rgba(var(--surface-rgb), 0.65);
+    border-color: rgba(var(--accent), 0.35);
+    box-shadow:
+      0 0 0 1px rgba(var(--accent), 0.2),
+      0 20px 34px rgba(2, 6, 23, 0.55);
+  }
+  html[data-theme="dark"] .theme-toggle[aria-pressed="true"] {
+    background: rgba(var(--surface-rgb), 0.62);
+    box-shadow:
+      0 0 0 1px rgba(var(--accent), 0.22),
+      0 22px 36px rgba(2, 6, 23, 0.6);
+  }
+  .theme-toggle svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  .theme-toggle:focus-visible {
+    outline: 3px solid rgba(var(--accent), 0.4);
+    outline-offset: 2px;
+  }
+  .social-links,
+  .social-links a {
+    display: flex;
+  }
+  .social-links {
+    gap: 0.5rem;
+  }
+  .social-links a {
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--black));
+    border-radius: 999px;
+    padding: 0.35rem;
+    background: rgba(var(--surface-rgb), 0.65);
+    box-shadow:
+      inset 0 0 0 1px rgba(var(--black), 0.05),
+      0 8px 16px rgba(15, 23, 42, 0.08);
+    transition:
+      background-color 0.2s ease,
+      transform 0.25s ease;
+  }
+  .social-links a:hover {
+    background: rgba(var(--surface-rgb), 0.82);
+    transform: translateY(-2px);
+  }
+  .social-links a:focus-visible {
+    outline: 3px solid rgba(var(--accent), 0.45);
+    outline-offset: 2px;
+  }
+  html[data-theme="dark"] .social-links a {
+    color: rgb(var(--gray-dark));
+    background: rgba(var(--surface-rgb), 0.55);
+    box-shadow:
+      inset 0 0 0 1px rgba(var(--gray-light), 0.15),
+      0 12px 20px rgba(2, 6, 23, 0.5);
+  }
+  html[data-theme="dark"] .social-links a:hover {
+    background: rgba(var(--surface-rgb), 0.65);
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scaleY(1);
+      filter: drop-shadow(0 0 12px rgba(79, 70, 229, 0.4));
+    }
+    50% {
+      transform: scaleY(1.15);
+      filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.55));
+    }
+  }
+  @keyframes headerGlow {
+    0% {
+      transform: translate3d(-5%, -5%, 0) scale(1.05);
+    }
+    50% {
+      transform: translate3d(6%, 4%, 0) scale(1.1);
+    }
+    100% {
+      transform: translate3d(-5%, -5%, 0) scale(1.05);
+    }
+  }
+  @media (max-width: 960px) {
+    nav {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.25rem;
+    }
+    .internal-links {
+      justify-content: center;
+    }
+    .nav-actions {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+    .social-links {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 720px) {
+    .social-links {
+      display: none;
+    }
+  }
 </style>
 
 <script is:inline>
-        const toggle = document.querySelector('[data-theme-toggle]');
-        if (toggle) {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-                let storedTheme = localStorage.getItem('theme');
+  const toggle = document.querySelector("[data-theme-toggle]");
+  if (toggle) {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+    let storedTheme = localStorage.getItem("theme");
 
-                const applyTheme = (theme, persist = false) => {
-                        document.documentElement.dataset.theme = theme;
-                        toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-                        if (persist) {
-                                storedTheme = theme;
-                                localStorage.setItem('theme', theme);
-                        }
-                };
+    const applyTheme = (theme, persist = false) => {
+      document.documentElement.dataset.theme = theme;
+      toggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+      if (persist) {
+        storedTheme = theme;
+        localStorage.setItem("theme", theme);
+      }
+    };
 
-                const initialTheme = storedTheme || (prefersDark.matches ? 'dark' : 'light');
-                applyTheme(initialTheme);
+    const initialTheme =
+      storedTheme || (prefersDark.matches ? "dark" : "light");
+    applyTheme(initialTheme);
 
-                toggle.addEventListener('click', () => {
-                        const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-                        applyTheme(nextTheme, true);
-                });
+    toggle.addEventListener("click", () => {
+      const nextTheme =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme, true);
+    });
 
-                const respondToSystemPreference = (event) => {
-                        if (!storedTheme) {
-                                applyTheme(event.matches ? 'dark' : 'light');
-                        }
-                };
+    const respondToSystemPreference = (event) => {
+      if (!storedTheme) {
+        applyTheme(event.matches ? "dark" : "light");
+      }
+    };
 
-                if (typeof prefersDark.addEventListener === 'function') {
-                        prefersDark.addEventListener('change', respondToSystemPreference);
-                } else if (typeof prefersDark.addListener === 'function') {
-                        prefersDark.addListener(respondToSystemPreference);
-                }
-        }
+    if (typeof prefersDark.addEventListener === "function") {
+      prefersDark.addEventListener("change", respondToSystemPreference);
+    } else if (typeof prefersDark.addListener === "function") {
+      prefersDark.addListener(respondToSystemPreference);
+    }
+  }
 </script>

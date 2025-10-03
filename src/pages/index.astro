@@ -1,536 +1,644 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-        <head>
-                <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-        </head>
-        <body>
-                <Header />
-                <main>
-                        <section class="hero" data-animate>
-                                <div class="hero-content">
-                                        <p class="eyebrow">Cybersecurity Specialist - Offensive Security - Blue Team Ally</p>
-                                        <h1>Strengthening defenses through hands-on security research.</h1>
-                                        <p class="lede">
-                                                I help organizations understand how attackers think, harden their infrastructure, and respond to
-                                                real incidents. Explore my project work, incident writeups, and experience to see how I turn
-                                                curiosity into resilient security outcomes.
-                                        </p>
-                                        <div class="hero-actions">
-                                                <a class="cta" href="/projects">View Projects</a>
-                                                <a class="ghost" href="/writeups">Read Writeups</a>
-                                        </div>
-                                </div>
-                                <div class="hero-visual" aria-hidden="true" data-animate="pop">
-                                        <div class="orb orb-primary"></div>
-                                        <div class="orb orb-secondary"></div>
-                                        <div class="grid-overlay"></div>
-                                </div>
-                        </section>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero" data-animate>
+        <div class="hero-content">
+          <p class="eyebrow">Cybersecurity Newbie</p>
+          <h1>Strengthening defenses through hands-on security research.</h1>
+          <p class="lede">
+            I help organizations understand how attackers think, harden their
+            infrastructure, and respond to real incidents. Explore my project
+            work, incident writeups, and experience to see how I turn curiosity
+            into resilient security outcomes.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="/projects">View Projects</a>
+            <a class="ghost" href="/writeups">Read Writeups</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true" data-animate="pop">
+          <div class="orb orb-primary"></div>
+          <div class="orb orb-secondary"></div>
+          <div class="grid-overlay"></div>
+        </div>
+      </section>
 
-                        <section class="pillars" data-animate>
-                                <h2>Focus Areas</h2>
-                                <div class="pillars-grid" data-animate="stagger">
-                                        <article class="pillar-card pillar-card--adversary">
-                                                <span class="pillar-card__glow" aria-hidden="true"></span>
-                                                <span class="pillar-card__pulse" aria-hidden="true"></span>
-                                                <header>
-                                                        <h3>Adversary Emulation</h3>
-                                                        <p class="pillar-subhead">Offensive testing that exposes blind spots before real attackers can.</p>
-                                                </header>
-                                                <p>
-                                                        Red team assessments, exploit development, and detection engineering that mirror real threat actors
-                                                        to expose blind spots before attackers do.
-                                                </p>
-                                        </article>
-                                        <article class="pillar-card pillar-card--detect">
-                                                <span class="pillar-card__glow" aria-hidden="true"></span>
-                                                <span class="pillar-card__pulse" aria-hidden="true"></span>
-                                                <header>
-                                                        <h3>Threat Detection &amp; Response</h3>
-                                                        <p class="pillar-subhead">Automation and playbooks that keep blue teams decisive.</p>
-                                                </header>
-                                                <p>
-                                                        Playbooks, SIEM tuning, and automation that help blue teams react fast and contain incidents with
-                                                        confidence.
-                                                </p>
-                                        </article>
-                                        <article class="pillar-card pillar-card--educate">
-                                                <span class="pillar-card__glow" aria-hidden="true"></span>
-                                                <span class="pillar-card__pulse" aria-hidden="true"></span>
-                                                <header>
-                                                        <h3>Security Education</h3>
-                                                        <p class="pillar-subhead">Making complex exploits approachable for every stakeholder.</p>
-                                                </header>
-                                                <p>
-                                                        Workshops, capture-the-flag mentoring, and public writeups that make complex vulnerabilities
-                                                        accessible to engineers and executives alike.
-                                                </p>
-                                        </article>
-                                </div>
-                        </section>
+      <section class="pillars" data-animate>
+        <h2>Focus Areas</h2>
+        <div class="pillars-grid" data-animate="stagger">
+          <article class="pillar-card pillar-card--adversary">
+            <span class="pillar-card__glow" aria-hidden="true"></span>
+            <span class="pillar-card__pulse" aria-hidden="true"></span>
+            <header>
+              <h3>Adversary Emulation</h3>
+              <p class="pillar-subhead">
+                Offensive testing that exposes blind spots before real attackers
+                can.
+              </p>
+            </header>
+            <p>
+              Red team assessments, exploit development, and detection
+              engineering that mirror real threat actors to expose blind spots
+              before attackers do.
+            </p>
+          </article>
+          <article class="pillar-card pillar-card--detect">
+            <span class="pillar-card__glow" aria-hidden="true"></span>
+            <span class="pillar-card__pulse" aria-hidden="true"></span>
+            <header>
+              <h3>Threat Detection &amp; Response</h3>
+              <p class="pillar-subhead">
+                Automation and playbooks that keep blue teams decisive.
+              </p>
+            </header>
+            <p>
+              Playbooks, SIEM tuning, and automation that help blue teams react
+              fast and contain incidents with confidence.
+            </p>
+          </article>
+          <article class="pillar-card pillar-card--educate">
+            <span class="pillar-card__glow" aria-hidden="true"></span>
+            <span class="pillar-card__pulse" aria-hidden="true"></span>
+            <header>
+              <h3>Security Education</h3>
+              <p class="pillar-subhead">
+                Making complex exploits approachable for every stakeholder.
+              </p>
+            </header>
+            <p>
+              Workshops, capture-the-flag mentoring, and public writeups that
+              make complex vulnerabilities accessible to engineers and
+              executives alike.
+            </p>
+          </article>
+        </div>
+      </section>
 
-                        <section class="highlights" data-animate="stagger">
-                                <h2>What You Will Find Here</h2>
-                                <ul>
-                                        <li><strong>Projects</strong> - Security tooling, labs, and infrastructure hardening work with practical takeaways.</li>
-                                        <li><strong>Writeups</strong> - Post-exploitation notes, CTF walkthroughs, and vulnerability research with actionable lessons.</li>
-                                        <li><strong>Experience</strong> - Snapshots of consulting, in-house security roles, and community leadership.</li>
-                                </ul>
-                        </section>
+      <section class="highlights" data-animate="stagger">
+        <h2>What You Will Find Here</h2>
+        <ul>
+          <li>
+            <strong>Projects</strong> - Security tooling, labs, and infrastructure
+            hardening work with practical takeaways.
+          </li>
+          <li>
+            <strong>Writeups</strong> - Post-exploitation notes, CTF walkthroughs,
+            and vulnerability research with actionable lessons.
+          </li>
+          <li>
+            <strong>Experience</strong> - Snapshots of consulting, in-house security
+            roles, and community leadership.
+          </li>
+        </ul>
+      </section>
 
-                        <section class="next" data-animate>
-                                <h2>Need help with your security posture?</h2>
-                                <p>
-                                        I am open to collaboration on penetration tests, purple team engagements, and security program uplift.
-                                        Reach out if you have an interesting challenge.
-                                </p>
-                                <a class="ghost" href="mailto:security@example.com">Start a conversation</a>
-                        </section>
-                </main>
-                <Footer />
-        </body>
+      <section class="next" data-animate>
+        <h2>Need help with your security posture?</h2>
+        <p>
+          I am open to collaboration on penetration tests, purple team
+          engagements, and security program uplift. Reach out if you have an
+          interesting challenge.
+        </p>
+        <a class="ghost" href="mailto:security@example.com"
+          >Start a conversation</a
+        >
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
-        main {
-                width: min(1180px, 92vw);
-                margin: 0 auto;
-                padding: clamp(3rem, 6vw, 4.75rem) clamp(1.25rem, 4vw, 3rem) 5rem;
-                color: var(--black);
-                display: grid;
-                gap: clamp(2.75rem, 5vw, 3.5rem);
-        }
-        section {
-                margin: 0;
-        }
-        .hero {
-                display: grid;
-                gap: clamp(2rem, 4vw, 3rem);
-                grid-template-columns: minmax(320px, 0.58fr) minmax(260px, 0.42fr);
-                align-items: center;
-                background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.28), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.22), transparent 50%),
-                        rgba(var(--surface-rgb), 0.88);
-                padding: clamp(2.75rem, 5vw, 4rem);
-                border-radius: 1.8rem;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
-                isolation: isolate;
-        }
-        .hero::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(120deg, rgba(56, 189, 248, 0.12), rgba(34, 197, 94, 0.12));
-                opacity: 0;
-                transition: opacity 0.6s ease;
-                z-index: -1;
-        }
-        .hero:hover::after {
-                opacity: 1;
-        }
-        .hero-content {
-                display: grid;
-                gap: 1.5rem;
-                max-width: 65ch;
-        }
-        .eyebrow {
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                font-size: 0.85rem;
-                color: var(--accent);
-                font-weight: 600;
-                background: rgba(var(--accent), 0.18);
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0.45rem 0.9rem;
-                border-radius: 999px;
-                width: fit-content;
-        }
-        .lede {
-                font-size: 1.15rem;
-                line-height: 1.7;
-                max-width: 60ch;
-        }
-        .hero-actions {
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
-                align-items: center;
-        }
-        .cta,
-        .ghost {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0.75rem 1.5rem;
-                border-radius: 999px;
-                font-weight: 600;
-                text-decoration: none;
-        }
-        .cta {
-                background: var(--accent);
-                color: white;
-                box-shadow: 0 24px 48px rgba(16, 185, 129, 0.35);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .ghost {
-                border: 2px solid var(--accent);
-                color: var(--accent);
-                transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-        }
-        .cta:hover,
-        .ghost:hover {
-                transform: translateY(-3px);
-        }
-        .cta:hover {
-                box-shadow: 0 28px 62px rgba(16, 185, 129, 0.45);
-        }
-        .ghost:hover {
-                color: rgb(20, 83, 45);
-                border-color: rgb(16, 185, 129);
-        }
-        .hero-visual {
-                position: relative;
-                min-height: clamp(260px, 32vw, 360px);
-                display: grid;
-                place-items: center;
-        }
-        .orb {
-                position: absolute;
-                border-radius: 50%;
-                filter: blur(0px);
-                opacity: 0.75;
-                animation: float 12s ease-in-out infinite;
-                mix-blend-mode: screen;
-        }
-        .orb-primary {
-                width: clamp(220px, 32vw, 280px);
-                height: clamp(220px, 32vw, 280px);
-                top: 10%;
-                left: 12%;
-                background: radial-gradient(circle, rgba(129, 140, 248, 0.85), rgba(79, 70, 229, 0));
-                animation-delay: 0s;
-        }
-        .orb-secondary {
-                width: clamp(180px, 28vw, 240px);
-                height: clamp(180px, 28vw, 240px);
-                bottom: 10%;
-                right: 5%;
-                background: radial-gradient(circle, rgba(16, 185, 129, 0.85), rgba(16, 185, 129, 0));
-                animation-delay: -4s;
-        }
-        .grid-overlay {
-                position: absolute;
-                inset: 8%;
-                border-radius: 1.5rem;
-                background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
-                background-size: 22px 22px;
-                mask: radial-gradient(circle at center, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0) 70%);
-                animation: heroGridDrift 18s linear infinite;
-        }
-        @keyframes heroGridDrift {
-                0% {
-                        transform: translate3d(0, 0, 0) rotate(0deg);
-                }
-                50% {
-                        transform: translate3d(12px, -10px, 0) rotate(2deg);
-                }
-                100% {
-                        transform: translate3d(0, 0, 0) rotate(0deg);
-                }
-        }
-        @keyframes float {
-                0%,
-                100% {
-                        transform: translate3d(0, 0, 0) scale(1);
-                }
-                50% {
-                        transform: translate3d(16px, -14px, 0) scale(1.08);
-                }
-        }
-        .pillars-grid {
-                display: grid;
-                gap: clamp(1.5rem, 3vw, 2.1rem);
-                grid-template-columns: repeat(auto-fit, minmax(clamp(240px, 28vw, 340px), 1fr));
-        }
-        .pillar-card {
-                --pillar-primary: 129, 140, 248;
-                --pillar-secondary: 56, 189, 248;
-                position: relative;
-                padding: clamp(1.75rem, 4vw, 2.25rem);
-                border-radius: 1.25rem;
-                background: linear-gradient(135deg, rgba(var(--pillar-primary), 0.16), rgba(var(--pillar-secondary), 0.12));
-                border: 1px solid rgba(var(--pillar-primary), 0.18);
-                box-shadow: 0 22px 44px rgba(15, 23, 42, 0.18);
-                overflow: hidden;
-                transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-        }
-        .pillar-card header {
-                display: grid;
-                gap: 0.45rem;
-                margin-bottom: 0.75rem;
-        }
-        .pillar-card h3 {
-                margin: 0;
-        }
-        .pillar-subhead {
-                margin: 0;
-                font-size: 0.95rem;
-                letter-spacing: 0.04em;
-                text-transform: uppercase;
-                color: rgba(var(--pillar-primary), 0.9);
-                font-weight: 700;
-        }
-        .pillar-card p {
-                position: relative;
-                z-index: 1;
-                margin: 0;
-                line-height: 1.65;
-                color: rgba(15, 23, 42, 0.78);
-        }
-        .pillar-card__glow,
-        .pillar-card__pulse {
-                position: absolute;
-                inset: 0;
-                border-radius: inherit;
-                pointer-events: none;
-        }
-        .pillar-card__glow {
-                background: radial-gradient(circle at top right, rgba(var(--pillar-secondary), 0.4), transparent 60%),
-                        radial-gradient(circle at bottom left, rgba(var(--pillar-primary), 0.35), transparent 55%);
-                opacity: 0.85;
-                mix-blend-mode: screen;
-                animation: pillarGlow 18s ease-in-out infinite;
-        }
-        .pillar-card__pulse {
-                background: linear-gradient(120deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
-                transform: translate3d(-40%, -40%, 0) rotate(12deg);
-                opacity: 0;
-                transition: opacity 0.45s ease, transform 0.45s ease;
-        }
-        .pillar-card::after {
-                content: "";
-                position: absolute;
-                inset: 18px;
-                border-radius: inherit;
-                border: 1px solid rgba(255, 255, 255, 0.25);
-                opacity: 0.5;
-                pointer-events: none;
-                transition: opacity 0.35s ease, transform 0.35s ease;
-        }
-        .pillar-card:hover,
-        .pillar-card:focus-within {
-                transform: translateY(-8px) scale(1.01);
-                box-shadow: 0 36px 70px rgba(15, 23, 42, 0.28);
-                border-color: rgba(var(--pillar-secondary), 0.5);
-        }
-        .pillar-card:hover .pillar-card__pulse,
-        .pillar-card:focus-within .pillar-card__pulse {
-                opacity: 0.75;
-                transform: translate3d(0, 0, 0) rotate(0deg);
-        }
-        .pillar-card:hover::after,
-        .pillar-card:focus-within::after {
-                opacity: 0.85;
-                transform: scale(0.98);
-        }
-        .pillar-card--adversary {
-                --pillar-primary: 129, 140, 248;
-                --pillar-secondary: 56, 189, 248;
-        }
-        .pillar-card--detect {
-                --pillar-primary: 16, 185, 129;
-                --pillar-secondary: 14, 165, 233;
-        }
-        .pillar-card--educate {
-                --pillar-primary: 244, 114, 182;
-                --pillar-secondary: 59, 130, 246;
-        }
-        @keyframes pillarGlow {
-                0%,
-                100% {
-                        transform: translate3d(0, 0, 0) scale(1);
-                }
-                40% {
-                        transform: translate3d(6px, -4px, 0) scale(1.03);
-                }
-                70% {
-                        transform: translate3d(-8px, 6px, 0) scale(1.02);
-                }
-        }
-        .highlights ul {
-                list-style: none;
-                padding: 0;
-                display: grid;
-                gap: clamp(1.1rem, 2vw, 1.75rem);
-        }
-        .highlights li {
-                background: linear-gradient(90deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.12));
-                padding: clamp(1rem, 2vw, 1.45rem) clamp(1.1rem, 4vw, 1.75rem);
-                border-radius: 1rem;
-                border: 1px solid rgba(var(--accent), 0.15);
-                box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .highlights li:hover {
-                transform: translateX(6px);
-                box-shadow: 0 24px 40px rgba(15, 23, 42, 0.14);
-        }
-        .next {
-                text-align: center;
-                padding: clamp(2rem, 4vw, 2.75rem);
-                border: 1px solid rgba(var(--black), 0.12);
-                border-radius: 1.3rem;
-                box-shadow: 0 20px 40px rgba(var(--black), 0.12);
-                background: rgba(var(--surface-rgb), 0.96);
-                position: relative;
-                overflow: hidden;
-        }
-        .next p {
-                margin-bottom: 1.5rem;
-        }
-        .next::before {
-                content: "";
-                position: absolute;
-                inset: -40% -20% auto;
-                height: 60%;
-                background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 70%);
-                animation: float 16s ease-in-out infinite;
-                opacity: 0.7;
-        }
-        html[data-theme="dark"] .pillar-card {
-                background: linear-gradient(135deg, rgba(var(--pillar-primary), 0.18), rgba(var(--pillar-secondary), 0.2));
-                border-color: rgba(var(--pillar-secondary), 0.55);
-                box-shadow: 0 28px 56px rgba(2, 6, 23, 0.65);
-        }
-        html[data-theme="dark"] .pillar-card::after {
-                border-color: rgba(255, 255, 255, 0.18);
-        }
-        html[data-theme="dark"] .pillar-card__pulse {
-                background: linear-gradient(120deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
-        }
-        html[data-theme="dark"] .pillar-card:hover,
-        html[data-theme="dark"] .pillar-card:focus-within {
-                box-shadow: 0 42px 88px rgba(2, 6, 23, 0.72);
-        }
-        html[data-theme="dark"] .pillar-subhead {
-                color: rgba(var(--pillar-secondary), 0.9);
-        }
-        html[data-theme="dark"] .pillar-card p {
-                color: rgba(226, 232, 240, 0.85);
-        }
-        html[data-theme="dark"] .next {
-                background: rgba(var(--surface-rgb), 0.9);
-                border-color: rgba(148, 163, 184, 0.18);
-                box-shadow: 0 20px 40px rgba(2, 6, 23, 0.62);
-        }
-        html[data-theme="dark"] .next::before {
-                background: radial-gradient(circle, rgba(59, 130, 246, 0.32), transparent 70%);
-                opacity: 0.85;
-        }
-        [data-animate] {
-                opacity: 0;
-                transform: translateY(28px);
-                transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        [data-animate].is-visible {
-                opacity: 1;
-                transform: translateY(0);
-        }
-        [data-animate="stagger"] > * {
-                opacity: 0;
-                transform: translateY(24px);
-                transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-                transition-delay: calc(var(--stagger-index, 0) * 0.12s + 0.1s);
-        }
-        [data-animate="stagger"].is-visible > * {
-                opacity: 1;
-                transform: translateY(0);
-        }
-        [data-animate="pop"] {
-                transform: scale(0.92) translateY(32px);
-        }
-        [data-animate="pop"].is-visible {
-                transform: scale(1) translateY(0);
-        }
-        @media (max-width: 1080px) {
-                .hero {
-                        grid-template-columns: minmax(300px, 1fr) minmax(220px, 0.85fr);
-                }
-        }
-        @media (max-width: 960px) {
-                .hero {
-                        grid-template-columns: 1fr;
-                        text-align: center;
-                }
-                .hero-content {
-                        justify-items: center;
-                }
-                .hero-content .lede {
-                        text-align: center;
-                }
-        }
-        @media (max-width: 720px) {
-                main {
-                        width: min(92vw, 100%);
-                        padding: 3rem 1rem 3.5rem;
-                }
-                .hero {
-                        padding: clamp(2rem, 6vw, 2.5rem);
-                }
-                .hero-actions {
-                        justify-content: center;
-                }
-        }
+  main {
+    width: min(1180px, 92vw);
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 4.75rem) clamp(1.25rem, 4vw, 3rem) 5rem;
+    color: var(--black);
+    display: grid;
+    gap: clamp(2.75rem, 5vw, 3.5rem);
+  }
+  section {
+    margin: 0;
+  }
+  .hero {
+    display: grid;
+    gap: clamp(2rem, 4vw, 3rem);
+    grid-template-columns: minmax(320px, 0.58fr) minmax(260px, 0.42fr);
+    align-items: center;
+    background: radial-gradient(
+        circle at top left,
+        rgba(129, 140, 248, 0.28),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgba(45, 212, 191, 0.22),
+        transparent 50%
+      ),
+      rgba(var(--surface-rgb), 0.88);
+    padding: clamp(2.75rem, 5vw, 4rem);
+    border-radius: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+    isolation: isolate;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(56, 189, 248, 0.12),
+      rgba(34, 197, 94, 0.12)
+    );
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: -1;
+  }
+  .hero:hover::after {
+    opacity: 1;
+  }
+  .hero-content {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 65ch;
+  }
+  .eyebrow {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    background: rgba(var(--accent), 0.18);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    width: fit-content;
+  }
+  .lede {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .cta,
+  .ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .cta {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 24px 48px rgba(16, 185, 129, 0.35);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .ghost {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease;
+  }
+  .cta:hover,
+  .ghost:hover {
+    transform: translateY(-3px);
+  }
+  .cta:hover {
+    box-shadow: 0 28px 62px rgba(16, 185, 129, 0.45);
+  }
+  .ghost:hover {
+    color: rgb(20, 83, 45);
+    border-color: rgb(16, 185, 129);
+  }
+  .hero-visual {
+    position: relative;
+    min-height: clamp(260px, 32vw, 360px);
+    display: grid;
+    place-items: center;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(0px);
+    opacity: 0.75;
+    animation: float 12s ease-in-out infinite;
+    mix-blend-mode: screen;
+  }
+  .orb-primary {
+    width: clamp(220px, 32vw, 280px);
+    height: clamp(220px, 32vw, 280px);
+    top: 10%;
+    left: 12%;
+    background: radial-gradient(
+      circle,
+      rgba(129, 140, 248, 0.85),
+      rgba(79, 70, 229, 0)
+    );
+    animation-delay: 0s;
+  }
+  .orb-secondary {
+    width: clamp(180px, 28vw, 240px);
+    height: clamp(180px, 28vw, 240px);
+    bottom: 10%;
+    right: 5%;
+    background: radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.85),
+      rgba(16, 185, 129, 0)
+    );
+    animation-delay: -4s;
+  }
+  .grid-overlay {
+    position: absolute;
+    inset: 8%;
+    border-radius: 1.5rem;
+    background-image: linear-gradient(
+        rgba(148, 163, 184, 0.12) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.65),
+      rgba(255, 255, 255, 0) 70%
+    );
+    animation: heroGridDrift 18s linear infinite;
+  }
+  @keyframes heroGridDrift {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(12px, -10px, 0) rotate(2deg);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(16px, -14px, 0) scale(1.08);
+    }
+  }
+  .pillars-grid {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.1rem);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(240px, 28vw, 340px), 1fr)
+    );
+  }
+  .pillar-card {
+    --pillar-primary: 129, 140, 248;
+    --pillar-secondary: 56, 189, 248;
+    position: relative;
+    padding: clamp(1.75rem, 4vw, 2.25rem);
+    border-radius: 1.25rem;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--pillar-primary), 0.16),
+      rgba(var(--pillar-secondary), 0.12)
+    );
+    border: 1px solid rgba(var(--pillar-primary), 0.18);
+    box-shadow: 0 22px 44px rgba(15, 23, 42, 0.18);
+    overflow: hidden;
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      border-color 0.35s ease;
+  }
+  .pillar-card header {
+    display: grid;
+    gap: 0.45rem;
+    margin-bottom: 0.75rem;
+  }
+  .pillar-card h3 {
+    margin: 0;
+  }
+  .pillar-subhead {
+    margin: 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(var(--pillar-primary), 0.9);
+    font-weight: 700;
+  }
+  .pillar-card p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    line-height: 1.65;
+    color: rgba(15, 23, 42, 0.78);
+  }
+  .pillar-card__glow,
+  .pillar-card__pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .pillar-card__glow {
+    background: radial-gradient(
+        circle at top right,
+        rgba(var(--pillar-secondary), 0.4),
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at bottom left,
+        rgba(var(--pillar-primary), 0.35),
+        transparent 55%
+      );
+    opacity: 0.85;
+    mix-blend-mode: screen;
+    animation: pillarGlow 18s ease-in-out infinite;
+  }
+  .pillar-card__pulse {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0)
+    );
+    transform: translate3d(-40%, -40%, 0) rotate(12deg);
+    opacity: 0;
+    transition:
+      opacity 0.45s ease,
+      transform 0.45s ease;
+  }
+  .pillar-card::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    opacity: 0.5;
+    pointer-events: none;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+  .pillar-card:hover,
+  .pillar-card:focus-within {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 36px 70px rgba(15, 23, 42, 0.28);
+    border-color: rgba(var(--pillar-secondary), 0.5);
+  }
+  .pillar-card:hover .pillar-card__pulse,
+  .pillar-card:focus-within .pillar-card__pulse {
+    opacity: 0.75;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  .pillar-card:hover::after,
+  .pillar-card:focus-within::after {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+  .pillar-card--adversary {
+    --pillar-primary: 129, 140, 248;
+    --pillar-secondary: 56, 189, 248;
+  }
+  .pillar-card--detect {
+    --pillar-primary: 16, 185, 129;
+    --pillar-secondary: 14, 165, 233;
+  }
+  .pillar-card--educate {
+    --pillar-primary: 244, 114, 182;
+    --pillar-secondary: 59, 130, 246;
+  }
+  @keyframes pillarGlow {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    40% {
+      transform: translate3d(6px, -4px, 0) scale(1.03);
+    }
+    70% {
+      transform: translate3d(-8px, 6px, 0) scale(1.02);
+    }
+  }
+  .highlights ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: clamp(1.1rem, 2vw, 1.75rem);
+  }
+  .highlights li {
+    background: linear-gradient(
+      90deg,
+      rgba(16, 185, 129, 0.12),
+      rgba(59, 130, 246, 0.12)
+    );
+    padding: clamp(1rem, 2vw, 1.45rem) clamp(1.1rem, 4vw, 1.75rem);
+    border-radius: 1rem;
+    border: 1px solid rgba(var(--accent), 0.15);
+    box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .highlights li:hover {
+    transform: translateX(6px);
+    box-shadow: 0 24px 40px rgba(15, 23, 42, 0.14);
+  }
+  .next {
+    text-align: center;
+    padding: clamp(2rem, 4vw, 2.75rem);
+    border: 1px solid rgba(var(--black), 0.12);
+    border-radius: 1.3rem;
+    box-shadow: 0 20px 40px rgba(var(--black), 0.12);
+    background: rgba(var(--surface-rgb), 0.96);
+    position: relative;
+    overflow: hidden;
+  }
+  .next p {
+    margin-bottom: 1.5rem;
+  }
+  .next::before {
+    content: "";
+    position: absolute;
+    inset: -40% -20% auto;
+    height: 60%;
+    background: radial-gradient(
+      circle,
+      rgba(16, 185, 129, 0.2),
+      transparent 70%
+    );
+    animation: float 16s ease-in-out infinite;
+    opacity: 0.7;
+  }
+  html[data-theme="dark"] .pillar-card {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--pillar-primary), 0.18),
+      rgba(var(--pillar-secondary), 0.2)
+    );
+    border-color: rgba(var(--pillar-secondary), 0.55);
+    box-shadow: 0 28px 56px rgba(2, 6, 23, 0.65);
+  }
+  html[data-theme="dark"] .pillar-card::after {
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+  html[data-theme="dark"] .pillar-card__pulse {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0)
+    );
+  }
+  html[data-theme="dark"] .pillar-card:hover,
+  html[data-theme="dark"] .pillar-card:focus-within {
+    box-shadow: 0 42px 88px rgba(2, 6, 23, 0.72);
+  }
+  html[data-theme="dark"] .pillar-subhead {
+    color: rgba(var(--pillar-secondary), 0.9);
+  }
+  html[data-theme="dark"] .pillar-card p {
+    color: rgba(226, 232, 240, 0.85);
+  }
+  html[data-theme="dark"] .next {
+    background: rgba(var(--surface-rgb), 0.9);
+    border-color: rgba(148, 163, 184, 0.18);
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.62);
+  }
+  html[data-theme="dark"] .next::before {
+    background: radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.32),
+      transparent 70%
+    );
+    opacity: 0.85;
+  }
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  [data-animate="stagger"] > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(var(--stagger-index, 0) * 0.12s + 0.1s);
+  }
+  [data-animate="stagger"].is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  [data-animate="pop"] {
+    transform: scale(0.92) translateY(32px);
+  }
+  [data-animate="pop"].is-visible {
+    transform: scale(1) translateY(0);
+  }
+  @media (max-width: 1080px) {
+    .hero {
+      grid-template-columns: minmax(300px, 1fr) minmax(220px, 0.85fr);
+    }
+  }
+  @media (max-width: 960px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-content {
+      justify-items: center;
+    }
+    .hero-content .lede {
+      text-align: center;
+    }
+  }
+  @media (max-width: 720px) {
+    main {
+      width: min(92vw, 100%);
+      padding: 3rem 1rem 3.5rem;
+    }
+    .hero {
+      padding: clamp(2rem, 6vw, 2.5rem);
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+  }
 </style>
 <script is:inline>
-        const animatedElements = document.querySelectorAll('[data-animate]');
-        if (animatedElements.length) {
-                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-                if (prefersReducedMotion.matches) {
-                        animatedElements.forEach((element) => {
-                                if (element.dataset.animate === 'stagger') {
-                                        element.querySelectorAll(':scope > *').forEach((child) => {
-                                                child.style.removeProperty('opacity');
-                                                child.style.removeProperty('transform');
-                                        });
-                                }
-                                element.classList.add('is-visible');
-                        });
-                } else {
-                        animatedElements.forEach((element) => {
-                                if (element.dataset.animate === 'stagger') {
-                                        element.querySelectorAll(':scope > *').forEach((child, index) => {
-                                                child.style.setProperty('--stagger-index', index);
-                                        });
-                                }
-                        });
-                        const observer = new IntersectionObserver(
-                                (entries) => {
-                                        entries.forEach((entry) => {
-                                                if (entry.isIntersecting) {
-                                                        entry.target.classList.add('is-visible');
-                                                        observer.unobserve(entry.target);
-                                                }
-                                        });
-                                },
-                                {
-                                        threshold: 0.2,
-                                        rootMargin: '0px 0px -80px 0px',
-                                }
-                        );
-                        animatedElements.forEach((element) => observer.observe(element));
-                }
+  const animatedElements = document.querySelectorAll("[data-animate]");
+  if (animatedElements.length) {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+    if (prefersReducedMotion.matches) {
+      animatedElements.forEach((element) => {
+        if (element.dataset.animate === "stagger") {
+          element.querySelectorAll(":scope > *").forEach((child) => {
+            child.style.removeProperty("opacity");
+            child.style.removeProperty("transform");
+          });
         }
+        element.classList.add("is-visible");
+      });
+    } else {
+      animatedElements.forEach((element) => {
+        if (element.dataset.animate === "stagger") {
+          element.querySelectorAll(":scope > *").forEach((child, index) => {
+            child.style.setProperty("--stagger-index", index);
+          });
+        }
+      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: "0px 0px -80px 0px",
+        }
+      );
+      animatedElements.forEach((element) => observer.observe(element));
+    }
+  }
 </script>

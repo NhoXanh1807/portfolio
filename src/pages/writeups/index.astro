@@ -41,108 +41,180 @@ const pageTitle = "Writeups | " + SITE_TITLE;
 	</head>
 	<body>
 		<Header />
-		<main>
-			<header class="page-header">
-				<h1>Writeups</h1>
-				<p>
-					Every investigation note is written in Markdown and lives inside <code>src/content/writeups</code>.
-					Drop screenshots beneath <code>public/images/writeups/&lt;slug&gt;/</code> and reference them right
-					inside the Markdown body.
-				</p>
-			</header>
+                <main>
+                        <header class="page-header">
+                                <div class="page-heading">
+                                        <span class="eyebrow">Investigation Library</span>
+                                        <h1>Writeups</h1>
+                                </div>
+                                <p>
+                                        Every investigation note is written in Markdown and lives inside <code>src/content/writeups</code>.
+                                        Drop screenshots beneath <code>public/images/writeups/&lt;slug&gt;/</code> and reference them right
+                                        inside the Markdown body.
+                                </p>
+                        </header>
 
-			<section class="grid">
-				{writeups.map((entry) => (
-					<article class="card">
-						<a class="card-link" href={`/writeups/${entry.slug}/`}>
-							{entry.heroImage && (
-								<img class="hero" src={entry.heroImage} alt={entry.title} loading="lazy" />
-							)}
-							<div class="meta">
-								<p class="posted">{entry.pubDate.toLocaleDateString()}</p>
-								<h2>{entry.title}</h2>
-								<p class="summary">{entry.summary}</p>
-								{entry.tools.length > 0 && (
-									<ul class="tools" aria-label="Tooling">
-										{entry.tools.map((tool) => (
-											<li>{tool}</li>
-										))}
-									</ul>
-								)}
-								{entry.tags.length > 0 && (
-									<ul class="tags" aria-label="Tags">
-										{entry.tags.map((tag) => (
-											<li>{tag}</li>
-										))}
-									</ul>
-								)}
-							</div>
-						</a>
-					</article>
-				))}
-			</section>
-		</main>
+                        <section class="grid">
+                                {writeups.map((entry) => (
+                                        <article class="card">
+                                                <a class="card-link" href={`/writeups/${entry.slug}/`}>
+                                                        <div class="card-sheen" aria-hidden="true"></div>
+                                                        {entry.heroImage && (
+                                                                <img class="hero" src={entry.heroImage} alt={entry.title} loading="lazy" />
+                                                        )}
+                                                        <div class="meta">
+                                                                <div class="meta-top">
+                                                                        <p class="posted">{entry.pubDate.toLocaleDateString()}</p>
+                                                                        {entry.updatedDate && (
+                                                                                <p class="updated">Updated {entry.updatedDate.toLocaleDateString()}</p>
+                                                                        )}
+                                                                </div>
+                                                                <h2>{entry.title}</h2>
+                                                                <p class="summary">{entry.summary}</p>
+                                                                {entry.tools.length > 0 && (
+                                                                        <ul class="tools" aria-label="Tooling">
+                                                                                {entry.tools.map((tool) => (
+                                                                                        <li>{tool}</li>
+                                                                                ))}
+                                                                        </ul>
+                                                                )}
+                                                                {entry.tags.length > 0 && (
+                                                                        <ul class="tags" aria-label="Tags">
+                                                                                {entry.tags.map((tag) => (
+                                                                                        <li>{tag}</li>
+                                                                                ))}
+                                                                        </ul>
+                                                                )}
+                                                        </div>
+                                                </a>
+                                        </article>
+                                ))}
+                        </section>
+                </main>
 		<Footer />
 	</body>
 </html>
 
 <style>
-	main {
-		max-width: 1060px;
-		margin: 0 auto;
-		padding: 3rem 1.5rem 5rem;
-	}
-	.page-header {
-		margin-bottom: 2.5rem;
-	}
-	.page-header p {
-		max-width: 70ch;
-	}
-	.grid {
-		display: grid;
-		gap: 2rem;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	}
-	.card {
-		background: rgb(var(--surface-rgb));
-		border-radius: 1.1rem;
-		box-shadow: var(--box-shadow);
-		overflow: hidden;
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
-	}
-	.card-link {
-		display: block;
-		text-decoration: none;
-		color: inherit;
-		height: 100%;
-	}
-	.card:hover {
-		transform: translateY(-6px);
-		box-shadow: 0 18px 34px rgba(15, 23, 42, 0.18);
-	}
-	.hero {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-	}
-	.meta {
-		padding: 1.75rem 1.5rem 1.5rem;
-		color: rgb(var(--gray-dark));
-		display: grid;
-		gap: 1rem;
-	}
-	.posted {
-		margin: 0;
-		font-size: 0.9rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: rgba(var(--gray), 0.8);
-	}
-	.summary {
-		margin: 0;
-		color: rgba(var(--gray-dark), 0.9);
-		line-height: 1.6;
-	}
+        main {
+                max-width: min(1220px, 100%);
+                margin: 0 auto;
+                padding: 4rem 1.5rem 5.5rem;
+        }
+        .page-header {
+                margin-bottom: 3.5rem;
+                display: grid;
+                gap: 1.25rem;
+                background: rgba(255, 255, 255, 0.85);
+                border-radius: 1.5rem;
+                padding: 2.25rem clamp(1.5rem, 4vw, 2.5rem);
+                box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+                position: relative;
+                overflow: hidden;
+                isolation: isolate;
+        }
+        .page-header::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(120deg, rgba(14, 165, 233, 0.16), rgba(16, 185, 129, 0.18));
+                opacity: 0.7;
+                z-index: -2;
+                animation: headerRibbonDrift 22s ease-in-out infinite;
+        }
+        .page-header::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(255, 255, 255, 0.75);
+                z-index: -1;
+        }
+        .page-header p {
+                max-width: 70ch;
+                margin: 0;
+        }
+        .page-heading {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 1rem;
+        }
+        .page-heading h1 {
+                font-size: clamp(2.4rem, 4vw, 3rem);
+                margin: 0;
+        }
+        .eyebrow {
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                font-size: 0.9rem;
+                background: rgba(var(--accent), 0.2);
+                color: rgb(var(--black));
+                padding: 0.4rem 0.8rem;
+                border-radius: 999px;
+                font-weight: 700;
+        }
+        .grid {
+                display: grid;
+                gap: 2.5rem;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+        .card {
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 1.35rem;
+                box-shadow: 0 30px 60px rgba(15, 23, 42, 0.14);
+                overflow: hidden;
+                transition: transform 0.35s ease, box-shadow 0.35s ease;
+                position: relative;
+                isolation: isolate;
+        }
+        .card-link {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                height: 100%;
+                position: relative;
+        }
+        .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 40px 70px rgba(15, 23, 42, 0.2);
+        }
+        .hero {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                max-height: 220px;
+        }
+        .meta {
+                padding: 1.85rem 1.75rem 1.75rem;
+                color: rgb(var(--gray-dark));
+                display: grid;
+                gap: 1.1rem;
+        }
+        .posted {
+                margin: 0;
+                font-size: 0.9rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: rgba(var(--gray), 0.8);
+        }
+        .updated {
+                margin: 0;
+                font-size: 0.9rem;
+                color: rgba(var(--accent), 0.9);
+                font-weight: 600;
+        }
+        .meta-top {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 0.75rem;
+                align-items: baseline;
+        }
+        .summary {
+                margin: 0;
+                color: rgba(var(--gray-dark), 0.9);
+                line-height: 1.6;
+        }
 	.tools,
 	.tags {
 		margin: 0;
@@ -161,13 +233,38 @@ const pageTitle = "Writeups | " + SITE_TITLE;
 		color: var(--accent);
 		font-weight: 600;
 	}
-	.tags li {
-		background: rgba(var(--gray-light), 0.45);
-		color: rgb(var(--gray-dark));
-	}
-	@media (max-width: 720px) {
-		main {
-			padding: 2.5rem 1rem 4rem;
-		}
-	}
+        .tags li {
+                background: rgba(var(--gray-light), 0.45);
+                color: rgb(var(--gray-dark));
+        }
+        .card-sheen {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(120deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 80%);
+                transform: translateX(-100%);
+                transition: transform 0.8s ease;
+                z-index: 1;
+        }
+        .card:hover .card-sheen {
+                transform: translateX(120%);
+        }
+        @keyframes headerRibbonDrift {
+                0% {
+                        transform: translate3d(-10px, -6px, 0) scale(1);
+                }
+                50% {
+                        transform: translate3d(12px, 8px, 0) scale(1.02);
+                }
+                100% {
+                        transform: translate3d(-10px, -6px, 0) scale(1);
+                }
+        }
+        @media (max-width: 720px) {
+                main {
+                        padding: 3rem 1rem 4.5rem;
+                }
+                .page-header {
+                        padding: 2rem 1.5rem;
+                }
+        }
 </style>

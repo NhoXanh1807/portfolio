@@ -79,6 +79,24 @@ import mainLogo from "../assets/main-logo.png";
               ></path>
             </svg>
           </a>
+          <a href="https://twitter.com" target="_blank">
+            <span class="sr-only">Follow on X (Twitter)</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32">
+              <path
+                fill="currentColor"
+                d="M3.5 3h5.34l3.96 5.61L16.53 3H21l-6.65 7.19L21.5 21h-5.34l-4.24-6.01L7.47 21H3l6.81-7.46z"
+              ></path>
+            </svg>
+          </a>
+          <a href="https://cyberdefenders.org" target="_blank">
+            <span class="sr-only">View CyberDefenders profile</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32">
+              <path
+                fill="currentColor"
+                d="M12 2 4 5v6.6c0 4.45 3.3 8.8 8 10.4 4.7-1.6 8-5.95 8-10.4V5zm0 2.1 6 2.4v5.1c0 3.35-2.46 6.72-6 8.05-3.54-1.33-6-4.7-6-8.05V6.5zm0 3a4.5 4.5 0 0 0-4.5 4.5c0 3.3 2.83 6.22 4.5 7.07 1.67-.85 4.5-3.77 4.5-7.07A4.5 4.5 0 0 0 12 9.5zm0 2a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5z"
+              ></path>
+            </svg>
+          </a>
         </div>
       </div>
     </nav>
@@ -128,7 +146,6 @@ import mainLogo from "../assets/main-logo.png";
     margin: 0;
     font-size: 1.15em;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
     display: flex;
   }
 
@@ -144,22 +161,6 @@ import mainLogo from "../assets/main-logo.png";
     background: rgba(var(--surface-rgb), 0.6);
     box-shadow: inset 0 0 0 1px rgba(var(--black), 0.08);
     position: relative;
-    overflow: hidden;
-  }
-  h2 a::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      120deg,
-      rgba(56, 189, 248, 0.35),
-      rgba(16, 185, 129, 0.3)
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  h2 a:hover::after {
-    opacity: 1;
   }
   .logo-pill {
     width: 0.65rem;

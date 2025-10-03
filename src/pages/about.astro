@@ -1,63 +1,274 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
+import Layout from "../layouts/BlogPost.astro";
+
+const personalDetails = [
+  { label: "Tên", value: "WangTe0f" },
+  { label: "Chức danh", value: "Security Engineer / Offensive Researcher" },
+  { label: "Địa điểm", value: "TP. Hồ Chí Minh, Việt Nam" },
+  { label: "Kinh nghiệm", value: "5+ năm khai thác và phòng thủ hạ tầng" },
+  { label: "Email", value: "wangte0f@proton.me" },
+  { label: "Sở thích", value: "Threat hunting, CTFs, mentoring" }
+];
+
+const tools = [
+  { name: "Burp Suite", icon: "🦊" },
+  { name: "Wireshark", icon: "🦈" },
+  { name: "Nmap", icon: "📡" },
+  { name: "Metasploit", icon: "🎯" },
+  { name: "Splunk", icon: "📊" },
+  { name: "CyberChef", icon: "🧪" }
+];
+
+const certifications = [
+  {
+    title: "Offensive Security Certified Professional",
+    issuer: "OffSec",
+    year: "2022",
+    link: "https://www.offsec.com/certifications/oscp/"
+  },
+  {
+    title: "GIAC Penetration Tester",
+    issuer: "SANS Institute",
+    year: "2021",
+    link: "https://www.giac.org/certifications/penetration-tester-gpen/"
+  },
+  {
+    title: "eLearnSecurity Web Application Penetration Tester",
+    issuer: "INE",
+    year: "2020",
+    link: "https://elearnsecurity.com/product/ewpt/"
+  },
+  {
+    title: "CyberDefenders Blue Team Labs",
+    issuer: "CyberDefenders",
+    year: "2023",
+    link: "https://cyberdefenders.org/"
+  }
+];
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+  title="About Me"
+  description="Hành trình theo đuổi an ninh mạng của WangTe0f"
+  pubDate={new Date("August 08 2021")}
+  heroImage={AboutHeroImage}
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+  <section class="about-intro" data-animate="stagger">
+    <h2>Thông tin cá nhân</h2>
+    <div class="about-grid">
+      {personalDetails.map((item) => (
+        <div class="info-card">
+          <span class="info-label">{item.label}</span>
+          <span class="info-value">{item.value}</span>
+        </div>
+      ))}
+    </div>
+  </section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+  <section class="about-mission" data-animate>
+    <h2>Mục tiêu nghề nghiệp &amp; lý tưởng sống</h2>
+    <p>
+      Tôi theo đuổi việc xây dựng những hệ thống an toàn hơn bằng cách hiểu sâu sắc cách chúng bị phá vỡ.
+      Lý tưởng của tôi là chia sẻ kiến thức, nâng đỡ cộng đồng an ninh mạng Việt Nam và giữ vững tinh thần
+      học hỏi suốt đời. Mỗi dự án tôi tham gia đều hướng đến việc cân bằng giữa tư duy tấn công sáng tạo và
+      khả năng phòng thủ bền vững cho doanh nghiệp.
+    </p>
+  </section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+  <section class="about-tools" data-animate>
+    <h2>Toolbelt hằng ngày</h2>
+    <div class="tools-track">
+      {tools.map((tool) => (
+        <div class="tool-chip">
+          <span class="tool-icon" aria-hidden="true">{tool.icon}</span>
+          <span class="tool-name">{tool.name}</span>
+        </div>
+      ))}
+    </div>
+  </section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+  <section class="about-certs" data-animate>
+    <h2>Chứng chỉ tiêu biểu</h2>
+    <p class="cert-note">
+      Kéo ngang để xem các chứng chỉ giúp tôi hệ thống hoá kiến thức và duy trì tư duy tấn công/phòng thủ cập nhật.
+    </p>
+    <div class="cert-slider" tabindex="0">
+      {certifications.map((cert) => (
+        <a class="cert-card" href={cert.link} target="_blank" rel="noreferrer">
+          <span class="cert-title">{cert.title}</span>
+          <span class="cert-issuer">{cert.issuer}</span>
+          <span class="cert-year">{cert.year}</span>
+        </a>
+      ))}
+    </div>
+  </section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+  <section class="about-closing" data-animate>
+    <p>
+      Dù là tham gia CTF, nghiên cứu khai thác hay cố vấn đội Blue Team, tôi luôn ưu tiên sự rõ ràng, minh bạch
+      và khả năng mở rộng cho mọi giải pháp. Nếu bạn muốn cộng tác hoặc đơn giản là trao đổi về các bài học từ
+      chiến trường an ninh mạng, hãy kết nối cùng tôi.
+    </p>
+  </section>
 </Layout>
+
+<style>
+  .about-intro,
+  .about-mission,
+  .about-tools,
+  .about-certs,
+  .about-closing {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-intro h2,
+  .about-mission h2,
+  .about-tools h2,
+  .about-certs h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.35rem, 1.2rem + 0.4vw, 1.75rem);
+    color: rgb(var(--black));
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .info-card {
+    border-radius: 1rem;
+    padding: 1rem;
+    background: rgba(var(--surface-rgb), 0.85);
+    box-shadow: inset 0 0 0 1px rgba(var(--black), 0.05), 0 12px 30px rgba(var(--black), 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .info-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(var(--black), 0.55);
+  }
+
+  .info-value {
+    font-weight: 600;
+    color: rgb(var(--black));
+  }
+
+  .about-mission p {
+    line-height: 1.75;
+  }
+
+  .tools-track {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(120deg, rgba(14, 165, 233, 0.15), rgba(16, 185, 129, 0.18));
+    box-shadow: inset 0 0 0 1px rgba(var(--black), 0.06);
+    justify-content: center;
+  }
+
+  .tool-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    background: rgba(var(--surface-rgb), 0.9);
+    box-shadow: 0 10px 24px rgba(var(--black), 0.1);
+  }
+
+  .tool-icon {
+    font-size: 1.35rem;
+  }
+
+  .tool-name {
+    font-weight: 600;
+  }
+
+  .about-certs {
+    position: relative;
+  }
+
+  .cert-note {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: rgba(var(--black), 0.65);
+  }
+
+  .cert-slider {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(220px, 1fr);
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .cert-slider::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .cert-slider::-webkit-scrollbar-thumb {
+    background: rgba(var(--black), 0.2);
+    border-radius: 999px;
+  }
+
+  .cert-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background: rgba(var(--surface-rgb), 0.92);
+    box-shadow: 0 12px 28px rgba(var(--black), 0.12);
+    text-decoration: none;
+    color: inherit;
+    scroll-snap-align: start;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .cert-card:hover,
+  .cert-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(var(--black), 0.18);
+  }
+
+  .cert-title {
+    font-weight: 700;
+  }
+
+  .cert-issuer {
+    font-size: 0.9rem;
+    color: rgba(var(--black), 0.65);
+  }
+
+  .cert-year {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(var(--black), 0.5);
+  }
+
+  .about-closing p {
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 720px) {
+    .tools-track {
+      border-radius: 1.5rem;
+    }
+
+    .cert-slider {
+      grid-auto-columns: minmax(180px, 80%);
+    }
+  }
+</style>

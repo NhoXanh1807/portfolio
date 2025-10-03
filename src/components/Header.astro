@@ -1,6 +1,7 @@
 ﻿---
 import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
+import mainLogoUrl from "../assets/main-logo.png";
 ---
 
 <header>
@@ -8,7 +9,7 @@ import HeaderLink from "./HeaderLink.astro";
     <nav>
       <h2>
         <a href="/">
-          <img src="../assets/main-logo.png" alt="Logo" class="logo-img" />
+          <img src={mainLogoUrl} alt="Logo" class="logo-img" />
           {SITE_TITLE}
         </a>
       </h2>
@@ -354,6 +355,11 @@ import HeaderLink from "./HeaderLink.astro";
     .social-links {
       display: none;
     }
+  }
+  .logo-img {
+    height: 40px; /* chỉnh lại theo nhu cầu */
+    width: auto;
+    border-radius: 8px; /* nếu muốn bo góc */
   }
 </style>
 

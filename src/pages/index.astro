@@ -12,20 +12,27 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section class="hero">
-				<p class="eyebrow">Cybersecurity Specialist - Offensive Security - Blue Team Ally</p>
-				<h1>Strengthening defenses through hands-on security research.</h1>
-				<p class="lede">
-					I help organizations understand how attackers think, harden their infrastructure, and respond to
-					real incidents. Explore my project work, incident writeups, and experience to see how I turn
-					curiosity into resilient security outcomes.
-				</p>
-				<div class="hero-actions">
-					<a class="cta" href="/projects">View Projects</a>
-					<a class="ghost" href="/writeups">Read Writeups</a>
-				</div>
-			</section>
+                <main>
+                        <section class="hero">
+                                <div class="hero-content">
+                                        <p class="eyebrow">Cybersecurity Specialist - Offensive Security - Blue Team Ally</p>
+                                        <h1>Strengthening defenses through hands-on security research.</h1>
+                                        <p class="lede">
+                                                I help organizations understand how attackers think, harden their infrastructure, and respond to
+                                                real incidents. Explore my project work, incident writeups, and experience to see how I turn
+                                                curiosity into resilient security outcomes.
+                                        </p>
+                                        <div class="hero-actions">
+                                                <a class="cta" href="/projects">View Projects</a>
+                                                <a class="ghost" href="/writeups">Read Writeups</a>
+                                        </div>
+                                </div>
+                                <div class="hero-visual" aria-hidden="true">
+                                        <div class="orb orb-primary"></div>
+                                        <div class="orb orb-secondary"></div>
+                                        <div class="grid-overlay"></div>
+                                </div>
+                        </section>
 
 			<section class="pillars">
 				<h2>Focus Areas</h2>
@@ -77,89 +84,237 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 </html>
 
 <style>
-	main {
-		max-width: 960px;
-		margin: 0 auto;
-		padding: 3rem 1.5rem 4rem;
-		color: var(--black);
+        main {
+                max-width: min(1220px, 100%);
+                margin: 0 auto;
+                padding: 4rem 1.5rem 5rem;
+                color: var(--black);
+        }
+        section {
+                margin-bottom: 3rem;
+        }
+        .hero {
+                display: grid;
+                gap: 2.5rem;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                align-items: center;
+                background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.25), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.2), transparent 50%),
+                        rgba(var(--surface-rgb), 0.82);
+                padding: clamp(2.5rem, 4vw + 1rem, 4rem);
+                border-radius: 1.8rem;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+                isolation: isolate;
+        }
+        .hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(120deg, rgba(56, 189, 248, 0.12), rgba(34, 197, 94, 0.12));
+                opacity: 0;
+                transition: opacity 0.6s ease;
+                z-index: -1;
+        }
+        .hero:hover::after {
+                opacity: 1;
+        }
+        .hero-content {
+                display: grid;
+                gap: 1.5rem;
+        }
+        .eyebrow {
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                color: var(--accent);
+                font-weight: 600;
+                background: rgba(var(--accent), 0.18);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.45rem 0.9rem;
+                border-radius: 999px;
+                width: fit-content;
+        }
+        .lede {
+                font-size: 1.15rem;
+                line-height: 1.7;
+                max-width: 60ch;
 	}
-	section {
-		margin-bottom: 3rem;
-	}
-	.hero {
-		display: grid;
-		gap: 1.5rem;
-	}
-	.eyebrow {
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		font-size: 0.85rem;
-		color: var(--accent);
-		font-weight: 600;
-	}
-	.lede {
-		font-size: 1.15rem;
-		line-height: 1.7;
-		max-width: 60ch;
-	}
-	.hero-actions {
-		display: flex;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-	.cta,
-	.ghost {
-		display: inline-flex;
-		align-items: center;
+        .hero-actions {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                align-items: center;
+        }
+        .cta,
+        .ghost {
+                display: inline-flex;
+                align-items: center;
 		justify-content: center;
 		padding: 0.75rem 1.5rem;
 		border-radius: 999px;
 		font-weight: 600;
 		text-decoration: none;
 	}
-	.cta {
-		background: var(--accent);
-		color: white;
-	}
-	.ghost {
-		border: 2px solid var(--accent);
-		color: var(--accent);
-	}
-	.pillars .grid {
-		display: grid;
-		gap: 1.5rem;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	}
-	.pillars article {
-		padding: 1.5rem;
-		border: 1px solid rgba(var(--black), 0.08);
-		border-radius: 1rem;
-		box-shadow: 0 8px 24px rgba(var(--black), 0.06);
-	}
-	.highlights ul {
-		list-style: none;
-		padding: 0;
-		display: grid;
-		gap: 1rem;
-	}
-	.highlights li {
-		background: rgba(var(--accent), 0.08);
-		padding: 1rem 1.25rem;
-		border-radius: 0.75rem;
-	}
-	.next {
-		text-align: center;
-		padding: 2rem;
-		border: 1px solid rgba(var(--black), 0.08);
-		border-radius: 1rem;
-		box-shadow: 0 8px 24px rgba(var(--black), 0.05);
-	}
-	.next p {
-		margin-bottom: 1.5rem;
-	}
-	@media (max-width: 720px) {
-		main {
-			padding: 2.5rem 1rem 3rem;
-		}
-	}
+        .cta {
+                background: var(--accent);
+                color: white;
+                box-shadow: 0 24px 48px rgba(16, 185, 129, 0.35);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .ghost {
+                border: 2px solid var(--accent);
+                color: var(--accent);
+                transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+        .cta:hover,
+        .ghost:hover {
+                transform: translateY(-3px);
+        }
+        .cta:hover {
+                box-shadow: 0 28px 62px rgba(16, 185, 129, 0.45);
+        }
+        .ghost:hover {
+                color: rgb(20, 83, 45);
+                border-color: rgb(16, 185, 129);
+        }
+        .hero-visual {
+                position: relative;
+                min-height: 240px;
+        }
+        .orb {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(0px);
+                opacity: 0.75;
+                animation: float 12s ease-in-out infinite;
+                mix-blend-mode: screen;
+        }
+        .orb-primary {
+                width: 240px;
+                height: 240px;
+                top: 10%;
+                left: 12%;
+                background: radial-gradient(circle, rgba(129, 140, 248, 0.85), rgba(79, 70, 229, 0));
+                animation-delay: 0s;
+        }
+        .orb-secondary {
+                width: 180px;
+                height: 180px;
+                bottom: 10%;
+                right: 5%;
+                background: radial-gradient(circle, rgba(16, 185, 129, 0.85), rgba(16, 185, 129, 0));
+                animation-delay: -4s;
+        }
+        .grid-overlay {
+                position: absolute;
+                inset: 8%;
+                border-radius: 1.5rem;
+                background-image: linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+                background-size: 22px 22px;
+                mask: radial-gradient(circle at center, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0) 70%);
+                animation: heroGridDrift 18s linear infinite;
+        }
+        @keyframes heroGridDrift {
+                0% {
+                        transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+                50% {
+                        transform: translate3d(12px, -10px, 0) rotate(2deg);
+                }
+                100% {
+                        transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+        }
+        @keyframes float {
+                0%,
+                100% {
+                        transform: translate3d(0, 0, 0) scale(1);
+                }
+                50% {
+                        transform: translate3d(16px, -14px, 0) scale(1.08);
+                }
+        }
+        .pillars .grid {
+                display: grid;
+                gap: 1.5rem;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        .pillars article {
+                padding: 1.5rem;
+                border: 1px solid rgba(var(--black), 0.08);
+                border-radius: 1rem;
+                box-shadow: 0 16px 32px rgba(var(--black), 0.08);
+                background: rgba(255, 255, 255, 0.86);
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pillars article::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(129, 140, 248, 0.08), rgba(16, 185, 129, 0.08));
+                opacity: 0;
+                transition: opacity 0.3s ease;
+        }
+        .pillars article:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 28px 48px rgba(15, 23, 42, 0.15);
+        }
+        .pillars article:hover::before {
+                opacity: 1;
+        }
+        .highlights ul {
+                list-style: none;
+                padding: 0;
+                display: grid;
+                gap: 1.25rem;
+        }
+        .highlights li {
+                background: linear-gradient(90deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.12));
+                padding: 1.1rem 1.45rem;
+                border-radius: 1rem;
+                border: 1px solid rgba(var(--accent), 0.15);
+                box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .highlights li:hover {
+                transform: translateX(6px);
+                box-shadow: 0 24px 40px rgba(15, 23, 42, 0.14);
+        }
+        .next {
+                text-align: center;
+                padding: clamp(2rem, 4vw, 2.75rem);
+                border: 1px solid rgba(var(--black), 0.08);
+                border-radius: 1.3rem;
+                box-shadow: 0 20px 40px rgba(var(--black), 0.07);
+                background: rgba(255, 255, 255, 0.92);
+                position: relative;
+                overflow: hidden;
+        }
+        .next p {
+                margin-bottom: 1.5rem;
+        }
+        .next::before {
+                content: "";
+                position: absolute;
+                inset: -40% -20% auto;
+                height: 60%;
+                background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 70%);
+                animation: float 16s ease-in-out infinite;
+                opacity: 0.7;
+        }
+        @media (max-width: 720px) {
+                main {
+                        padding: 3rem 1rem 3.5rem;
+                }
+                .hero {
+                        padding: 2.5rem;
+                }
+        }
 </style>

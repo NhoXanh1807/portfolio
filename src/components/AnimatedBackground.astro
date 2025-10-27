@@ -1,0 +1,249 @@
+---
+// Animated Background with Particles
+---
+
+<div class="animated-bg" aria-hidden="true">
+  <div class="particles-container">
+    {Array.from({ length: 50 }).map(() => (
+      <div class="particle"></div>
+    ))}
+  </div>
+  <div class="gradient-orbs">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+  <div class="animated-mesh"></div>
+</div>
+
+<style>
+  .animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .particle {
+    position: absolute;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat var(--duration) linear infinite;
+    --duration: calc(15s + (var(--random) * 25s));
+  }
+
+  .particle:nth-child(1) { left: 10%; --random: 0.1; width: 3px; height: 3px; animation-delay: -2s; }
+  .particle:nth-child(2) { left: 20%; --random: 0.4; width: 5px; height: 5px; animation-delay: -5s; }
+  .particle:nth-child(3) { left: 30%; --random: 0.7; width: 2px; height: 2px; animation-delay: -8s; }
+  .particle:nth-child(4) { left: 40%; --random: 0.2; width: 4px; height: 4px; animation-delay: -3s; }
+  .particle:nth-child(5) { left: 50%; --random: 0.9; width: 3px; height: 3px; animation-delay: -12s; }
+  .particle:nth-child(6) { left: 60%; --random: 0.3; width: 6px; height: 6px; animation-delay: -6s; }
+  .particle:nth-child(7) { left: 70%; --random: 0.6; width: 2px; height: 2px; animation-delay: -9s; }
+  .particle:nth-child(8) { left: 80%; --random: 0.8; width: 4px; height: 4px; animation-delay: -11s; }
+  .particle:nth-child(9) { left: 90%; --random: 0.5; width: 3px; height: 3px; animation-delay: -7s; }
+  .particle:nth-child(10) { left: 15%; --random: 0.35; width: 5px; height: 5px; animation-delay: -4s; }
+  .particle:nth-child(11) { left: 25%; --random: 0.65; width: 3px; height: 3px; animation-delay: -10s; }
+  .particle:nth-child(12) { left: 35%; --random: 0.15; width: 4px; height: 4px; animation-delay: -1s; }
+  .particle:nth-child(13) { left: 45%; --random: 0.85; width: 2px; height: 2px; animation-delay: -13s; }
+  .particle:nth-child(14) { left: 55%; --random: 0.25; width: 5px; height: 5px; animation-delay: -5s; }
+  .particle:nth-child(15) { left: 65%; --random: 0.75; width: 3px; height: 3px; animation-delay: -9s; }
+  .particle:nth-child(16) { left: 75%; --random: 0.45; width: 4px; height: 4px; animation-delay: -7s; }
+  .particle:nth-child(17) { left: 85%; --random: 0.95; width: 2px; height: 2px; animation-delay: -14s; }
+  .particle:nth-child(18) { left: 95%; --random: 0.55; width: 3px; height: 3px; animation-delay: -8s; }
+  .particle:nth-child(19) { left: 12%; --random: 0.12; width: 4px; height: 4px; animation-delay: -2s; }
+  .particle:nth-child(20) { left: 22%; --random: 0.42; width: 5px; height: 5px; animation-delay: -6s; }
+  .particle:nth-child(21) { left: 32%; --random: 0.72; width: 2px; height: 2px; animation-delay: -10s; }
+  .particle:nth-child(22) { left: 42%; --random: 0.22; width: 3px; height: 3px; animation-delay: -3s; }
+  .particle:nth-child(23) { left: 52%; --random: 0.92; width: 4px; height: 4px; animation-delay: -13s; }
+  .particle:nth-child(24) { left: 62%; --random: 0.32; width: 5px; height: 5px; animation-delay: -5s; }
+  .particle:nth-child(25) { left: 72%; --random: 0.62; width: 3px; height: 3px; animation-delay: -8s; }
+  .particle:nth-child(26) { left: 82%; --random: 0.82; width: 2px; height: 2px; animation-delay: -11s; }
+  .particle:nth-child(27) { left: 92%; --random: 0.52; width: 4px; height: 4px; animation-delay: -7s; }
+  .particle:nth-child(28) { left: 17%; --random: 0.17; width: 3px; height: 3px; animation-delay: -2s; }
+  .particle:nth-child(29) { left: 27%; --random: 0.47; width: 5px; height: 5px; animation-delay: -6s; }
+  .particle:nth-child(30) { left: 37%; --random: 0.77; width: 2px; height: 2px; animation-delay: -9s; }
+  .particle:nth-child(31) { left: 47%; --random: 0.27; width: 4px; height: 4px; animation-delay: -4s; }
+  .particle:nth-child(32) { left: 57%; --random: 0.87; width: 3px; height: 3px; animation-delay: -12s; }
+  .particle:nth-child(33) { left: 67%; --random: 0.37; width: 5px; height: 5px; animation-delay: -6s; }
+  .particle:nth-child(34) { left: 77%; --random: 0.67; width: 2px; height: 2px; animation-delay: -9s; }
+  .particle:nth-child(35) { left: 87%; --random: 0.97; width: 4px; height: 4px; animation-delay: -14s; }
+  .particle:nth-child(36) { left: 13%; --random: 0.13; width: 3px; height: 3px; animation-delay: -2s; }
+  .particle:nth-child(37) { left: 23%; --random: 0.43; width: 5px; height: 5px; animation-delay: -6s; }
+  .particle:nth-child(38) { left: 33%; --random: 0.73; width: 2px; height: 2px; animation-delay: -9s; }
+  .particle:nth-child(39) { left: 43%; --random: 0.23; width: 4px; height: 4px; animation-delay: -3s; }
+  .particle:nth-child(40) { left: 53%; --random: 0.93; width: 3px; height: 3px; animation-delay: -13s; }
+  .particle:nth-child(41) { left: 63%; --random: 0.33; width: 5px; height: 5px; animation-delay: -5s; }
+  .particle:nth-child(42) { left: 73%; --random: 0.63; width: 2px; height: 2px; animation-delay: -8s; }
+  .particle:nth-child(43) { left: 83%; --random: 0.83; width: 4px; height: 4px; animation-delay: -11s; }
+  .particle:nth-child(44) { left: 93%; --random: 0.53; width: 3px; height: 3px; animation-delay: -7s; }
+  .particle:nth-child(45) { left: 18%; --random: 0.18; width: 5px; height: 5px; animation-delay: -3s; }
+  .particle:nth-child(46) { left: 28%; --random: 0.48; width: 2px; height: 2px; animation-delay: -6s; }
+  .particle:nth-child(47) { left: 38%; --random: 0.78; width: 4px; height: 4px; animation-delay: -10s; }
+  .particle:nth-child(48) { left: 48%; --random: 0.28; width: 3px; height: 3px; animation-delay: -4s; }
+  .particle:nth-child(49) { left: 58%; --random: 0.88; width: 5px; height: 5px; animation-delay: -12s; }
+  .particle:nth-child(50) { left: 68%; --random: 0.38; width: 2px; height: 2px; animation-delay: -5s; }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translate3d(0, 100vh, 0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate3d(calc(var(--random) * 100px - 50px), -100px, 0);
+      opacity: 0;
+    }
+  }
+
+  .gradient-orbs {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    mix-blend-mode: screen;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.6), transparent 70%);
+    top: 10%;
+    left: -10%;
+    animation: orbFloat1 25s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.5), transparent 70%);
+    top: 40%;
+    right: -15%;
+    animation: orbFloat2 30s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.5), transparent 70%);
+    bottom: 10%;
+    left: 30%;
+    animation: orbFloat3 28s ease-in-out infinite;
+  }
+
+  @keyframes orbFloat1 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    33% {
+      transform: translate3d(100px, -80px, 0) scale(1.1);
+    }
+    66% {
+      transform: translate3d(-80px, 60px, 0) scale(0.9);
+    }
+  }
+
+  @keyframes orbFloat2 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    33% {
+      transform: translate3d(-120px, 70px, 0) scale(1.15);
+    }
+    66% {
+      transform: translate3d(90px, -90px, 0) scale(0.95);
+    }
+  }
+
+  @keyframes orbFloat3 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    33% {
+      transform: translate3d(80px, 100px, 0) scale(1.05);
+    }
+    66% {
+      transform: translate3d(-100px, -60px, 0) scale(0.92);
+    }
+  }
+
+  .animated-mesh {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(99, 102, 241, 0.03) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.03) 2px, transparent 2px);
+    background-size: 60px 60px;
+    animation: meshMove 20s linear infinite;
+    opacity: 0.4;
+  }
+
+  @keyframes meshMove {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(60px, 60px, 0);
+    }
+  }
+
+  html[data-theme="dark"] .particle {
+    background: rgba(139, 92, 246, 0.8);
+  }
+
+  html[data-theme="dark"] .orb-1 {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent 70%);
+  }
+
+  html[data-theme="dark"] .orb-2 {
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.35), transparent 70%);
+  }
+
+  html[data-theme="dark"] .orb-3 {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 70%);
+  }
+
+  html[data-theme="dark"] .animated-mesh {
+    background-image:
+      linear-gradient(rgba(139, 92, 246, 0.05) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(139, 92, 246, 0.05) 2px, transparent 2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .particle,
+    .gradient-orb,
+    .animated-mesh {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .particle {
+      display: none;
+    }
+    .gradient-orb {
+      filter: blur(60px);
+    }
+  }
+</style>

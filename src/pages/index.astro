@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import AnimatedBackground from "../components/AnimatedBackground.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
@@ -11,10 +12,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
+    <AnimatedBackground />
     <Header />
     <main>
-      <section class="hero" data-animate>
-        <div class="hero-content">
+      <section class="hero" data-animate="blur">
+        <div class="hero-content" data-animate="slide-left">
           <p class="eyebrow">Cybersecurity Newbie</p>
           <h1>Strengthening defenses through hands-on security research.</h1>
           <p class="lede">
@@ -35,7 +37,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         </div>
       </section>
 
-      <section class="pillars" data-animate>
+      <section class="pillars" data-animate="zoom">
         <h2>Focus Areas</h2>
         <div class="pillars-grid" data-animate="stagger">
           <article class="pillar-card pillar-card--adversary">
@@ -104,7 +106,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         </ul>
       </section>
 
-      <section class="next" data-animate>
+      <section class="next" data-animate="rotate-in">
         <h2>Need help with your security posture?</h2>
         <p>
           I am open to collaboration on penetration tests, purple team
@@ -210,33 +212,48 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     border-radius: 999px;
     font-weight: 600;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
   }
   .cta {
     background: var(--accent);
     color: white;
     box-shadow: 0 24px 48px rgba(16, 185, 129, 0.35);
     transition:
-      transform 0.3s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
       box-shadow 0.3s ease;
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%) skewX(-15deg);
+    transition: transform 0.6s ease;
   }
   .ghost {
     border: 2px solid var(--accent);
     color: var(--accent);
     transition:
-      transform 0.3s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
       border-color 0.3s ease,
-      color 0.3s ease;
+      color 0.3s ease,
+      background 0.3s ease;
   }
   .cta:hover,
   .ghost:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px) scale(1.05);
   }
   .cta:hover {
-    box-shadow: 0 28px 62px rgba(16, 185, 129, 0.45);
+    box-shadow: 0 32px 68px rgba(16, 185, 129, 0.5);
+  }
+  .cta:hover::before {
+    transform: translateX(100%) skewX(-15deg);
   }
   .ghost:hover {
-    color: rgb(20, 83, 45);
-    border-color: rgb(16, 185, 129);
+    color: white;
+    border-color: var(--accent);
+    background: var(--accent);
   }
   .hero-visual {
     position: relative;
@@ -466,12 +483,31 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     border: 1px solid rgba(var(--accent), 0.15);
     box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
     transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.4s ease,
+      border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 0;
+    background: var(--accent);
+    transition: height 0.3s ease, top 0.3s ease;
+    border-radius: 0 4px 4px 0;
   }
   .highlights li:hover {
-    transform: translateX(6px);
+    transform: translateX(12px) scale(1.02);
     box-shadow: 0 24px 40px rgba(15, 23, 42, 0.14);
+    border-color: rgba(var(--accent), 0.4);
+  }
+  .highlights li:hover::before {
+    height: 60%;
+    top: 20%;
   }
   .next {
     text-align: center;

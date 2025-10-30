@@ -4,12 +4,12 @@ import Layout from "../layouts/BlogPost.astro";
 import AnimatedBackground from "../components/AnimatedBackground.astro";
 
 const personalDetails = [
-  { label: "Tên", value: "WangTe0f" },
-  { label: "Chức danh", value: "Security Engineer / Offensive Researcher" },
-  { label: "Địa điểm", value: "TP. Hồ Chí Minh, Việt Nam" },
-  { label: "Kinh nghiệm", value: "5+ năm khai thác và phòng thủ hạ tầng" },
+  { label: "Name", value: "WangTe0f" },
+  { label: "Title", value: "Security Engineer / Offensive Researcher" },
+  { label: "Location", value: "Ho Chi Minh City, Vietnam" },
+  { label: "Experience", value: "5+ years in offensive and defensive security" },
   { label: "Email", value: "wangte0f@proton.me" },
-  { label: "Sở thích", value: "Threat hunting, CTFs, mentoring" }
+  { label: "Interests", value: "Threat hunting, CTFs, mentoring" }
 ];
 
 const tools = [
@@ -51,12 +51,12 @@ const certifications = [
 
 <Layout
   title="About Me"
-  description="Hành trình theo đuổi an ninh mạng của WangTe0f"
+  description="WangTe0f's journey in cybersecurity and offensive research"
   pubDate={new Date("August 08 2021")}
   heroImage={AboutHeroImage}
 >
   <section class="about-intro" data-animate="slide-right">
-    <h2>Thông tin cá nhân</h2>
+    <h2>Personal Information</h2>
     <div class="about-grid">
       {personalDetails.map((item) => (
         <div class="info-card">
@@ -68,17 +68,17 @@ const certifications = [
   </section>
 
   <section class="about-mission" data-animate="zoom">
-    <h2>Mục tiêu nghề nghiệp &amp; lý tưởng sống</h2>
+    <h2>Career Mission &amp; Philosophy</h2>
     <p>
-      Tôi theo đuổi việc xây dựng những hệ thống an toàn hơn bằng cách hiểu sâu sắc cách chúng bị phá vỡ.
-      Lý tưởng của tôi là chia sẻ kiến thức, nâng đỡ cộng đồng an ninh mạng Việt Nam và giữ vững tinh thần
-      học hỏi suốt đời. Mỗi dự án tôi tham gia đều hướng đến việc cân bằng giữa tư duy tấn công sáng tạo và
-      khả năng phòng thủ bền vững cho doanh nghiệp.
+      I pursue building more secure systems by deeply understanding how they can be broken.
+      My mission is to share knowledge, uplift the cybersecurity community, and maintain a
+      lifelong learning mindset. Every project I engage with aims to balance creative offensive
+      thinking with sustainable defensive capabilities for organizations.
     </p>
   </section>
 
   <section class="about-tools" data-animate="slide-left">
-    <h2>Toolbelt hằng ngày</h2>
+    <h2>Daily Toolbelt</h2>
     <div class="tools-track">
       {tools.map((tool) => (
         <div class="tool-chip">
@@ -90,9 +90,9 @@ const certifications = [
   </section>
 
   <section class="about-certs" data-animate="blur">
-    <h2>Chứng chỉ tiêu biểu</h2>
+    <h2>Featured Certifications</h2>
     <p class="cert-note">
-      Kéo ngang để xem các chứng chỉ giúp tôi hệ thống hoá kiến thức và duy trì tư duy tấn công/phòng thủ cập nhật.
+      Scroll horizontally to view certifications that help me systematize knowledge and maintain up-to-date offensive/defensive thinking.
     </p>
     <div class="cert-slider" tabindex="0">
       {certifications.map((cert) => (
@@ -107,9 +107,9 @@ const certifications = [
 
   <section class="about-closing" data-animate="rotate-in">
     <p>
-      Dù là tham gia CTF, nghiên cứu khai thác hay cố vấn đội Blue Team, tôi luôn ưu tiên sự rõ ràng, minh bạch
-      và khả năng mở rộng cho mọi giải pháp. Nếu bạn muốn cộng tác hoặc đơn giản là trao đổi về các bài học từ
-      chiến trường an ninh mạng, hãy kết nối cùng tôi.
+      Whether participating in CTFs, conducting exploit research, or advising Blue Teams, I always prioritize clarity,
+      transparency, and scalability in every solution. If you want to collaborate or simply exchange lessons from
+      the cybersecurity battlefield, let's connect.
     </p>
   </section>
 </Layout>

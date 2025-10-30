@@ -12,6 +12,8 @@
     <div class="gradient-orb orb-1"></div>
     <div class="gradient-orb orb-2"></div>
     <div class="gradient-orb orb-3"></div>
+    <div class="gradient-orb orb-4"></div>
+    <div class="gradient-orb orb-5"></div>
   </div>
   <div class="animated-mesh"></div>
 </div>
@@ -36,12 +38,18 @@
 
   .particle {
     position: absolute;
-    background: var(--accent);
     border-radius: 50%;
     opacity: 0;
     animation: particleFloat var(--duration) linear infinite;
     --duration: calc(15s + (var(--random) * 25s));
+    box-shadow: 0 0 10px currentColor;
   }
+
+  .particle:nth-child(5n+1) { background: #ff6b9d; }
+  .particle:nth-child(5n+2) { background: #c084fc; }
+  .particle:nth-child(5n+3) { background: #60a5fa; }
+  .particle:nth-child(5n+4) { background: #34d399; }
+  .particle:nth-child(5n+5) { background: #fbbf24; }
 
   .particle:nth-child(1) { left: 10%; --random: 0.1; width: 3px; height: 3px; animation-delay: -2s; }
   .particle:nth-child(2) { left: 20%; --random: 0.4; width: 5px; height: 5px; animation-delay: -5s; }
@@ -128,7 +136,7 @@
   .orb-1 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.6), transparent 70%);
+    background: radial-gradient(circle, rgba(251, 113, 133, 0.5), transparent 70%);
     top: 10%;
     left: -10%;
     animation: orbFloat1 25s ease-in-out infinite;
@@ -137,7 +145,7 @@
   .orb-2 {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.5), transparent 70%);
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.45), transparent 70%);
     top: 40%;
     right: -15%;
     animation: orbFloat2 30s ease-in-out infinite;
@@ -146,10 +154,28 @@
   .orb-3 {
     width: 450px;
     height: 450px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.5), transparent 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.5), transparent 70%);
     bottom: 10%;
     left: 30%;
     animation: orbFloat3 28s ease-in-out infinite;
+  }
+
+  .orb-4 {
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.45), transparent 70%);
+    top: 60%;
+    left: 10%;
+    animation: orbFloat4 32s ease-in-out infinite;
+  }
+
+  .orb-5 {
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.4), transparent 70%);
+    top: 25%;
+    right: 20%;
+    animation: orbFloat5 27s ease-in-out infinite;
   }
 
   @keyframes orbFloat1 {
@@ -188,6 +214,30 @@
     }
   }
 
+  @keyframes orbFloat4 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate3d(-90px, -70px, 0) scale(1.12) rotate(120deg);
+    }
+    66% {
+      transform: translate3d(110px, 80px, 0) scale(0.88) rotate(240deg);
+    }
+  }
+
+  @keyframes orbFloat5 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate3d(70px, -90px, 0) scale(0.95) rotate(-120deg);
+    }
+    66% {
+      transform: translate3d(-85px, 75px, 0) scale(1.08) rotate(-240deg);
+    }
+  }
+
   .animated-mesh {
     position: absolute;
     inset: 0;
@@ -208,20 +258,24 @@
     }
   }
 
-  html[data-theme="dark"] .particle {
-    background: rgba(139, 92, 246, 0.8);
-  }
-
   html[data-theme="dark"] .orb-1 {
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent 70%);
+    background: radial-gradient(circle, rgba(251, 113, 133, 0.35), transparent 70%);
   }
 
   html[data-theme="dark"] .orb-2 {
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.35), transparent 70%);
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.4), transparent 70%);
   }
 
   html[data-theme="dark"] .orb-3 {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 70%);
+  }
+
+  html[data-theme="dark"] .orb-4 {
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.3), transparent 70%);
+  }
+
+  html[data-theme="dark"] .orb-5 {
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.35), transparent 70%);
   }
 
   html[data-theme="dark"] .animated-mesh {

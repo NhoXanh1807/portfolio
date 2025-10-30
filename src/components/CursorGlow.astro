@@ -7,21 +7,68 @@
 <style>
   .cursor-glow {
     position: fixed;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
     opacity: 0;
-    background: radial-gradient(
-      circle,
-      rgba(var(--accent), 0.15),
-      rgba(var(--accent), 0.08),
-      transparent 70%
-    );
+    background:
+      radial-gradient(
+        circle,
+        rgba(251, 113, 133, 0.2),
+        rgba(167, 139, 250, 0.15),
+        rgba(59, 130, 246, 0.1),
+        transparent 70%
+      );
     transition: opacity 0.3s ease;
     mix-blend-mode: screen;
     transform: translate(-50%, -50%);
+    animation: cursorRainbow 8s ease-in-out infinite;
+    filter: blur(30px);
+  }
+
+  @keyframes cursorRainbow {
+    0%, 100% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(251, 113, 133, 0.2),
+          rgba(167, 139, 250, 0.15),
+          rgba(59, 130, 246, 0.1),
+          transparent 70%
+        );
+    }
+    25% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(167, 139, 250, 0.2),
+          rgba(59, 130, 246, 0.15),
+          rgba(52, 211, 153, 0.1),
+          transparent 70%
+        );
+    }
+    50% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.2),
+          rgba(52, 211, 153, 0.15),
+          rgba(251, 191, 36, 0.1),
+          transparent 70%
+        );
+    }
+    75% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(52, 211, 153, 0.2),
+          rgba(251, 191, 36, 0.15),
+          rgba(251, 113, 133, 0.1),
+          transparent 70%
+        );
+    }
   }
 
   @media (max-width: 1024px) {
@@ -37,12 +84,54 @@
   }
 
   html[data-theme="dark"] .cursor-glow {
-    background: radial-gradient(
-      circle,
-      rgba(var(--accent), 0.25),
-      rgba(var(--accent), 0.12),
-      transparent 70%
-    );
+    filter: blur(40px);
+  }
+
+  @keyframes cursorRainbowDark {
+    0%, 100% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(251, 113, 133, 0.3),
+          rgba(167, 139, 250, 0.2),
+          rgba(59, 130, 246, 0.15),
+          transparent 70%
+        );
+    }
+    25% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(167, 139, 250, 0.3),
+          rgba(59, 130, 246, 0.2),
+          rgba(52, 211, 153, 0.15),
+          transparent 70%
+        );
+    }
+    50% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.3),
+          rgba(52, 211, 153, 0.2),
+          rgba(251, 191, 36, 0.15),
+          transparent 70%
+        );
+    }
+    75% {
+      background:
+        radial-gradient(
+          circle,
+          rgba(52, 211, 153, 0.3),
+          rgba(251, 191, 36, 0.2),
+          rgba(251, 113, 133, 0.15),
+          transparent 70%
+        );
+    }
+  }
+
+  html[data-theme="dark"] .cursor-glow {
+    animation: cursorRainbowDark 8s ease-in-out infinite;
   }
 </style>
 

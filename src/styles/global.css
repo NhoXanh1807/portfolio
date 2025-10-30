@@ -80,6 +80,53 @@ h6 {
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--black));
 	line-height: 1.2;
+	position: relative;
+}
+
+/* Add gradient shimmer effect to h1 */
+h1 {
+	background: linear-gradient(
+		135deg,
+		rgb(var(--black)),
+		var(--accent),
+		rgb(var(--black))
+	);
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: h1Gradient 6s ease infinite;
+}
+
+@keyframes h1Gradient {
+	0%, 100% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+}
+
+/* Add subtle underline effect to h2 */
+h2 {
+	position: relative;
+	display: inline-block;
+}
+
+h2::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: 0;
+	height: 3px;
+	background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+	transition: width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	border-radius: 999px;
+}
+
+h2:hover::after {
+	width: 100%;
 }
 
 h1 {
@@ -196,6 +243,23 @@ blockquote {
 	padding: 0 0 0 20px;
 	margin: 0;
 	font-size: 1.333em;
+	position: relative;
+	background: linear-gradient(
+		90deg,
+		rgba(var(--accent), 0.05),
+		transparent
+	);
+	border-radius: 0 8px 8px 0;
+	animation: blockquotePulse 4s ease-in-out infinite;
+}
+
+@keyframes blockquotePulse {
+	0%, 100% {
+		border-left-color: var(--accent);
+	}
+	50% {
+		border-left-color: var(--accent-dark);
+	}
 }
 
 hr {

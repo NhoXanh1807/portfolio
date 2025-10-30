@@ -6,6 +6,7 @@ import AnimatedBackground from "../components/AnimatedBackground.astro";
 import WelcomeSplash from "../components/WelcomeSplash.astro";
 import ScrollToTop from "../components/ScrollToTop.astro";
 import CursorGlow from "../components/CursorGlow.astro";
+import RippleEffect from "../components/RippleEffect.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
@@ -16,6 +17,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   </head>
   <body>
     <CursorGlow />
+    <RippleEffect />
     <WelcomeSplash />
     <AnimatedBackground />
     <Header />
@@ -163,6 +165,30 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
     isolation: isolate;
   }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    animation: shimmer 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    50% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+
   .hero::after {
     content: "";
     position: absolute;
@@ -190,13 +216,30 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     font-size: 0.85rem;
     color: var(--accent);
     font-weight: 600;
-    background: rgba(var(--accent), 0.18);
+    background: linear-gradient(
+      135deg,
+      rgba(var(--accent), 0.2),
+      rgba(129, 140, 248, 0.15),
+      rgba(var(--accent), 0.2)
+    );
+    background-size: 200% 200%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0.45rem 0.9rem;
     border-radius: 999px;
     width: fit-content;
+    animation: eyebrowGradient 4s ease infinite;
+    box-shadow: 0 4px 15px rgba(var(--accent), 0.2);
+  }
+
+  @keyframes eyebrowGradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
   .lede {
     font-size: 1.15rem;
@@ -266,6 +309,35 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     min-height: clamp(260px, 32vw, 360px);
     display: grid;
     place-items: center;
+  }
+
+  .hero-visual::before {
+    content: '✨';
+    position: absolute;
+    font-size: 2rem;
+    top: 10%;
+    left: 10%;
+    animation: floatEmoji 3s ease-in-out infinite;
+    opacity: 0.7;
+  }
+
+  .hero-visual::after {
+    content: '🚀';
+    position: absolute;
+    font-size: 2rem;
+    bottom: 15%;
+    right: 15%;
+    animation: floatEmoji 3s ease-in-out infinite 1.5s;
+    opacity: 0.7;
+  }
+
+  @keyframes floatEmoji {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(10deg);
+    }
   }
   .orb {
     position: absolute;

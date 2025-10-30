@@ -1,0 +1,71 @@
+---
+// Click Ripple Effect Component
+---
+
+<div id="ripple-container" aria-hidden="true"></div>
+
+<style>
+  #ripple-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+    overflow: hidden;
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(var(--accent), 0.4),
+      rgba(var(--accent), 0.2),
+      transparent
+    );
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleEffect 0.8s ease-out forwards;
+    pointer-events: none;
+  }
+
+  @keyframes rippleEffect {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(4);
+      opacity: 0;
+    }
+  }
+
+  html[data-theme="dark"] .ripple {
+    background: radial-gradient(
+      circle,
+      rgba(147, 51, 234, 0.5),
+      rgba(147, 51, 234, 0.3),
+      transparent
+    );
+  }
+</style>
+
+<script>
+  const rippleContainer = document.getElementById('ripple-container');
+
+  if (rippleContainer) {
+    document.addEventListener('click', (e) => {
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      ripple.style.left = `${e.clientX}px`;
+      ripple.style.top = `${e.clientY}px`;
+      ripple.style.width = '100px';
+      ripple.style.height = '100px';
+
+      rippleContainer.appendChild(ripple);
+
+      // Remove after animation
+      setTimeout(() => {
+        ripple.remove();
+      }, 800);
+    });
+  }
+</script>

@@ -1,11 +1,12 @@
 ---
-// Animated Background with Particles
+// Animated Background with Security Theme
 ---
 
 <div class="animated-bg" aria-hidden="true">
-  <div class="particles-container">
-    {Array.from({ length: 12 }).map(() => (
-      <div class="particle"></div>
+  <canvas id="matrix-rain" class="matrix-canvas"></canvas>
+  <div class="binary-stream">
+    {Array.from({ length: 8 }).map(() => (
+      <div class="binary-line"></div>
     ))}
   </div>
   <div class="gradient-orbs">
@@ -14,7 +15,55 @@
     <div class="gradient-orb orb-3"></div>
   </div>
   <div class="animated-mesh"></div>
+  <div class="security-grid"></div>
 </div>
+
+<script>
+  // Matrix Rain Effect
+  const canvas = document.getElementById('matrix-rain') as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+      const fontSize = 14;
+      const columns = canvas.width / fontSize;
+      const drops: number[] = [];
+
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+      }
+
+      function draw() {
+        if (!ctx) return;
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#00ff41';
+        ctx.font = `${fontSize}px monospace`;
+
+        for (let i = 0; i < drops.length; i++) {
+          const char = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      setInterval(draw, 50);
+
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+  }
+</script>
 
 <style>
   .animated-bg {
@@ -28,55 +77,117 @@
     pointer-events: none;
   }
 
-  .particles-container {
+  .matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+  }
+
+  .binary-stream {
     position: absolute;
     width: 100%;
     height: 100%;
   }
 
-  .particle {
+  .binary-line {
     position: absolute;
-    border-radius: 50%;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #00ff41;
     opacity: 0;
-    animation: particleFloat var(--duration) linear infinite;
-    --duration: calc(12s + (var(--random) * 18s));
-    box-shadow: 0 0 6px currentColor;
-    will-change: transform, opacity;
+    white-space: nowrap;
+    animation: binaryScroll linear infinite;
+    text-shadow: 0 0 5px #00ff41;
   }
 
-  .particle:nth-child(5n+1) { background: #ff6b9d; }
-  .particle:nth-child(5n+2) { background: #c084fc; }
-  .particle:nth-child(5n+3) { background: #60a5fa; }
-  .particle:nth-child(5n+4) { background: #34d399; }
-  .particle:nth-child(5n+5) { background: #fbbf24; }
+  .binary-line::before {
+    content: '01001001 01101110 01110011 01100101 01100011 01110101 01110010 01100101 00100000 01010011 01111001 01110011 01110100 01100101 01101101';
+  }
 
-  .particle:nth-child(1) { left: 10%; --random: 0.2; width: 3px; height: 3px; animation-delay: -2s; }
-  .particle:nth-child(2) { left: 20%; --random: 0.5; width: 4px; height: 4px; animation-delay: -5s; }
-  .particle:nth-child(3) { left: 30%; --random: 0.8; width: 2px; height: 2px; animation-delay: -8s; }
-  .particle:nth-child(4) { left: 40%; --random: 0.3; width: 3px; height: 3px; animation-delay: -3s; }
-  .particle:nth-child(5) { left: 50%; --random: 0.9; width: 3px; height: 3px; animation-delay: -10s; }
-  .particle:nth-child(6) { left: 60%; --random: 0.4; width: 4px; height: 4px; animation-delay: -6s; }
-  .particle:nth-child(7) { left: 70%; --random: 0.7; width: 2px; height: 2px; animation-delay: -9s; }
-  .particle:nth-child(8) { left: 80%; --random: 0.6; width: 3px; height: 3px; animation-delay: -11s; }
-  .particle:nth-child(9) { left: 90%; --random: 0.5; width: 3px; height: 3px; animation-delay: -7s; }
-  .particle:nth-child(10) { left: 25%; --random: 0.35; width: 4px; height: 4px; animation-delay: -4s; }
-  .particle:nth-child(11) { left: 45%; --random: 0.65; width: 2px; height: 2px; animation-delay: -9s; }
-  .particle:nth-child(12) { left: 75%; --random: 0.55; width: 3px; height: 3px; animation-delay: -5s; }
+  .binary-line:nth-child(1) {
+    top: 10%;
+    animation-duration: 15s;
+    animation-delay: 0s;
+  }
 
-  @keyframes particleFloat {
+  .binary-line:nth-child(2) {
+    top: 25%;
+    animation-duration: 18s;
+    animation-delay: -3s;
+  }
+
+  .binary-line:nth-child(3) {
+    top: 40%;
+    animation-duration: 20s;
+    animation-delay: -6s;
+  }
+
+  .binary-line:nth-child(4) {
+    top: 55%;
+    animation-duration: 16s;
+    animation-delay: -9s;
+  }
+
+  .binary-line:nth-child(5) {
+    top: 70%;
+    animation-duration: 19s;
+    animation-delay: -2s;
+  }
+
+  .binary-line:nth-child(6) {
+    top: 85%;
+    animation-duration: 17s;
+    animation-delay: -5s;
+  }
+
+  .binary-line:nth-child(7) {
+    top: 15%;
+    animation-duration: 21s;
+    animation-delay: -8s;
+  }
+
+  .binary-line:nth-child(8) {
+    top: 60%;
+    animation-duration: 14s;
+    animation-delay: -4s;
+  }
+
+  @keyframes binaryScroll {
     0% {
-      transform: translate3d(0, 100vh, 0);
+      transform: translateX(-100%);
       opacity: 0;
     }
     10% {
-      opacity: 0.6;
+      opacity: 0.3;
     }
     90% {
-      opacity: 0.6;
+      opacity: 0.3;
     }
     100% {
-      transform: translate3d(calc(var(--random) * 100px - 50px), -100px, 0);
+      transform: translateX(100vw);
       opacity: 0;
+    }
+  }
+
+  .security-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: securityGridMove 30s linear infinite;
+  }
+
+  @keyframes securityGridMove {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(50px, 50px, 0);
     }
   }
 
@@ -98,7 +209,7 @@
   .orb-1 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.35), transparent 70%);
+    background: radial-gradient(circle, rgba(0, 255, 65, 0.25), transparent 70%);
     top: 15%;
     left: -5%;
     animation: orbFloat1 20s ease-in-out infinite;
@@ -107,7 +218,7 @@
   .orb-2 {
     width: 450px;
     height: 450px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%);
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.22), transparent 70%);
     top: 50%;
     right: -10%;
     animation: orbFloat2 25s ease-in-out infinite;
@@ -116,7 +227,7 @@
   .orb-3 {
     width: 380px;
     height: 380px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent 70%);
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.2), transparent 70%);
     bottom: 20%;
     left: 40%;
     animation: orbFloat3 22s ease-in-out infinite;
@@ -170,38 +281,42 @@
   }
 
   html[data-theme="dark"] .orb-1 {
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent 70%);
+    background: radial-gradient(circle, rgba(0, 255, 65, 0.28), transparent 70%);
   }
 
   html[data-theme="dark"] .orb-2 {
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.28), transparent 70%);
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.25), transparent 70%);
   }
 
   html[data-theme="dark"] .orb-3 {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.28), transparent 70%);
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.22), transparent 70%);
   }
 
   html[data-theme="dark"] .animated-mesh {
     background-image:
-      linear-gradient(rgba(139, 92, 246, 0.05) 2px, transparent 2px),
-      linear-gradient(90deg, rgba(139, 92, 246, 0.05) 2px, transparent 2px);
+      linear-gradient(rgba(0, 255, 65, 0.05) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(0, 255, 65, 0.05) 2px, transparent 2px);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .particle,
     .gradient-orb,
-    .animated-mesh {
+    .animated-mesh,
+    .binary-line,
+    .security-grid {
       animation: none;
     }
   }
 
   @media (max-width: 768px) {
-    .particle {
-      display: none;
+    .matrix-canvas {
+      opacity: 0.08;
+    }
+    .binary-line {
+      font-size: 10px;
     }
     .gradient-orb {
       filter: blur(30px);
-      opacity: 0.2;
+      opacity: 0.15;
     }
   }
 </style>

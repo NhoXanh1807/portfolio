@@ -8,28 +8,13 @@
       <div class="logo-circle">
         <!-- Sparkle & Star Icon -->
         <svg viewBox="0 0 100 100" class="sparkle-icon">
-          <!-- Main Star -->
-          <path
-            d="M50 15 L55 40 L80 45 L60 60 L65 85 L50 72 L35 85 L40 60 L20 45 L45 40 Z"
-            fill="currentColor"
-            class="star-main"
-          />
-          <!-- Small sparkles -->
-          <circle cx="25" cy="25" r="3" fill="currentColor" class="sparkle sparkle-1" />
-          <circle cx="75" cy="25" r="3" fill="currentColor" class="sparkle sparkle-2" />
-          <circle cx="25" cy="75" r="3" fill="currentColor" class="sparkle sparkle-3" />
-          <circle cx="75" cy="75" r="3" fill="currentColor" class="sparkle sparkle-4" />
-          <!-- Hearts -->
-          <path
-            d="M15 50 Q15 45 18 45 Q21 45 21 48 Q21 45 24 45 Q27 45 27 50 Q27 55 21 58 Q15 55 15 50"
-            fill="currentColor"
-            class="heart heart-1"
-          />
-          <path
-            d="M73 30 Q73 27 75 27 Q77 27 77 29 Q77 27 79 27 Q81 27 81 30 Q81 33 77 35 Q73 33 73 30"
-            fill="currentColor"
-            class="heart heart-2"
-          />
+          <!-- Modern Icon -->
+          <circle cx="50" cy="50" r="25" fill="currentColor" class="icon-main" opacity="0.2" />
+          <circle cx="50" cy="50" r="18" fill="currentColor" class="icon-main" opacity="0.4" />
+          <circle cx="50" cy="50" r="12" fill="currentColor" class="icon-main" />
+          <!-- Minimal sparkles -->
+          <circle cx="50" cy="20" r="3" fill="currentColor" class="sparkle sparkle-1" />
+          <circle cx="80" cy="50" r="3" fill="currentColor" class="sparkle sparkle-2" />
         </svg>
       </div>
     </div>
@@ -48,16 +33,16 @@
     </div>
   </div>
 
-  <!-- Floating Particles with Multiple Colors -->
+  <!-- Floating Particles - Optimized -->
   <div class="particles" aria-hidden="true">
-    {Array.from({ length: 30 }).map((_, i) => (
+    {Array.from({ length: 8 }).map((_, i) => (
       <div class={`particle particle-${(i % 5) + 1}`}></div>
     ))}
   </div>
 
-  <!-- Confetti -->
+  <!-- Confetti - Optimized -->
   <div class="confetti" aria-hidden="true">
-    {Array.from({ length: 50 }).map((_, i) => (
+    {Array.from({ length: 12 }).map((_, i) => (
       <div class={`confetti-piece confetti-${(i % 4) + 1}`}></div>
     ))}
   </div>
@@ -162,36 +147,25 @@
     align-items: center;
     justify-content: center;
     box-shadow:
-      0 0 60px rgba(251, 113, 133, 0.6),
-      0 0 120px rgba(167, 139, 250, 0.5),
-      inset 0 0 40px rgba(255, 255, 255, 0.2);
+      0 0 40px rgba(99, 102, 241, 0.4),
+      0 0 80px rgba(139, 92, 246, 0.3);
     position: relative;
     animation: logoPulse 2s ease-in-out infinite;
-    backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
   }
 
   @keyframes logoPulse {
     0%, 100% {
       box-shadow:
-        0 0 60px rgba(251, 113, 133, 0.6),
-        0 0 120px rgba(167, 139, 250, 0.5),
-        inset 0 0 40px rgba(255, 255, 255, 0.2);
-      transform: scale(1) rotate(0deg);
+        0 0 40px rgba(99, 102, 241, 0.4),
+        0 0 80px rgba(139, 92, 246, 0.3);
+      transform: scale(1);
     }
-    33% {
+    50% {
       box-shadow:
-        0 0 80px rgba(167, 139, 250, 0.8),
-        0 0 160px rgba(59, 130, 246, 0.6),
-        inset 0 0 60px rgba(255, 255, 255, 0.3);
-      transform: scale(1.08) rotate(5deg);
-    }
-    66% {
-      box-shadow:
-        0 0 70px rgba(59, 130, 246, 0.7),
-        0 0 140px rgba(34, 211, 238, 0.5),
-        inset 0 0 50px rgba(255, 255, 255, 0.25);
-      transform: scale(1.05) rotate(-5deg);
+        0 0 50px rgba(139, 92, 246, 0.5),
+        0 0 100px rgba(99, 102, 241, 0.4);
+      transform: scale(1.05);
     }
   }
 
@@ -199,65 +173,32 @@
     width: 70px;
     height: 70px;
     color: white;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
   }
 
-  .star-main {
-    animation: starSpin 3s ease-in-out infinite;
+  .icon-main {
+    animation: iconPulse 2s ease-in-out infinite;
     transform-origin: center;
   }
 
-  @keyframes starSpin {
+  @keyframes iconPulse {
     0%, 100% {
-      transform: rotate(0deg) scale(1);
+      transform: scale(1);
       opacity: 1;
     }
     50% {
-      transform: rotate(180deg) scale(1.1);
+      transform: scale(1.05);
       opacity: 0.9;
     }
   }
 
   .sparkle {
-    animation: sparkleShine 1.5s ease-in-out infinite;
+    animation: sparkleShine 2s ease-in-out infinite;
     transform-origin: center;
   }
 
   .sparkle-1 { animation-delay: 0s; }
-  .sparkle-2 { animation-delay: 0.3s; }
-  .sparkle-3 { animation-delay: 0.6s; }
-  .sparkle-4 { animation-delay: 0.9s; }
-
-  @keyframes sparkleShine {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-    50% {
-      transform: scale(1.8);
-      opacity: 1;
-    }
-  }
-
-  .heart {
-    animation: heartBeat 1.2s ease-in-out infinite;
-    transform-origin: center;
-  }
-
-  .heart-1 { animation-delay: 0s; }
-  .heart-2 { animation-delay: 0.6s; }
-
-  @keyframes heartBeat {
-    0%, 100% {
-      transform: scale(1);
-    }
-    25%, 75% {
-      transform: scale(1.3);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
+  .sparkle-2 { animation-delay: 1s; }
 
   .splash-title {
     font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -420,9 +361,9 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    opacity: 0.7;
-    animation: particleFloat 4s ease-in-out infinite;
-    box-shadow: 0 0 10px currentColor;
+    opacity: 0.6;
+    animation: particleFloat 3s ease-in-out infinite;
+    box-shadow: 0 0 6px currentColor;
   }
 
   .particle-1 { background: #ff6b9d; }
@@ -431,52 +372,22 @@
   .particle-4 { background: #34d399; }
   .particle-5 { background: #fbbf24; }
 
-  .particle:nth-child(1) { left: 5%; top: 15%; animation-delay: 0s; animation-duration: 3.5s; }
-  .particle:nth-child(2) { left: 15%; top: 75%; animation-delay: 0.3s; animation-duration: 4s; }
-  .particle:nth-child(3) { left: 25%; top: 35%; animation-delay: 0.6s; animation-duration: 3.8s; }
-  .particle:nth-child(4) { left: 35%; top: 55%; animation-delay: 0.9s; animation-duration: 4.2s; }
-  .particle:nth-child(5) { left: 45%; top: 25%; animation-delay: 1.2s; animation-duration: 3.6s; }
-  .particle:nth-child(6) { left: 55%; top: 65%; animation-delay: 1.5s; animation-duration: 4s; }
-  .particle:nth-child(7) { left: 65%; top: 45%; animation-delay: 1.8s; animation-duration: 3.7s; }
-  .particle:nth-child(8) { left: 75%; top: 20%; animation-delay: 2.1s; animation-duration: 4.1s; }
-  .particle:nth-child(9) { left: 85%; top: 70%; animation-delay: 2.4s; animation-duration: 3.9s; }
-  .particle:nth-child(10) { left: 95%; top: 50%; animation-delay: 2.7s; animation-duration: 4s; }
-  .particle:nth-child(11) { left: 10%; top: 10%; animation-delay: 0.2s; animation-duration: 3.5s; }
-  .particle:nth-child(12) { left: 20%; top: 85%; animation-delay: 0.5s; animation-duration: 4.3s; }
-  .particle:nth-child(13) { left: 30%; top: 40%; animation-delay: 0.8s; animation-duration: 3.6s; }
-  .particle:nth-child(14) { left: 40%; top: 60%; animation-delay: 1.1s; animation-duration: 4.2s; }
-  .particle:nth-child(15) { left: 50%; top: 30%; animation-delay: 1.4s; animation-duration: 3.8s; }
-  .particle:nth-child(16) { left: 60%; top: 70%; animation-delay: 1.7s; animation-duration: 4s; }
-  .particle:nth-child(17) { left: 70%; top: 50%; animation-delay: 2s; animation-duration: 3.7s; }
-  .particle:nth-child(18) { left: 80%; top: 25%; animation-delay: 2.3s; animation-duration: 4.1s; }
-  .particle:nth-child(19) { left: 90%; top: 75%; animation-delay: 2.6s; animation-duration: 3.9s; }
-  .particle:nth-child(20) { left: 8%; top: 55%; animation-delay: 0.4s; animation-duration: 4s; }
-  .particle:nth-child(21) { left: 18%; top: 18%; animation-delay: 0.7s; animation-duration: 3.6s; }
-  .particle:nth-child(22) { left: 28%; top: 80%; animation-delay: 1s; animation-duration: 4.2s; }
-  .particle:nth-child(23) { left: 38%; top: 42%; animation-delay: 1.3s; animation-duration: 3.8s; }
-  .particle:nth-child(24) { left: 48%; top: 62%; animation-delay: 1.6s; animation-duration: 4s; }
-  .particle:nth-child(25) { left: 58%; top: 32%; animation-delay: 1.9s; animation-duration: 3.7s; }
-  .particle:nth-child(26) { left: 68%; top: 72%; animation-delay: 2.2s; animation-duration: 4.1s; }
-  .particle:nth-child(27) { left: 78%; top: 52%; animation-delay: 2.5s; animation-duration: 3.9s; }
-  .particle:nth-child(28) { left: 88%; top: 28%; animation-delay: 2.8s; animation-duration: 4s; }
-  .particle:nth-child(29) { left: 12%; top: 68%; animation-delay: 0.6s; animation-duration: 3.5s; }
-  .particle:nth-child(30) { left: 22%; top: 48%; animation-delay: 0.9s; animation-duration: 4.3s; }
+  .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 3.5s; }
+  .particle:nth-child(2) { left: 25%; top: 70%; animation-delay: 0.4s; animation-duration: 4s; }
+  .particle:nth-child(3) { left: 40%; top: 40%; animation-delay: 0.8s; animation-duration: 3.8s; }
+  .particle:nth-child(4) { left: 55%; top: 65%; animation-delay: 1.2s; animation-duration: 4.2s; }
+  .particle:nth-child(5) { left: 70%; top: 30%; animation-delay: 1.6s; animation-duration: 3.6s; }
+  .particle:nth-child(6) { left: 85%; top: 55%; animation-delay: 2s; animation-duration: 4s; }
+  .particle:nth-child(7) { left: 30%; top: 85%; animation-delay: 2.4s; animation-duration: 3.7s; }
+  .particle:nth-child(8) { left: 60%; top: 15%; animation-delay: 2.8s; animation-duration: 4.1s; }
 
   @keyframes particleFloat {
     0%, 100% {
-      transform: translateY(0) translateX(0) scale(1) rotate(0deg);
-      opacity: 0.7;
-    }
-    25% {
-      transform: translateY(-40px) translateX(20px) scale(1.3) rotate(90deg);
-      opacity: 1;
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.6;
     }
     50% {
-      transform: translateY(-80px) translateX(-15px) scale(0.8) rotate(180deg);
-      opacity: 0.5;
-    }
-    75% {
-      transform: translateY(-40px) translateX(25px) scale(1.2) rotate(270deg);
+      transform: translateY(-60px) translateX(20px) scale(1.2);
       opacity: 0.9;
     }
   }
@@ -492,11 +403,11 @@
 
   .confetti-piece {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     top: -10%;
     opacity: 0;
-    animation: confettiFall 3s linear infinite;
+    animation: confettiFall 2.5s linear infinite;
   }
 
   .confetti-1 {
@@ -538,26 +449,18 @@
     }
   }
 
-  .confetti-piece:nth-child(1) { left: 5%; animation-delay: 0.1s; }
-  .confetti-piece:nth-child(2) { left: 15%; animation-delay: 0.3s; }
-  .confetti-piece:nth-child(3) { left: 25%; animation-delay: 0.5s; }
-  .confetti-piece:nth-child(4) { left: 35%; animation-delay: 0.7s; }
-  .confetti-piece:nth-child(5) { left: 45%; animation-delay: 0.9s; }
-  .confetti-piece:nth-child(6) { left: 55%; animation-delay: 1.1s; }
-  .confetti-piece:nth-child(7) { left: 65%; animation-delay: 1.3s; }
-  .confetti-piece:nth-child(8) { left: 75%; animation-delay: 1.5s; }
-  .confetti-piece:nth-child(9) { left: 85%; animation-delay: 1.7s; }
-  .confetti-piece:nth-child(10) { left: 95%; animation-delay: 1.9s; }
-  .confetti-piece:nth-child(11) { left: 10%; animation-delay: 0.2s; }
-  .confetti-piece:nth-child(12) { left: 20%; animation-delay: 0.4s; }
-  .confetti-piece:nth-child(13) { left: 30%; animation-delay: 0.6s; }
-  .confetti-piece:nth-child(14) { left: 40%; animation-delay: 0.8s; }
-  .confetti-piece:nth-child(15) { left: 50%; animation-delay: 1s; }
-  .confetti-piece:nth-child(16) { left: 60%; animation-delay: 1.2s; }
-  .confetti-piece:nth-child(17) { left: 70%; animation-delay: 1.4s; }
-  .confetti-piece:nth-child(18) { left: 80%; animation-delay: 1.6s; }
-  .confetti-piece:nth-child(19) { left: 90%; animation-delay: 1.8s; }
-  .confetti-piece:nth-child(20) { left: 8%; animation-delay: 2s; }
+  .confetti-piece:nth-child(1) { left: 10%; animation-delay: 0.2s; animation-duration: 2.5s; }
+  .confetti-piece:nth-child(2) { left: 20%; animation-delay: 0.4s; animation-duration: 2.8s; }
+  .confetti-piece:nth-child(3) { left: 30%; animation-delay: 0.6s; animation-duration: 2.6s; }
+  .confetti-piece:nth-child(4) { left: 40%; animation-delay: 0.8s; animation-duration: 2.9s; }
+  .confetti-piece:nth-child(5) { left: 50%; animation-delay: 1s; animation-duration: 2.7s; }
+  .confetti-piece:nth-child(6) { left: 60%; animation-delay: 1.2s; animation-duration: 2.5s; }
+  .confetti-piece:nth-child(7) { left: 70%; animation-delay: 1.4s; animation-duration: 2.8s; }
+  .confetti-piece:nth-child(8) { left: 80%; animation-delay: 1.6s; animation-duration: 2.6s; }
+  .confetti-piece:nth-child(9) { left: 90%; animation-delay: 1.8s; animation-duration: 2.9s; }
+  .confetti-piece:nth-child(10) { left: 15%; animation-delay: 0.3s; animation-duration: 2.7s; }
+  .confetti-piece:nth-child(11) { left: 45%; animation-delay: 0.9s; animation-duration: 2.8s; }
+  .confetti-piece:nth-child(12) { left: 75%; animation-delay: 1.5s; animation-duration: 2.6s; }
 
   @keyframes confettiFall {
     0% {

@@ -1,12 +1,12 @@
 ﻿:root {
-	--accent: #6366f1;
+	--accent: #4f46e5;
 	--accent-dark: #4338ca;
-	--black: 12, 18, 34;
-	--gray: 88, 102, 132;
-	--gray-light: 226, 232, 240;
-	--gray-dark: 26, 32, 48;
+	--black: 15, 23, 42;
+	--gray: 71, 85, 105;
+	--gray-light: 203, 213, 225;
+	--gray-dark: 30, 41, 59;
 	--surface-rgb: 255, 255, 255;
-	--background-rgb: 245, 248, 255;
+	--background-rgb: 248, 250, 252;
 	--box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
 	--font-body: "Space Grotesk", "Segoe UI", sans-serif;
 	--font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;

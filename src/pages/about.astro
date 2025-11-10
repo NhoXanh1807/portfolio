@@ -5,20 +5,19 @@ import AnimatedBackground from "../components/AnimatedBackground.astro";
 
 const personalDetails = [
   { label: "Name", value: "WangTe0f" },
-  { label: "Title", value: "Security Engineer" },
+  { label: "Job", value: "Security Engineer" },
   { label: "Location", value: "Ho Chi Minh City, Vietnam" },
   { label: "Experience", value: "1+ years in security" },
   { label: "Email", value: "nguyenbanhatquang1807@gmail.com" },
-  { label: "Interests", value: "SOC Analysis, CTFs" }
+  { label: "Interests", value: "SOC Analysis, Incident Responder, CTFs" }
 ];
 
 const tools = [
-  { name: "Burp Suite", icon: "🦊" },
-  { name: "Wireshark", icon: "🦈" },
-  { name: "Nmap", icon: "📡" },
-  { name: "Metasploit", icon: "🎯" },
-  { name: "Splunk", icon: "📊" },
-  { name: "CyberChef", icon: "🧪" }
+  { name: "Burp Suite", image: "../../public/images/tools/burpsuite-20231229161748.png" },
+  { name: "Wireshark", image: "../../public/images/tools/Wireshark_icon_new.png" },
+  { name: "Volatility", image: "../../public/images/tools/6001145.png" },
+  { name: "FTK Imager", image: "../../public/images/tools/ftk_imager.png" },
+  { name: "Autospy", image: "../../public/images/tools/autospy.png" }
 ];
 
 const certifications = [
@@ -26,8 +25,10 @@ const certifications = [
     title: "AWS Certified Solutions Architect – Associate",
     issuer: "Amazon Web Service",
     year: "2025",
-    link: "https://www.credly.com/earner/earned/badge/ff1fb4d4-d936-462f-aac6-af72bd507908"
+    link: "https://www.credly.com/earner/earned/badge/ff1fb4d4-d936-462f-aac6-af72bd507908",
+    image: "../../public/images/cert/aws-certified-solutions-architect-associate.png" 
   }
+
 
 ];
 ---
@@ -53,8 +54,7 @@ const certifications = [
   <section class="about-mission" data-animate="zoom">
     <h2>Career Mission &amp; Philosophy</h2>
     <p>
-      I pursue building more secure systems by deeply understanding how they can be broken.
-      My mission is to share knowledge, and enhance personal knowledge.
+      Passwords are like underwear: don't let people see them, change them regularly, and don't share them with strangers.
     </p>
   </section>
 
@@ -63,25 +63,27 @@ const certifications = [
     <div class="tools-track">
       {tools.map((tool) => (
         <div class="tool-chip">
-          <span class="tool-icon" aria-hidden="true">{tool.icon}</span>
+          <img src={tool.image} alt={tool.name} class="tool-image" />
           <span class="tool-name">{tool.name}</span>
         </div>
       ))}
     </div>
   </section>
 
-  <section class="about-certs" data-animate="blur">
-    <h2>Featured Certifications</h2>
-    <div class="cert-slider" tabindex="0">
-      {certifications.map((cert) => (
-        <a class="cert-card" href={cert.link} target="_blank" rel="noreferrer">
-          <span class="cert-title">{cert.title}</span>
-          <span class="cert-issuer">{cert.issuer}</span>
-          <span class="cert-year">{cert.year}</span>
-        </a>
-      ))}
-    </div>
-  </section>
+<section class="about-certs" data-animate="blur">
+  <h2>Certifications</h2>
+  <div class="cert-slider" tabindex="0">
+    {certifications.map((cert) => (
+      <a class="cert-card" href={cert.link} target="_blank" rel="noreferrer">
+        <img src={cert.image} alt={cert.title} class="cert-image" />
+        <span class="cert-title">{cert.title}</span>
+        <span class="cert-issuer">{cert.issuer}</span>
+        <span class="cert-year">{cert.year}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
 
 
 
@@ -260,6 +262,20 @@ const certifications = [
   .about-closing p {
     margin: 0;
     line-height: 1.7;
+  }
+
+  .cert-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 4px;
+  }
+
+  .tool-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
   }
 
   @media (max-width: 720px) {

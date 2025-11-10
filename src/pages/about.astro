@@ -1,15 +1,15 @@
 ---
-import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
+import AboutHeroImage from "../assets/4753d776ae8b2e1bd3ba05289ad27f8b.gif";
 import Layout from "../layouts/BlogPost.astro";
 import AnimatedBackground from "../components/AnimatedBackground.astro";
 
 const personalDetails = [
   { label: "Name", value: "WangTe0f" },
-  { label: "Title", value: "Security Engineer / Offensive Researcher" },
+  { label: "Title", value: "Security Engineer" },
   { label: "Location", value: "Ho Chi Minh City, Vietnam" },
-  { label: "Experience", value: "5+ years in offensive and defensive security" },
-  { label: "Email", value: "wangte0f@proton.me" },
-  { label: "Interests", value: "Threat hunting, CTFs, mentoring" }
+  { label: "Experience", value: "1+ years in security" },
+  { label: "Email", value: "nguyenbanhatquang1807@gmail.com" },
+  { label: "Interests", value: "SOC Analysis, CTFs" }
 ];
 
 const tools = [
@@ -23,29 +23,12 @@ const tools = [
 
 const certifications = [
   {
-    title: "Offensive Security Certified Professional",
-    issuer: "OffSec",
-    year: "2022",
-    link: "https://www.offsec.com/certifications/oscp/"
-  },
-  {
-    title: "GIAC Penetration Tester",
-    issuer: "SANS Institute",
-    year: "2021",
-    link: "https://www.giac.org/certifications/penetration-tester-gpen/"
-  },
-  {
-    title: "eLearnSecurity Web Application Penetration Tester",
-    issuer: "INE",
-    year: "2020",
-    link: "https://elearnsecurity.com/product/ewpt/"
-  },
-  {
-    title: "CyberDefenders Blue Team Labs",
-    issuer: "CyberDefenders",
-    year: "2023",
-    link: "https://cyberdefenders.org/"
+    title: "AWS Certified Solutions Architect – Associate",
+    issuer: "Amazon Web Service",
+    year: "2025",
+    link: "https://www.credly.com/earner/earned/badge/ff1fb4d4-d936-462f-aac6-af72bd507908"
   }
+
 ];
 ---
 
@@ -71,9 +54,7 @@ const certifications = [
     <h2>Career Mission &amp; Philosophy</h2>
     <p>
       I pursue building more secure systems by deeply understanding how they can be broken.
-      My mission is to share knowledge, uplift the cybersecurity community, and maintain a
-      lifelong learning mindset. Every project I engage with aims to balance creative offensive
-      thinking with sustainable defensive capabilities for organizations.
+      My mission is to share knowledge, and enhance personal knowledge.
     </p>
   </section>
 
@@ -91,9 +72,6 @@ const certifications = [
 
   <section class="about-certs" data-animate="blur">
     <h2>Featured Certifications</h2>
-    <p class="cert-note">
-      Scroll horizontally to view certifications that help me systematize knowledge and maintain up-to-date offensive/defensive thinking.
-    </p>
     <div class="cert-slider" tabindex="0">
       {certifications.map((cert) => (
         <a class="cert-card" href={cert.link} target="_blank" rel="noreferrer">
@@ -105,14 +83,7 @@ const certifications = [
     </div>
   </section>
 
-  <section class="about-closing" data-animate="rotate-in">
-    <p>
-      Whether participating in CTFs, conducting exploit research, or advising Blue Teams, I always prioritize clarity,
-      transparency, and scalability in every solution. If you want to collaborate or simply exchange lessons from
-      the cybersecurity battlefield, let's connect.
-    </p>
-  </section>
-</Layout>
+
 
 <style>
   .about-intro,

@@ -22,13 +22,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     <main>
       <section class="hero" data-animate="blur">
         <div class="hero-content" data-animate="slide-left">
-          <p class="eyebrow">CYBERSECURITY SPECIALIST</p>
-          <h1>Strengthening defenses through hands-on security research.</h1>
+          <p class="eyebrow">CYBERSECURITY NEWBIE</p>
+          <h1>Learning, researching, working, playing CTF and relaxing more</h1>
           <p class="lede">
-            I help organizations understand how attackers think, harden their
-            infrastructure, and respond to real incidents. Explore my project
-            work, incident writeups, and experience to see how I turn curiosity
-            into resilient security outcomes.
+            I am a final year Computer Science student with the desire to
+            graduate on time and passionate about Cyber Security
           </p>
           <div class="hero-actions">
             <a class="cta" href="/projects">View Projects</a>
@@ -37,8 +35,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         </div>
         <div class="hero-visual" aria-hidden="true" data-animate="pop">
           <button class="visual-toggle" aria-label="Toggle visual effects">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14M5 12h14"/>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 5v14M5 12h14"></path>
             </svg>
           </button>
           <div class="tech-grid">
@@ -81,46 +86,32 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
             <span class="pillar-card__glow" aria-hidden="true"></span>
             <span class="pillar-card__pulse" aria-hidden="true"></span>
             <header>
-              <h3>Adversary Emulation</h3>
-              <p class="pillar-subhead">
-                Offensive testing that exposes blind spots before real attackers
-                can.
-              </p>
+              <h3>Malware Research</h3>
+              <p class="pillar-subhead"></p>
             </header>
-            <p>
-              Red team assessments, exploit development, and detection
-              engineering that mirror real threat actors to expose blind spots
-              before attackers do.
-            </p>
+            <p>Learning ...</p>
           </article>
           <article class="pillar-card pillar-card--detect">
             <span class="pillar-card__glow" aria-hidden="true"></span>
             <span class="pillar-card__pulse" aria-hidden="true"></span>
             <header>
-              <h3>Threat Detection &amp; Response</h3>
+              <h3>SOC, Threat Detection &amp; Response</h3>
               <p class="pillar-subhead">
                 Automation and playbooks that keep blue teams decisive.
               </p>
             </header>
             <p>
-              Playbooks, SIEM tuning, and automation that help blue teams react
-              fast and contain incidents with confidence.
+              Playbook, SOP, SIEM tuning, and automation that help blue teams
+              react fast and contain incidents with confidence.
             </p>
           </article>
           <article class="pillar-card pillar-card--educate">
             <span class="pillar-card__glow" aria-hidden="true"></span>
             <span class="pillar-card__pulse" aria-hidden="true"></span>
             <header>
-              <h3>Security Education</h3>
-              <p class="pillar-subhead">
-                Making complex exploits approachable for every stakeholder.
-              </p>
+              <h3>Red Team</h3>
             </header>
-            <p>
-              Workshops, capture-the-flag mentoring, and public writeups that
-              make complex vulnerabilities accessible to engineers and
-              executives alike.
-            </p>
+            <p>Not yet :)))</p>
           </article>
         </div>
       </section>
@@ -138,19 +129,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           </li>
           <li>
             <strong>Experience</strong> - Snapshots of consulting, in-house security
-            roles, and community leadership.
+            roles
+          </li>
+          <li>
+            <strong>Blog</strong> - My funny life stories
           </li>
         </ul>
       </section>
 
       <section class="next" data-animate="rotate-in">
-        <h2>Need help with your security posture?</h2>
+        <h2>Need to connect with me ?</h2>
         <p>
-          I am open to collaboration on penetration tests, purple team
-          engagements, and security program uplift. Reach out if you have an
-          interesting challenge.
+          I am open to collaboration on security research, CTF challenges, or
+          just gossip
         </p>
-        <a class="ghost" href="mailto:security@example.com"
+        <a class="ghost" href="mailto:nguyenbanhatquang1807@gmail.com"
           >Start a conversation</a
         >
       </section>
@@ -159,40 +152,40 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     <ScrollToTop />
     <script>
       // Mouse tracking effect for hero section
-      document.addEventListener('DOMContentLoaded', () => {
-        const hero = document.querySelector('.hero');
+      document.addEventListener("DOMContentLoaded", () => {
+        const hero = document.querySelector(".hero");
         if (hero) {
-          hero.addEventListener('mousemove', (e) => {
+          hero.addEventListener("mousemove", (e) => {
             const rect = hero.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
-            hero.style.setProperty('--mouse-x', `${x}%`);
-            hero.style.setProperty('--mouse-y', `${y}%`);
+            hero.style.setProperty("--mouse-x", `${x}%`);
+            hero.style.setProperty("--mouse-y", `${y}%`);
           });
         }
 
         // Visual toggle button for mobile
-        const toggleBtn = document.querySelector('.visual-toggle');
-        const techGrid = document.querySelector('.tech-grid');
-        const beams = document.querySelector('.sharp-beams');
-        const scanLine = document.querySelector('.scan-line');
+        const toggleBtn = document.querySelector(".visual-toggle");
+        const techGrid = document.querySelector(".tech-grid");
+        const beams = document.querySelector(".sharp-beams");
+        const scanLine = document.querySelector(".scan-line");
 
         if (toggleBtn && techGrid) {
           let isActive = true;
 
-          toggleBtn.addEventListener('click', () => {
+          toggleBtn.addEventListener("click", () => {
             isActive = !isActive;
 
             if (isActive) {
-              techGrid.style.display = 'flex';
-              if (beams) beams.style.display = 'block';
-              if (scanLine) scanLine.style.display = 'block';
-              toggleBtn.style.transform = 'rotate(0deg)';
+              techGrid.style.display = "flex";
+              if (beams) beams.style.display = "block";
+              if (scanLine) scanLine.style.display = "block";
+              toggleBtn.style.transform = "rotate(0deg)";
             } else {
-              techGrid.style.display = 'none';
-              if (beams) beams.style.display = 'none';
-              if (scanLine) scanLine.style.display = 'none';
-              toggleBtn.style.transform = 'rotate(45deg)';
+              techGrid.style.display = "none";
+              if (beams) beams.style.display = "none";
+              if (scanLine) scanLine.style.display = "none";
+              toggleBtn.style.transform = "rotate(45deg)";
             }
           });
         }
@@ -218,12 +211,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     gap: clamp(2rem, 4vw, 3rem);
     grid-template-columns: minmax(320px, 0.58fr) minmax(260px, 0.42fr);
     align-items: center;
-    background:
-      linear-gradient(135deg,
+    background: linear-gradient(
+        135deg,
         rgba(0, 20, 40, 0.95),
         rgba(10, 25, 45, 0.92)
       ),
-      linear-gradient(45deg,
+      linear-gradient(
+        45deg,
         rgba(0, 217, 255, 0.08) 0%,
         transparent 40%,
         rgba(0, 255, 65, 0.08) 100%
@@ -252,8 +246,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     content: "";
     position: absolute;
     inset: 0;
-    background:
-      repeating-linear-gradient(
+    background: repeating-linear-gradient(
         0deg,
         rgba(0, 217, 255, 0.03) 0px,
         transparent 2px,
@@ -288,7 +281,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     animation: scanTop 3s linear infinite;
   }
   @keyframes heroEdgePulse {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow:
         0 0 0 1px rgba(0, 217, 255, 0.3) inset,
         0 0 0 2px rgba(0, 0, 0, 0.8),
@@ -341,7 +335,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       inset 0 0 10px rgba(0, 217, 255, 0.1);
     animation: fadeInUp 0.6s ease-out both;
     position: relative;
-    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    clip-path: polygon(
+      0 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% 100%,
+      8px 100%,
+      0 calc(100% - 8px)
+    );
     font-family: var(--font-mono);
   }
   .eyebrow::before {
@@ -406,7 +407,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    clip-path: polygon(
+      0 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
   }
   .cta {
     background: linear-gradient(135deg, #00d9ff, #00ff41);
@@ -421,11 +429,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.4),
-      transparent
-    );
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent);
     transform: translateX(-100%) skewX(-25deg);
     transition: transform 0.5s ease;
   }
@@ -498,7 +502,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     height: 44px;
     background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(0, 217, 255, 0.6);
-    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    clip-path: polygon(
+      0 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% 100%,
+      8px 100%,
+      0 calc(100% - 8px)
+    );
     color: #00d9ff;
     cursor: pointer;
     display: none;
@@ -609,7 +620,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   }
 
   @keyframes hexFloat {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0) rotate(0deg);
       opacity: 0.4;
     }
@@ -627,7 +639,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
   .circuit-line {
     position: absolute;
-    background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.6), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 217, 255, 0.6),
+      transparent
+    );
     animation: circuitPulse 3s ease-in-out infinite;
   }
 
@@ -653,7 +670,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     top: 20%;
     right: 30%;
     animation-delay: 1.5s;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.6), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 255, 65, 0.6),
+      transparent
+    );
   }
 
   .line-4 {
@@ -662,11 +684,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     bottom: 30%;
     right: 25%;
     animation-delay: 2.25s;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.6), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 255, 65, 0.6),
+      transparent
+    );
   }
 
   @keyframes circuitPulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.3;
     }
     50% {
@@ -680,7 +708,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     inset: 0;
   }
 
-  .triangle, .square {
+  .triangle,
+  .square {
     position: absolute;
     animation: shapeFloat 5s ease-in-out infinite;
   }
@@ -734,7 +763,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   }
 
   @keyframes shapeFloat {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0) rotate(0deg);
       opacity: 0.4;
     }
@@ -756,7 +786,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     position: absolute;
     width: 2px;
     height: 200px;
-    background: linear-gradient(180deg, transparent, rgba(0, 217, 255, 0.8), transparent);
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(0, 217, 255, 0.8),
+      transparent
+    );
     box-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
     animation: beamSweep 4s linear infinite;
   }
@@ -769,7 +804,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   .beam-2 {
     left: 50%;
     animation-delay: 1.3s;
-    background: linear-gradient(180deg, transparent, rgba(0, 255, 65, 0.8), transparent);
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(0, 255, 65, 0.8),
+      transparent
+    );
     box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
   }
 
@@ -796,8 +836,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   .grid-overlay {
     position: absolute;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+    background-image: linear-gradient(
+        rgba(0, 217, 255, 0.1) 1px,
+        transparent 1px
+      ),
       linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
     background-size: 40px 40px;
     mask: radial-gradient(
@@ -810,7 +852,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   }
 
   @keyframes gridPulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.4;
     }
     50% {
@@ -823,7 +866,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     position: absolute;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.8), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 217, 255, 0.8),
+      transparent
+    );
     box-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
     animation: scanSweep 5s linear infinite;
     top: 0;
@@ -1012,7 +1060,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     width: 4px;
     height: 0;
     background: var(--accent);
-    transition: height 0.3s ease, top 0.3s ease;
+    transition:
+      height 0.3s ease,
+      top 0.3s ease;
     border-radius: 0 4px 4px 0;
   }
   .highlights li:hover {
@@ -1140,7 +1190,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       flex-direction: column;
       width: 100%;
     }
-    .cta, .ghost {
+    .cta,
+    .ghost {
       width: 100%;
       padding: 0.85rem 1.75rem;
     }
@@ -1183,7 +1234,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
   /* Touch improvements for mobile */
   @media (hover: none) and (pointer: coarse) {
-    .cta, .ghost, .pillar-card {
+    .cta,
+    .ghost,
+    .pillar-card {
       -webkit-tap-highlight-color: rgba(var(--accent), 0.2);
     }
     .cta:active {

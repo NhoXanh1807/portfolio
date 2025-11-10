@@ -5,7 +5,10 @@ import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
-const modules = import.meta.glob<MarkdownInstance<any>>("../../content/writeups/*.md", { eager: true });
+const modules = import.meta.glob<MarkdownInstance<any>>(
+  "../../content/writeups/*.md",
+  { eager: true }
+);
 const writeups = Object.entries(modules)
   .map(([path, mod]) => {
     const slug = path.split("/").pop()?.replace(/\.md$/, "");
@@ -15,7 +18,9 @@ const writeups = Object.entries(modules)
 
     const { frontmatter } = mod;
     const pubDate = new Date(frontmatter.pubDate);
-    const updatedDate = frontmatter.updatedDate ? new Date(frontmatter.updatedDate) : undefined;
+    const updatedDate = frontmatter.updatedDate
+      ? new Date(frontmatter.updatedDate)
+      : undefined;
 
     return {
       slug,
@@ -36,374 +41,422 @@ const pageTitle = "Writeups | " + SITE_TITLE;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-                <main>
-                        <header class="page-header" data-animate>
-                                <div class="page-heading">
-                                        <span class="eyebrow">Investigation Library</span>
-                                        <h1>Writeups</h1>
-                                </div>
-                                <p>
-                                        Every investigation note is written in Markdown and lives inside <code>src/content/writeups</code>.
-                                        
-                                </p>
-                        </header>
+  <head>
+    <BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <header class="page-header" data-animate>
+        <div class="page-heading">
+          <h1>Writeups</h1>
+        </div>
+        <p>
+          Every investigation note is written in Markdown and lives inside this.
+        </p>
+      </header>
 
-                        <section class="writeups-grid" data-animate="stagger">
-                                {writeups.map((entry) => (
-                                        <article class="card">
-                                                <span class="card-orbit" aria-hidden="true"></span>
-                                                <span class="card-aurora" aria-hidden="true"></span>
-                                                <a class="card-link" href={`/writeups/${entry.slug}/`}>
-                                                        <div class="card-sheen" aria-hidden="true"></div>
-                                                        {entry.heroImage && (
-                                                                <img class="hero" src={entry.heroImage} alt={entry.title} loading="lazy" />
-                                                        )}
-                                                        <div class="meta">
-                                                                <div class="meta-top">
-                                                                        <p class="posted">{entry.pubDate.toLocaleDateString()}</p>
-                                                                        {entry.updatedDate && (
-                                                                                <p class="updated">Updated {entry.updatedDate.toLocaleDateString()}</p>
-                                                                        )}
-                                                                </div>
-                                                                <div class="meta-heading">
-                                                                        <h2>{entry.title}</h2>
-                                                                        <p class="summary">{entry.summary}</p>
-                                                                </div>
-                                                                <div class="meta-footer">
-                                                                        {entry.tools.length > 0 && (
-                                                                                <ul class="tools" aria-label="Tooling">
-                                                                                        {entry.tools.map((tool) => (
-                                                                                                <li>{tool}</li>
-                                                                                        ))}
-                                                                                </ul>
-                                                                        )}
-                                                                        {entry.tags.length > 0 && (
-                                                                                <ul class="tags" aria-label="Tags">
-                                                                                        {entry.tags.map((tag) => (
-                                                                                                <li>{tag}</li>
-                                                                                        ))}
-                                                                                </ul>
-                                                                        )}
-                                                                </div>
-                                                        </div>
-                                                </a>
-                                        </article>
-                                ))}
-                        </section>
-                </main>
-		<Footer />
-	</body>
+      <section class="writeups-grid" data-animate="stagger">
+        {
+          writeups.map((entry) => (
+            <article class="card">
+              <span class="card-orbit" aria-hidden="true" />
+              <span class="card-aurora" aria-hidden="true" />
+              <a class="card-link" href={`/writeups/${entry.slug}/`}>
+                <div class="card-sheen" aria-hidden="true" />
+                {entry.heroImage && (
+                  <img
+                    class="hero"
+                    src={entry.heroImage}
+                    alt={entry.title}
+                    loading="lazy"
+                  />
+                )}
+                <div class="meta">
+                  <div class="meta-top">
+                    <p class="posted">{entry.pubDate.toLocaleDateString()}</p>
+                    {entry.updatedDate && (
+                      <p class="updated">
+                        Updated {entry.updatedDate.toLocaleDateString()}
+                      </p>
+                    )}
+                  </div>
+                  <div class="meta-heading">
+                    <h2>{entry.title}</h2>
+                    <p class="summary">{entry.summary}</p>
+                  </div>
+                  <div class="meta-footer">
+                    {entry.tools.length > 0 && (
+                      <ul class="tools" aria-label="Tooling">
+                        {entry.tools.map((tool) => (
+                          <li>{tool}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {entry.tags.length > 0 && (
+                      <ul class="tags" aria-label="Tags">
+                        {entry.tags.map((tag) => (
+                          <li>{tag}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))
+        }
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
-        main {
-                max-width: min(1220px, 100%);
-                margin: 0 auto;
-                padding: 4rem 1.5rem 5.5rem;
-        }
-        .page-header {
-                margin-bottom: 3.5rem;
-                display: grid;
-                gap: 1.25rem;
-                background: rgba(255, 255, 255, 0.85);
-                border-radius: 1.5rem;
-                padding: 2.25rem clamp(1.5rem, 4vw, 2.5rem);
-                box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
-                position: relative;
-                overflow: hidden;
-                isolation: isolate;
-        }
-        .page-header::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(120deg, rgba(14, 165, 233, 0.16), rgba(16, 185, 129, 0.18));
-                opacity: 0.7;
-                z-index: -2;
-                animation: headerRibbonDrift 22s ease-in-out infinite;
-        }
-        .page-header::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: rgba(255, 255, 255, 0.75);
-                z-index: -1;
-        }
-        .page-header p {
-                max-width: 70ch;
-                margin: 0;
-        }
-        .page-heading {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                gap: 1rem;
-        }
-        .page-heading h1 {
-                font-size: clamp(2.4rem, 4vw, 3rem);
-                margin: 0;
-        }
-        .eyebrow {
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                font-size: 0.9rem;
-                background: rgba(var(--accent), 0.2);
-                color: rgb(var(--black));
-                padding: 0.4rem 0.8rem;
-                border-radius: 999px;
-                font-weight: 700;
-        }
-        html[data-theme="dark"] .page-header {
-                background: rgba(var(--surface-rgb), 0.92);
-                box-shadow: 0 40px 80px rgba(2, 6, 23, 0.55);
-        }
-        html[data-theme="dark"] .page-header::before {
-                opacity: 0.85;
-                background: linear-gradient(120deg, rgba(56, 189, 248, 0.18), rgba(129, 140, 248, 0.22));
-        }
-        html[data-theme="dark"] .page-header::after {
-                background: rgba(var(--surface-rgb), 0.75);
-        }
-        html[data-theme="dark"] .page-header p {
-                color: rgba(226, 232, 240, 0.88);
-        }
-        html[data-theme="dark"] .eyebrow {
-                background: rgba(var(--card-accent, 56 189 248), 0.26);
-                color: rgb(226, 232, 240);
-        }
-        .writeups-grid {
-                display: grid;
-                gap: 2.75rem;
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        }
-        .card {
-                --card-accent: 14 165 233;
-                position: relative;
-                border-radius: 1.5rem;
-                overflow: hidden;
-                padding: 1px;
-                background: linear-gradient(135deg, rgba(var(--card-accent), 0.25), rgba(16, 185, 129, 0.2));
-                box-shadow: 0 34px 64px rgba(15, 23, 42, 0.16);
-                transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .card:nth-child(3n + 1) {
-                --card-accent: 56 189 248;
-        }
-        .card:nth-child(3n + 2) {
-                --card-accent: 244 114 182;
-        }
-        .card:nth-child(3n + 3) {
-                --card-accent: 129 140 248;
-        }
-        .card-link {
-                display: grid;
-                grid-template-rows: auto 1fr;
-                text-decoration: none;
-                color: inherit;
-                height: 100%;
-                background: rgba(255, 255, 255, 0.92);
-                border-radius: calc(1.5rem - 1px);
-                overflow: hidden;
-                position: relative;
-                isolation: isolate;
-        }
-        .card-orbit,
-        .card-aurora {
-                position: absolute;
-                inset: 0;
-                pointer-events: none;
-        }
-        .card-orbit {
-                border-radius: inherit;
-                background: radial-gradient(circle at top right, rgba(var(--card-accent), 0.4), transparent 65%),
-                        radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.4), transparent 60%);
-                filter: blur(0px);
-                mix-blend-mode: screen;
-                opacity: 0.9;
-                animation: cardOrbit 24s ease-in-out infinite;
-        }
-        .card-aurora {
-                border-radius: inherit;
-                background: conic-gradient(from 120deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.5));
-                transform: translate3d(-35%, -25%, 0) rotate(8deg);
-                opacity: 0;
-                transition: opacity 0.45s ease, transform 0.45s ease;
-        }
-        .card:hover,
-        .card:focus-within {
-                transform: translateY(-12px) scale(1.01);
-                box-shadow: 0 48px 92px rgba(15, 23, 42, 0.24);
-        }
-        .card:hover .card-aurora,
-        .card:focus-within .card-aurora {
-                opacity: 0.9;
-                transform: translate3d(0, 0, 0) rotate(0deg);
-        }
-        .hero {
-                width: 100%;
-                height: clamp(180px, 28vw, 230px);
-                object-fit: cover;
-                border-bottom: 1px solid rgba(var(--card-accent), 0.2);
-        }
-        .meta {
-                padding: clamp(1.85rem, 4vw, 2.15rem) clamp(1.6rem, 4vw, 2rem) clamp(1.85rem, 4vw, 2.15rem);
-                color: rgb(var(--gray-dark));
-                display: grid;
-                gap: 1.35rem;
-        }
-        .posted {
-                margin: 0;
-                font-size: 0.9rem;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                color: rgba(var(--gray), 0.8);
-        }
-        .updated {
-                margin: 0;
-                font-size: 0.9rem;
-                color: rgba(var(--accent), 0.9);
-                font-weight: 600;
-        }
-        .meta-top {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                gap: 0.75rem;
-                align-items: baseline;
-        }
-        .meta-heading {
-                display: grid;
-                gap: 0.65rem;
-        }
-        .meta-heading h2 {
-                margin: 0;
-                font-size: clamp(1.35rem, 2.2vw, 1.55rem);
-                line-height: 1.3;
-        }
-        .summary {
-                margin: 0;
-                color: rgba(var(--gray-dark), 0.88);
-                line-height: 1.65;
-                display: -webkit-box;
-                -webkit-line-clamp: 4;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 65ch;
-        }
-        .meta-footer {
-                display: grid;
-                gap: 0.85rem;
-        }
-        .tools,
-        .tags {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.5rem;
-        }
-        .tools li,
-        .tags li {
-                font-size: 0.85rem;
-                padding: 0.35rem 0.75rem;
-                border-radius: 999px;
-                background: rgba(var(--accent), 0.12);
-                color: var(--accent);
-                font-weight: 600;
-                display: inline-flex;
-                align-items: center;
-                transition: transform 0.3s ease, background 0.3s ease;
-        }
-        .tags li {
-                background: rgba(var(--gray-light), 0.45);
-                color: rgb(var(--gray-dark));
-        }
-        .tools li:hover,
-        .tags li:hover {
-                transform: translateY(-2px);
-                background: rgba(var(--card-accent), 0.22);
-        }
-        .card-sheen {
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(120deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 80%);
-                transform: translateX(-100%);
-                transition: transform 0.8s ease;
-                z-index: 1;
-        }
-        .card:hover .card-sheen {
-                transform: translateX(120%);
-        }
-        .card-link:focus-visible {
-                outline: 3px solid rgba(var(--card-accent), 0.65);
-                outline-offset: 6px;
-        }
-        @keyframes cardOrbit {
-                0%,
-                100% {
-                        transform: translate3d(0, 0, 0) scale(1);
-                }
-                40% {
-                        transform: translate3d(10px, -12px, 0) scale(1.04);
-                }
-                70% {
-                        transform: translate3d(-14px, 10px, 0) scale(1.02);
-                }
-        }
-        html[data-theme="dark"] .card {
-                background: linear-gradient(135deg, rgba(var(--card-accent), 0.4), rgba(14, 116, 144, 0.4));
-                box-shadow: 0 50px 110px rgba(2, 6, 23, 0.7);
-        }
-        html[data-theme="dark"] .card-link {
-                background: rgba(15, 23, 42, 0.92);
-                color: rgba(226, 232, 240, 0.92);
-        }
-        html[data-theme="dark"] .meta {
-                color: rgba(226, 232, 240, 0.9);
-        }
-        html[data-theme="dark"] .summary {
-                color: rgba(226, 232, 240, 0.82);
-        }
-        html[data-theme="dark"] .tools li {
-                background: rgba(var(--card-accent), 0.24);
-                color: rgb(226, 232, 240);
-        }
-        html[data-theme="dark"] .tags li {
-                background: rgba(148, 163, 184, 0.28);
-                color: rgb(226, 232, 240);
-        }
-        html[data-theme="dark"] .card-link:focus-visible {
-                outline-color: rgba(var(--card-accent), 0.85);
-        }
-        @media (max-width: 960px) {
-                .writeups-grid {
-                        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                }
-        }
-        @keyframes headerRibbonDrift {
-                0% {
-                        transform: translate3d(-10px, -6px, 0) scale(1);
-                }
-                50% {
-                        transform: translate3d(12px, 8px, 0) scale(1.02);
-                }
-                100% {
-                        transform: translate3d(-10px, -6px, 0) scale(1);
-                }
-        }
-        @media (max-width: 720px) {
-                main {
-                        padding: 3rem 1rem 4.5rem;
-                }
-                .page-header {
-                        padding: 2rem 1.5rem;
-                }
-        }
+  main {
+    max-width: min(1220px, 100%);
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5.5rem;
+  }
+  .page-header {
+    margin-bottom: 3.5rem;
+    display: grid;
+    gap: 1.25rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 1.5rem;
+    padding: 2.25rem clamp(1.5rem, 4vw, 2.5rem);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(14, 165, 233, 0.16),
+      rgba(16, 185, 129, 0.18)
+    );
+    opacity: 0.7;
+    z-index: -2;
+    animation: headerRibbonDrift 22s ease-in-out infinite;
+  }
+  .page-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: -1;
+  }
+  .page-header p {
+    max-width: 70ch;
+    margin: 0;
+  }
+  .page-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+  .page-heading h1 {
+    font-size: clamp(2.4rem, 4vw, 3rem);
+    margin: 0;
+  }
+  .eyebrow {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background: rgba(var(--accent), 0.2);
+    color: rgb(var(--black));
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+  html[data-theme="dark"] .page-header {
+    background: rgba(var(--surface-rgb), 0.92);
+    box-shadow: 0 40px 80px rgba(2, 6, 23, 0.55);
+  }
+  html[data-theme="dark"] .page-header::before {
+    opacity: 0.85;
+    background: linear-gradient(
+      120deg,
+      rgba(56, 189, 248, 0.18),
+      rgba(129, 140, 248, 0.22)
+    );
+  }
+  html[data-theme="dark"] .page-header::after {
+    background: rgba(var(--surface-rgb), 0.75);
+  }
+  html[data-theme="dark"] .page-header p {
+    color: rgba(226, 232, 240, 0.88);
+  }
+  html[data-theme="dark"] .eyebrow {
+    background: rgba(var(--card-accent, 56 189 248), 0.26);
+    color: rgb(226, 232, 240);
+  }
+  .writeups-grid {
+    display: grid;
+    gap: 2.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  .card {
+    --card-accent: 14 165 233;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--card-accent), 0.25),
+      rgba(16, 185, 129, 0.2)
+    );
+    box-shadow: 0 34px 64px rgba(15, 23, 42, 0.16);
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+  .card:nth-child(3n + 1) {
+    --card-accent: 56 189 248;
+  }
+  .card:nth-child(3n + 2) {
+    --card-accent: 244 114 182;
+  }
+  .card:nth-child(3n + 3) {
+    --card-accent: 129 140 248;
+  }
+  .card-link {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: calc(1.5rem - 1px);
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+  }
+  .card-orbit,
+  .card-aurora {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .card-orbit {
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at top right,
+        rgba(var(--card-accent), 0.4),
+        transparent 65%
+      ),
+      radial-gradient(
+        circle at bottom left,
+        rgba(16, 185, 129, 0.4),
+        transparent 60%
+      );
+    filter: blur(0px);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    animation: cardOrbit 24s ease-in-out infinite;
+  }
+  .card-aurora {
+    border-radius: inherit;
+    background: conic-gradient(
+      from 120deg,
+      rgba(255, 255, 255, 0.45),
+      rgba(255, 255, 255, 0) 55%,
+      rgba(255, 255, 255, 0.5)
+    );
+    transform: translate3d(-35%, -25%, 0) rotate(8deg);
+    opacity: 0;
+    transition:
+      opacity 0.45s ease,
+      transform 0.45s ease;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 48px 92px rgba(15, 23, 42, 0.24);
+  }
+  .card:hover .card-aurora,
+  .card:focus-within .card-aurora {
+    opacity: 0.9;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  .hero {
+    width: 100%;
+    height: clamp(180px, 28vw, 230px);
+    object-fit: cover;
+    border-bottom: 1px solid rgba(var(--card-accent), 0.2);
+  }
+  .meta {
+    padding: clamp(1.85rem, 4vw, 2.15rem) clamp(1.6rem, 4vw, 2rem)
+      clamp(1.85rem, 4vw, 2.15rem);
+    color: rgb(var(--gray-dark));
+    display: grid;
+    gap: 1.35rem;
+  }
+  .posted {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(var(--gray), 0.8);
+  }
+  .updated {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(var(--accent), 0.9);
+    font-weight: 600;
+  }
+  .meta-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+  .meta-heading {
+    display: grid;
+    gap: 0.65rem;
+  }
+  .meta-heading h2 {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.2vw, 1.55rem);
+    line-height: 1.3;
+  }
+  .summary {
+    margin: 0;
+    color: rgba(var(--gray-dark), 0.88);
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 65ch;
+  }
+  .meta-footer {
+    display: grid;
+    gap: 0.85rem;
+  }
+  .tools,
+  .tags {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tools li,
+  .tags li {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(var(--accent), 0.12);
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+  }
+  .tags li {
+    background: rgba(var(--gray-light), 0.45);
+    color: rgb(var(--gray-dark));
+  }
+  .tools li:hover,
+  .tags li:hover {
+    transform: translateY(-2px);
+    background: rgba(var(--card-accent), 0.22);
+  }
+  .card-sheen {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0) 80%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+    z-index: 1;
+  }
+  .card:hover .card-sheen {
+    transform: translateX(120%);
+  }
+  .card-link:focus-visible {
+    outline: 3px solid rgba(var(--card-accent), 0.65);
+    outline-offset: 6px;
+  }
+  @keyframes cardOrbit {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    40% {
+      transform: translate3d(10px, -12px, 0) scale(1.04);
+    }
+    70% {
+      transform: translate3d(-14px, 10px, 0) scale(1.02);
+    }
+  }
+  html[data-theme="dark"] .card {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--card-accent), 0.4),
+      rgba(14, 116, 144, 0.4)
+    );
+    box-shadow: 0 50px 110px rgba(2, 6, 23, 0.7);
+  }
+  html[data-theme="dark"] .card-link {
+    background: rgba(15, 23, 42, 0.92);
+    color: rgba(226, 232, 240, 0.92);
+  }
+  html[data-theme="dark"] .meta {
+    color: rgba(226, 232, 240, 0.9);
+  }
+  html[data-theme="dark"] .summary {
+    color: rgba(226, 232, 240, 0.82);
+  }
+  html[data-theme="dark"] .tools li {
+    background: rgba(var(--card-accent), 0.24);
+    color: rgb(226, 232, 240);
+  }
+  html[data-theme="dark"] .tags li {
+    background: rgba(148, 163, 184, 0.28);
+    color: rgb(226, 232, 240);
+  }
+  html[data-theme="dark"] .card-link:focus-visible {
+    outline-color: rgba(var(--card-accent), 0.85);
+  }
+  @media (max-width: 960px) {
+    .writeups-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+  @keyframes headerRibbonDrift {
+    0% {
+      transform: translate3d(-10px, -6px, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(12px, 8px, 0) scale(1.02);
+    }
+    100% {
+      transform: translate3d(-10px, -6px, 0) scale(1);
+    }
+  }
+  @media (max-width: 720px) {
+    main {
+      padding: 3rem 1rem 4.5rem;
+    }
+    .page-header {
+      padding: 2rem 1.5rem;
+    }
+  }
 </style>

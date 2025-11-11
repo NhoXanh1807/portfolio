@@ -6,16 +6,7 @@ import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
 const writeups = (await getCollection("writeups"))
-  .map((entry) => ({
-    slug: entry.slug,
-    title: entry.data.title,
-    summary: entry.data.summary,
-    heroImage: entry.data.heroImage,
-    tags: entry.data.tags ?? [],
-    tools: entry.data.tools ?? [],
-    pubDate: entry.data.pubDate,
-    updatedDate: entry.data.updatedDate,
-  }))
+
   .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 
 const pageTitle = "Writeups | " + SITE_TITLE;

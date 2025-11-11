@@ -65,10 +65,11 @@ html {
 }
 
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+	width: 100%;
+	max-width: min(720px, calc(100% - 2em));
 	margin: auto;
 	padding: 3em 1em;
+	box-sizing: border-box;
 }
 
 h1,
@@ -223,9 +224,11 @@ hr {
 @media (max-width: 720px) {
 	body {
 		font-size: 18px;
+		overflow-x: hidden;
 	}
 	main {
-		padding: 1.5em 1em 2em;
+		padding: 1.5em 0.75em 2em;
+		max-width: 100%;
 	}
 	h1 {
 		font-size: 2.2em;
@@ -239,9 +242,11 @@ hr {
 @media (max-width: 480px) {
 	body {
 		font-size: 16px;
+		overflow-x: hidden;
 	}
 	main {
-		padding: 1.2em 0.8em 1.5em;
+		padding: 1.2em 0.5em 1.5em;
+		max-width: 100%;
 	}
 }
 

@@ -1,45 +1,36 @@
 ---
-import type { MarkdownInstance } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
 import WriteupPost from "../../layouts/WriteupPost.astro";
 
 export async function getStaticPaths() {
-  const modules = import.meta.glob<MarkdownInstance<any>>("../../content/writeups/*.md");
+  const entries = await getCollection("writeups");
 
-  const entries = await Promise.all(
-    Object.entries(modules).map(async ([path, loader]) => {
-      const mod = await loader();
-      const slug = path.split("/").pop()?.replace(/\.md$/, "") ?? "";
-      return {
-        params: { slug },
-        props: {
-          frontmatter: mod.frontmatter,
-          Content: mod.Content,
-        },
-      };
-    })
-  );
+  return entries.map((entry) => {
+    const slug = entry.slug ?? entry.id.split("/").pop() ?? entry.id;
 
-  return entries;
+    return {
+      params: { slug },
+      props: { entry },
+    };
+  });
 }
 
-interface Props {
-  frontmatter: Record<string, any>;
-  Content: any;
-}
-
-const { frontmatter, Content } = Astro.props as Props;
-const pubDate = new Date(frontmatter.pubDate);
-const updatedDate = frontmatter.updatedDate ? new Date(frontmatter.updatedDate) : undefined;
+const { entry } = Astro.props as { entry: CollectionEntry<"writeups"> };
+const { Content } = await render(entry);
+const { data } = entry;
+const pubDate = data.pubDate;
+const updatedDate = data.updatedDate;
 ---
 
 <WriteupPost
-	title={frontmatter.title}
-	summary={frontmatter.summary}
-	pubDate={pubDate}
-	updatedDate={updatedDate}
-	heroImage={frontmatter.heroImage}
-	tags={frontmatter.tags ?? []}
-	tools={frontmatter.tools ?? []}
+        title={data.title}
+        summary={data.summary}
+        pubDate={pubDate}
+        updatedDate={updatedDate}
+        heroImage={data.heroImage}
+        tags={data.tags ?? []}
+        tools={data.tools ?? []}
 >
-	<Content />
+        <Content />
 </WriteupPost>

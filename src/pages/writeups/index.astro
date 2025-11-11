@@ -1,40 +1,22 @@
 ---
-import type { MarkdownInstance } from "astro";
+import { getCollection } from "astro:content";
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
-const modules = import.meta.glob<MarkdownInstance<any>>(
-  "../../content/writeups/*.md",
-  { eager: true }
-);
-const writeups = Object.entries(modules)
-  .map(([path, mod]) => {
-    const slug = path.split("/").pop()?.replace(/\.md$/, "");
-    if (!slug) {
-      return undefined;
-    }
-
-    const { frontmatter } = mod;
-    const pubDate = new Date(frontmatter.pubDate);
-    const updatedDate = frontmatter.updatedDate
-      ? new Date(frontmatter.updatedDate)
-      : undefined;
-
-    return {
-      slug,
-      title: frontmatter.title,
-      summary: frontmatter.summary,
-      heroImage: frontmatter.heroImage,
-      tags: frontmatter.tags ?? [],
-      tools: frontmatter.tools ?? [],
-      pubDate,
-      updatedDate,
-    };
-  })
-  .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
-  .sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
+const writeups = (await getCollection("writeups"))
+  .map((entry) => ({
+    slug: entry.slug,
+    title: entry.data.title,
+    summary: entry.data.summary,
+    heroImage: entry.data.heroImage,
+    tags: entry.data.tags ?? [],
+    tools: entry.data.tools ?? [],
+    pubDate: entry.data.pubDate,
+    updatedDate: entry.data.updatedDate,
+  }))
+  .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 
 const pageTitle = "Writeups | " + SITE_TITLE;
 ---

@@ -63,13 +63,15 @@ const pageTitle = "Projects | " + SITE_TITLE;
 
 <style>
   .page {
-    width: min(100%, 1180px);
-    max-width: 1180px;
+    width: 100%;
+    max-width: min(1180px, 100%);
     margin: 0 auto;
-    padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 4vw, 2.5rem) clamp(5rem, 6vw, 6rem);
+    padding: clamp(3rem, 5vw, 5rem) clamp(1rem, 4vw, 2.5rem) clamp(5rem, 6vw, 6rem);
     display: flex;
     flex-direction: column;
     gap: clamp(3.5rem, 6vw, 5rem);
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .hero {
@@ -342,11 +344,11 @@ const pageTitle = "Projects | " + SITE_TITLE;
 
   @media (max-width: 680px) {
     .page {
-      padding: 2.5rem 1rem 3.5rem;
+      padding: 2.5rem 0.75rem 3.5rem;
     }
     .hero {
-      padding: 2.5rem 1.5rem;
-      border-radius: 1.5rem;
+      padding: 2rem 1.25rem;
+      border-radius: 1.25rem;
       gap: 1rem;
     }
     .hero h1 {
@@ -356,8 +358,8 @@ const pageTitle = "Projects | " + SITE_TITLE;
       font-size: 0.95rem;
     }
     .projects-section {
-      padding: 2.25rem 1.25rem;
-      border-radius: 1.5rem;
+      padding: 2rem 1rem;
+      border-radius: 1.25rem;
     }
     .projects {
       gap: 2rem;
@@ -369,11 +371,11 @@ const pageTitle = "Projects | " + SITE_TITLE;
 
   @media (max-width: 520px) {
     .page {
-      padding: 2rem 0.75rem 3rem;
+      padding: 2rem 0.5rem 3rem;
     }
     .hero {
-      padding: 2rem 1.25rem;
-      border-radius: 1.25rem;
+      padding: 1.75rem 1rem;
+      border-radius: 1rem;
     }
     .hero__eyebrow {
       letter-spacing: 0.2em;
@@ -386,15 +388,15 @@ const pageTitle = "Projects | " + SITE_TITLE;
       font-size: 0.9rem;
     }
     .projects-section {
-      padding: 2rem 1rem;
-      border-radius: 1.25rem;
+      padding: 1.75rem 0.75rem;
+      border-radius: 1rem;
     }
     .projects {
       gap: 1.5rem;
     }
     .project-card {
-      padding: 1.5rem 1.25rem;
-      border-radius: 1.25rem;
+      padding: 1.25rem 1rem;
+      border-radius: 1rem;
     }
     .project-card h2 {
       font-size: clamp(1.35rem, 3vw, 1.55rem);
@@ -419,22 +421,25 @@ const pageTitle = "Projects | " + SITE_TITLE;
 
   @media (max-width: 360px) {
     .page {
-      padding: 1.75rem 0.5rem 2.5rem;
+      padding: 1.75rem 0.4rem 2.5rem;
     }
     .hero {
-      padding: 1.75rem 1rem;
+      padding: 1.5rem 0.75rem;
+      border-radius: 0.75rem;
     }
     .hero h1 {
       font-size: clamp(1.6rem, 8vw, 1.8rem);
     }
     .projects-section {
-      padding: 1.75rem 0.85rem;
+      padding: 1.5rem 0.6rem;
+      border-radius: 0.75rem;
     }
     .projects {
       gap: 1.25rem;
     }
     .project-card {
-      padding: 1.25rem 1rem;
+      padding: 1rem 0.75rem;
+      border-radius: 0.75rem;
     }
   }
 </style>

@@ -210,12 +210,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   }
 
   main {
-    width: min(1180px, 92vw);
+    width: 100%;
+    max-width: min(1180px, 100%);
     margin: 0 auto;
-    padding: clamp(3rem, 6vw, 4.75rem) clamp(1.25rem, 4vw, 3rem) 5rem;
+    padding: clamp(3rem, 6vw, 4.75rem) clamp(1rem, 4vw, 3rem) 5rem;
     color: var(--black);
     display: grid;
     gap: clamp(2.75rem, 5vw, 3.5rem);
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
   section {
     margin: 0;
@@ -1192,12 +1195,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
   @media (max-width: 720px) {
     main {
-      width: min(92vw, 100%);
-      padding: 3rem 1rem 3.5rem;
+      width: 100%;
+      max-width: 100%;
+      padding: 3rem 0.75rem 3.5rem;
     }
     .hero {
-      padding: clamp(2rem, 6vw, 2.5rem);
+      padding: clamp(1.5rem, 5vw, 2rem);
       gap: 2rem;
+      margin: 0 -0.5rem;
+      border-radius: 1rem;
     }
     .hero-actions {
       justify-content: center;
@@ -1222,13 +1228,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   @media (max-width: 480px) {
     main {
       width: 100%;
-      padding: 2rem 0.75rem 2.5rem;
+      max-width: 100%;
+      padding: 2rem 0.5rem 2.5rem;
       gap: 2rem;
     }
     .hero {
-      padding: 1.5rem 1.25rem;
-      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      border-radius: 0.75rem;
       gap: 1.5rem;
+      margin: 0;
     }
     .hero-visual {
       min-height: 200px;
@@ -1254,7 +1262,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       font-size: 0.85rem;
     }
     .pillar-card {
-      padding: 1.25rem;
+      padding: 1.25rem 1rem;
     }
     .pillar-card h3 {
       font-size: clamp(1.2rem, 4vw, 1.4rem);
@@ -1263,7 +1271,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       font-size: 0.85rem;
     }
     .next {
-      padding: 1.5rem 1.25rem;
+      padding: 1.5rem 1rem;
     }
     .highlights li {
       padding: 0.85rem 1rem;
@@ -1273,11 +1281,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   /* Extra small mobile */
   @media (max-width: 360px) {
     main {
-      padding: 1.5rem 0.5rem 2rem;
+      padding: 1.5rem 0.4rem 2rem;
       gap: 1.5rem;
     }
     .hero {
-      padding: 1.25rem 1rem;
+      padding: 1rem 0.75rem;
+      border-radius: 0.5rem;
     }
     h1 {
       font-size: clamp(1.4rem, 7vw, 1.8rem);

@@ -34,14 +34,14 @@ Combining these clues — if you bought _Hint 1_, which says _“a place where C
 From there, look for me!  
 Go to the Vietnam ranking and you’ll see **BKISC ranked #1** — yeah 🎉  
 _(Insert BKISC image here — I’ll add the relative link later)_
-
+![BKISC on CTF](../../../public/images/writeups/bkisc-yourweeklytasks/CTFTimeBKISC.png)
 Scroll down and find **Te0f** — click the **profile**, and you’ll see I joined a few CTF teams.
 
-_(Screenshot of CTFtime profile)_
+![Te0f on CTF](../../../public/images/writeups/bkisc-yourweeklytasks/CTFTimeTe0f.png)
 
 You’ll notice a **suspiciously encoded name**, probably **encoded with ROT13**.
 
-_(Screenshot of CyberChef)_
+![Decode Part 1 on CTF](../../../public/images/writeups/bkisc-yourweeklytasks/DecodePart1.png)
 
 Decoding it gives **Part 1 of the challenge**:
 
@@ -50,14 +50,13 @@ BKISC{Rick_R0ll_s0_fun_but_W3_kn0w_y0u_Never_G1v3s_Y0u_Up
 ```
 
 Click on that team, and you’ll find **another link**.  
-_(Screenshot of the team profile)_  
+![Rick Roll Link on CTF Time](../../../public/images/writeups/bkisc-yourweeklytasks/CTFTimeTeam.png)
+
 → _+1 more Rick Roll 😎_
 
 This part of flag only introduce the CTF platform, may be you can use in the near future if you passionate about Cyber Security
 
-## Part 2 — Harder Clues & File Carving
-
-### Drive link in X bio
+## Part 2
 
 We still have one more clue we haven't used: the **Drive link** in the X bio. After downloading the image and running `exiftool`, you get the following output:
 
@@ -95,8 +94,6 @@ Megapixels                      : 0.051
 
 Notice the `Copyright` field — it contains a **Base64 string**. Decoding that Base64 yields a YouTube watch link (and, predictably, +1 Rick Roll).
 
-### Binwalk & steghide
-
 If you run `binwalk` on the image, it extracts a file named `flag_part_1.txt`. (The author admits there was a configuration error when converting PNG → JPG so the plaintext got scrambled; normally it should've pointed to a Rick Roll link — but ignore that anomaly.)
 
 Trying `steghide` is the next step; it **requires a password**. The password is in the `Author` field from the `exiftool` output: `WangTe0f_from_BKISC`. That’s OSINT, so guesswork is allowed here.
@@ -111,11 +108,9 @@ te0f@Quang:~$ cat secret_steg.txt
 https://github.com/NhoXanh1807
 ```
 
-The extracted `secret_steg.txt` contains a GitHub link — and you can find my GitHub by searching `Te0f` on GitHub.
+The extracted `secret_steg.txt` contains a GitHub link but you alsso can find my GitHub by searching `Te0f` on GitHub.
 
-_(Attach screenshot of Te0f GitHub profile here)_
-
-### GitHub repo: MyInfo
+![Te0f Github](../../../public/images/writeups/bkisc-yourweeklytasks/Te0fGithub.png)
 
 On my GitHub there's a repo named `MyInfo` (I didn't lock other repos — if you got this far, I suppose you had to search a bit). There's a small app in the repo (I asked Claude to code it), but nothing important inside. However, you can check commit history or other branches because Claude worked on it with me.
 
@@ -127,15 +122,72 @@ https://www.youtube.com/watch?v=pZ5JYTdVZmk
 
 If you open the YouTube video and spot a **QR code** in the thumbnail, that's a hint for Part 2. Extract the thumbnail (e.g., with y2mate or any thumbnail downloader) and read the QR code.
 
-_(Insert screenshot of extracted QR here)_
+![y2mate ricrool qr](../../../public/images/writeups/bkisc-yourweeklytasks/y2mate.png)
 → yes, another Rick Roll moment hidden in the media.
-
-### Wayback Machine & Part 2
 
 Don't give up — after watching the video you should notice the content references going back in time. Use the **Wayback Machine** to retrieve the website (archived snapshot). The page was archived on **2025-10-23** and the video description in that snapshot contains **Part 2 of the flag** under the description field.
 
+![archive ytb](../../../public/images/writeups/bkisc-yourweeklytasks/archive.png)
 Part 2 is:
 
 ```
 thi5_1s_Th3_Ult1mat3_H4rd_Ch4ll3ng3
 ```
+
+## Part 3
+
+I'm tired from typing, so I'll speed through Part 3.
+
+You probably found the Facebook clone of my profile (easy like cyou find your crush's Facebook ): **Tèo Tập Đánh Vần** (https://www.facebook.com/teo.tap.anh.van).
+
+![Te0f facebook](../../../public/images/writeups/bkisc-yourweeklytasks/page.png)
+
+As I previously hinted, you don't need to look far — the clue is right on the public profile. The bio contains the line:
+
+```
+"Y0u 4r3 0n th3 right w4y
+2 steps more :)"
+```
+
+It looks like a simple hint confirming you're on the right track, but there's a trick: copy a portion like `"Y0u 4r3 0n th3 right w4y"`, then view the page source (Ctrl+U) and Ctrl+F to search for that string. You'll find the **post ID**: `122214536540111689`.
+![Find post](../../../public/images/writeups/bkisc-yourweeklytasks/find.png)
+Open the post URL:
+
+```
+https://www.facebook.com/teo.tap.anh.van/posts/122214536540111689
+```
+
+![Te0f facebook post](../../../public/images/writeups/bkisc-yourweeklytasks/post.png)
+
+In the post comments there's a **Pastebin** link click it:
+
+```
+https://pastebin.com/zzWCNrJX
+```
+
+![Pastebin](../../../public/images/writeups/bkisc-yourweeklytasks/pastebin.png)
+
+The Pastebin contains mostly blank lines and the word `hehe`. Don't be afraid, copy the content and paste it into the Whitespace interpreter at:
+
+```
+http://dcode.fr/whitespace-language
+```
+
+![whitespace](../../../public/images/writeups/bkisc-yourweeklytasks/whitespace.png)
+Decode it and you get **Part 3** of the flag.
+
+Part 3 is:
+
+```
+s0_th4nk_f0r_s0lv3_909090123_Th3_End_1s_JuSt
+```
+
+### Final flag & submission
+
+Combine the parts and submit the final flag:
+
+```
+BKISC{Rick_R0ll_s0_fun_but_W3_kn0w_y0u_Never_G1v3s_Y0u_Up_thi5_1s_Th3_Ult1mat3_H4rd_Ch4ll3ng3_s0_th4nk_f0r_s0lv3_909090123_Th3_End_1s_JuSt_The_B3g1nn1ng!!!}
+```
+
+**Congratulations — challenge complete!**

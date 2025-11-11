@@ -452,16 +452,10 @@ import mainLogo from "../assets/main-logo.png";
 
   /* Mobile - Larger phones and small tablets */
   @media (max-width: 900px) {
-    .mobile-menu-toggle {
-      display: flex;
-      order: 2;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-
     nav {
       position: relative;
       flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
     h2 {
@@ -469,35 +463,57 @@ import mainLogo from "../assets/main-logo.png";
       flex-shrink: 0;
     }
 
+    .nav-actions {
+      order: 2;
+      display: flex;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+
+    .social-links {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+      order: 3;
+      flex-shrink: 0;
+    }
+
     .internal-links {
       position: absolute;
-      top: calc(100% + 0.5rem);
-      left: -1.25rem;
-      right: -1.25rem;
+      top: 100%;
+      left: 0;
+      right: 0;
       background: rgba(var(--surface-rgb), 0.98);
       backdrop-filter: blur(16px);
       border-radius: 0 0 16px 16px;
       box-shadow: 0 12px 32px rgba(var(--black), 0.2);
+      display: flex;
       flex-direction: column;
       gap: 0;
-      padding: 0.75rem 0;
-      margin-top: 0;
+      padding: 0;
+      margin-top: 0.5rem;
       max-height: 0;
       overflow: hidden;
       opacity: 0;
       transform: translateY(-10px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition:
+        max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease,
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
       z-index: 100;
-      order: 3;
-      width: auto;
+      order: 4;
+      width: 100%;
     }
 
     .internal-links.open {
-      max-height: 600px;
+      max-height: 500px;
       opacity: 1;
       transform: translateY(0);
       pointer-events: all;
+      padding: 0.75rem 0;
     }
 
     .internal-links a {
@@ -506,6 +522,7 @@ import mainLogo from "../assets/main-logo.png";
       border-bottom: 1px solid rgba(var(--gray-light), 0.15);
       text-align: left;
       width: 100%;
+      display: block;
     }
 
     .internal-links a:last-child {
@@ -515,28 +532,6 @@ import mainLogo from "../assets/main-logo.png";
     .internal-links a:hover {
       background: rgba(var(--accent), 0.15);
       transform: translateY(0);
-    }
-
-    .nav-actions {
-      order: 4;
-      width: 100%;
-      justify-content: space-between;
-      padding-top: 0.75rem;
-      margin-top: 0.75rem;
-      border-top: 1px solid rgba(var(--gray-light), 0.2);
-    }
-
-    .social-links {
-      gap: 0.5rem;
-    }
-
-    .social-links a {
-      padding: 0.4rem;
-    }
-
-    .social-links a svg {
-      width: 24px;
-      height: 24px;
     }
   }
 

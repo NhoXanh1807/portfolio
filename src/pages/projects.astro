@@ -225,11 +225,17 @@ const pageTitle = "Projects | " + SITE_TITLE;
   .project-card h2 {
     margin-bottom: 0.4rem;
     font-size: clamp(1.55rem, 2vw, 1.9rem);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .project-card p {
     margin: 0;
     color: rgba(var(--gray-dark), 0.9);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .project-card__body {
@@ -399,10 +405,12 @@ const pageTitle = "Projects | " + SITE_TITLE;
       border-radius: 1rem;
     }
     .project-card h2 {
-      font-size: clamp(1.35rem, 3vw, 1.55rem);
+      font-size: clamp(1.2rem, 4vw, 1.4rem);
+      line-height: 1.3;
     }
     .project-card p {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
     .project-card__highlights {
       font-size: 0.9rem;
@@ -440,6 +448,14 @@ const pageTitle = "Projects | " + SITE_TITLE;
     .project-card {
       padding: 1rem 0.75rem;
       border-radius: 0.75rem;
+    }
+    .project-card h2 {
+      font-size: clamp(1.1rem, 5vw, 1.3rem);
+      line-height: 1.3;
+    }
+    .project-card p {
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
   }
 </style>

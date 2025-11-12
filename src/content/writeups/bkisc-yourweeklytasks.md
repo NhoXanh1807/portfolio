@@ -1,6 +1,6 @@
 ---
 title: "BKISC Recruit 2025 - Your Weekly Tasks Writeup (OSINT)"
-summary: "Deep-dive OSINT walkthrough for the BKISC Recruit 2025 weekly tasks challenge, from social media breadcrumbs to stego puzzles."
+summary: "Medium OSINT Challenge"
 pubDate: "Nov 11 2024"
 heroImage: "/images/writeups/bkisc-yourweeklytasks/bkiscrecruit.png"
 tags: ["OSINT", "CTF", "Steganography", "Social Engineering"]

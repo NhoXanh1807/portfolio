@@ -6,8 +6,7 @@ import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
 const writeups = (await getCollection("writeups"))
-
-  .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const pageTitle = "Writeups | " + SITE_TITLE;
 ---
@@ -35,40 +34,40 @@ const pageTitle = "Writeups | " + SITE_TITLE;
             <article class="card">
               <span class="card-orbit" aria-hidden="true" />
               <span class="card-aurora" aria-hidden="true" />
-              <a class="card-link" href={`/writeups/${entry.slug}/`}>
+              <a class="card-link" href={`/writeups/${entry.slug ?? entry.id}/`}>
                 <div class="card-sheen" aria-hidden="true" />
-                {entry.heroImage && (
+                {entry.data.heroImage && (
                   <img
                     class="hero"
-                    src={entry.heroImage}
-                    alt={entry.title}
+                    src={entry.data.heroImage}
+                    alt={entry.data.title}
                     loading="lazy"
                   />
                 )}
                 <div class="meta">
                   <div class="meta-top">
-                    <p class="posted">{entry.pubDate.toLocaleDateString()}</p>
-                    {entry.updatedDate && (
+                    <p class="posted">{entry.data.pubDate.toLocaleDateString()}</p>
+                    {entry.data.updatedDate && (
                       <p class="updated">
-                        Updated {entry.updatedDate.toLocaleDateString()}
+                        Updated {entry.data.updatedDate.toLocaleDateString()}
                       </p>
                     )}
                   </div>
                   <div class="meta-heading">
-                    <h2>{entry.title}</h2>
-                    <p class="summary">{entry.summary}</p>
+                    <h2>{entry.data.title}</h2>
+                    <p class="summary">{entry.data.summary}</p>
                   </div>
                   <div class="meta-footer">
-                    {entry.tools.length > 0 && (
+                    {entry.data.tools.length > 0 && (
                       <ul class="tools" aria-label="Tooling">
-                        {entry.tools.map((tool) => (
+                        {entry.data.tools.map((tool) => (
                           <li>{tool}</li>
                         ))}
                       </ul>
                     )}
-                    {entry.tags.length > 0 && (
+                    {entry.data.tags.length > 0 && (
                       <ul class="tags" aria-label="Tags">
-                        {entry.tags.map((tag) => (
+                        {entry.data.tags.map((tag) => (
                           <li>{tag}</li>
                         ))}
                       </ul>
